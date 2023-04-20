@@ -1,0 +1,28 @@
+.footer {
+    width: 100%;
+    background-color: var(--grey-1000);
+}
+
+.footer-content {
+    display: flex;
+    height: var(--navbar-height);
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.1rem; 
+}
+
+.footer-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    gap: var(--m-1);
+}
+
+.footer-list > li {
+    text-align: center;
+}
+
+.footer-list > li:hover:nth-child(odd) {
+    opacity: 0.7;
+}

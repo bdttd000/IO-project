@@ -1,0 +1,33 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    width: 100%;
+    background-color: var(--grey-1000);
+}
+
+.nav {
+    display: flex;
+    height: var(--navbar-height);
+    align-items: center;
+    justify-content: space-between;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.navbar-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    gap: var(--m-1);
+    
+}
+
+.navbar-list > li {
+    text-align: center;
+}
+
+.navbar-list > li:hover {
+    opacity: 0.7;
+}
