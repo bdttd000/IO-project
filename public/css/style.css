@@ -1,34 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-:root {
-    --primary: #BC0000;
-    --primary-dark: #B50000;
-
-    --black: #000000;
-    --white: #FFFFFF;
-
-    --white-text: #E7E7E7;
-    --grey-text: #707070;
-    --black-text: var(--black);
-
-    --success: #15C712;
-    --error: #CF1313;
-
-    --grey-100: #E8E8E8;
-    --grey-200: #D6D6D6;
-    --grey-300: #BEBEBE;
-    --grey-400: #A4A4A4;
-    --grey-500: #888888;
-    --grey-600: #797979;
-    --grey-700: #5A5A5A;
-    --grey-800: #3C3C3C;
-    --grey-900: #262626;
-    --grey-1000: #151515;
-
-    --main-bg: var(--grey-900);
-    --navbar-footer-bg: var(--grey-1000);
-    --card-bg: var(--grey-100);
-}
+@import "./variables/variables.css";
+@import "./components/navbar.css";
+@import "./components/footer.css";
 
 * {
     box-sizing: border-box;
@@ -36,6 +10,75 @@
 }
 
 body {
-    margin: 0;
+    margin: var(--navbar-height) 0 0 0;
     padding: 0;
+    background-color: var(--main-bg)
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: 2rem; 
+}
+
+h2 {
+    font-size: 1.5rem; 
+}
+
+h3 {
+    font-size: 1.17rem; 
+}
+
+h4 {
+    font-size: 1rem; 
+}
+
+h5 {
+    font-size: .83rem; 
+}
+
+h6 {
+    font-size: .67rem; 
+}
+
+.container {
+    max-width: var(--content-max-width);
+    margin: auto;
+}
+
+@media screen and (max-width: 1023px) {
+    html {
+        font-size: 90%;
+    }
+
+    .container {
+        margin-left: var(--m-1);
+        margin-right: var(--m-1);
+    }
+}
+
+@media screen and (max-width: 723px) {
+    html {
+        font-size: 80%;
+    }
+
+    .container {
+        margin-left: 1rem;
+        margin-right: 2rem;
+    }
 }
