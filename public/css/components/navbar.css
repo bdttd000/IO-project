@@ -31,3 +31,8 @@
 .navbar-list > li:hover {
     opacity: 0.7;
 }
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
