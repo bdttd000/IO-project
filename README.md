@@ -17,7 +17,7 @@
 
 ### Diagram UML
 
-...
+[kliknij tutaj](https://lucid.app/lucidchart/5166033b-2728-423c-89d0-b23454992740/edit?invitationId=inv_829f188d-a34f-436a-b150-e72d93a27d05&page=0_0#)
 
 ### Figma
 
