@@ -2,13 +2,16 @@
 
 require_once 'AppController.php';
 
-class DefaultController extends AppController {
+class DefaultController extends AppController
+{
 
-    public function index() {
+    public function index()
+    {
         $this->render('mainPage');
     }
 
-    public function login() {
+    public function login()
+    {
         $this->render('login');
     }
 
