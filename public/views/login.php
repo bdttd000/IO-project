@@ -1,9 +1,8 @@
 <?php
-
 $SessionController = new SessionController;
-if ($SessionController::isLogged() === "true")
+if ($SessionController::isLogged() === "true") {
     $SessionController->redirectToHome();
-
+}
 ?>
 
 <html lang="en">

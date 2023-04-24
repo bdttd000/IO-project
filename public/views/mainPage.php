@@ -1,8 +1,6 @@
 <?php
-
 $SessionController = new SessionController;
 $userIsAuthenticated = $SessionController::isLogged() === "true";
-
 ?>
 
 <html lang="en">
@@ -16,7 +14,6 @@ $userIsAuthenticated = $SessionController::isLogged() === "true";
 
 <body>
     <?php
-
     if ($userIsAuthenticated) {
         echo '<div>Hejka</div>';
     } else {

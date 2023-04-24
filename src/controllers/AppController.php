@@ -20,4 +20,10 @@ class AppController
 
         print $output;
     }
+
+    public function redirectToHome()
+    {
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}");
+    }
 }

@@ -17,12 +17,6 @@ class SessionController extends AppController
         unset($_SESSION['userid']);
         $this->redirectToHome();
     }
-
-    public function redirectToHome()
-    {
-        $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}");
-    }
 }
 
 ?>
