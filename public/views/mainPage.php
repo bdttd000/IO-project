@@ -16,6 +16,7 @@ $userIsAuthenticated = $SessionController::isLogged() === "true";
 <body>
     <?php include("public/views/components/navbar.php"); ?>
     <div>asd</div>
+    <div>asd</div>
     <?php include("public/views/components/footer.php"); ?>
 </body>
 
