@@ -3,6 +3,7 @@
 @import "./variables/variables.css";
 
 @import "./components/navbar.css";
+@import "./components/sidebar.css";
 @import "./components/footer.css";
 
 * {
@@ -28,11 +29,6 @@ button {
     cursor: pointer;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 h1 {
     font-size: 2rem; 
 }
@@ -55,6 +51,10 @@ h5 {
 
 h6 {
     font-size: .67rem; 
+}
+
+.drop-shadow {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .container {
@@ -94,4 +94,15 @@ h6 {
         margin-left: 1rem;
         margin-right: 1rem;
     }
+}
+
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+.body-container {
+    height: calc(100vh - 2*4rem);
+    background-color: var(--main-bg);
 }

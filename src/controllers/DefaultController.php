@@ -7,7 +7,7 @@ class DefaultController extends AppController
 
     public function index()
     {
-        $this->render('mainPage');
+        $this->render('home');
     }
 
     public function login()
