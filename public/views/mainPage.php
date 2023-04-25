@@ -9,23 +9,14 @@ $userIsAuthenticated = $SessionController::isLogged() === "true";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/style.css">
     <title>Document</title>
 </head>
 
 <body>
-    <?php
-    if ($userIsAuthenticated) {
-        echo '<div>Hejka</div>';
-    } else {
-        echo '<div>Nie wiem kim jesteś</div>';
-    }
-
-    if ($userIsAuthenticated) {
-        echo '<a href="logout">Wyloguj</a>';
-    } else {
-        echo '<a href="login">Logowanie</a>';
-    }
-    ?>
+    <?php include("public/views/components/navbar.php"); ?>
+    <div>asd</div>
+    <?php include("public/views/components/footer.php"); ?>
 </body>
 
 </html>
