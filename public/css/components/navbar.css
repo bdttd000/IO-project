@@ -28,7 +28,11 @@
     text-align: center;
 }
 
-.navbar-list > li:hover {
+.header a:active, .header a:visited {
+    color: var(--primary);
+}
+
+.navbar-list > li:hover, .header a:hover {
     opacity: 0.7;
 }
 
@@ -36,3 +40,4 @@
     display: flex;
     align-items: center;
 }
+
