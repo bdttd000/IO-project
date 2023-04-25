@@ -62,7 +62,13 @@ h6 {
     margin: auto;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1365px) {
+    html {
+        font-size: 95%;
+    }
+}
+
+@media screen and (max-width: 1250px) {
     html {
         font-size: 90%;
     }
@@ -73,13 +79,19 @@ h6 {
     }
 }
 
-@media screen and (max-width: 723px) {
+@media screen and (max-width: 1023px) {
+    html {
+        font-size: 90%;
+    }
+}
+
+@media screen and (max-width: 767px) {
     html {
         font-size: 80%;
     }
 
     .container {
         margin-left: 1rem;
-        margin-right: 2rem;
+        margin-right: 1rem;
     }
 }
