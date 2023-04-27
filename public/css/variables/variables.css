@@ -23,19 +23,21 @@
     --grey-900: #262626;
     --grey-1000: #151515;
 
-    --main-bg: var(--grey-900);
+    --main-bg: var(--grey-800);
     --navbar-footer-bg: var(--grey-1000);
     --card-bg: var(--grey-100);
 
-    --default-transition: 0.2s ease;
+    --default-transition: 0.3s ease;
 
-    --large-devies: 1920px;
-    --medium-devices: 1024px;
-    --small-devies: 724px;
+    --lg-devies: 1920px;
+    --md-devices: 1366px;
+    --sm-devices: 1024px;
+    --xs-devices: 768px;
 
     --navbar-height: 4rem;
-    --content-max-width: 1024px;
+    --content-max-width: 1200px;
 
+    --z-sidebar-content: 5;
     --z-fixed: 10;
     --z-modal: 100;
 

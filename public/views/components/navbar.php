@@ -1,27 +1,31 @@
 <header class="header" id="header">
-    <nav class="nav container">
-        <!-- <div>burger</div> -->
-        <div class="navbar-brand">
-            <h2 class="navbar-brand-name">MEM</h2>
-            <img class="navbar-brand-logo" src="public/img/logo.svg" alt="Logo memonks">
-            <h2 class="navbar-brand-name">ONKS</h2>
-        </div>
-        <div class="navabr-side">
+    <div class="drop-shadow">
+        <nav class="nav container">
+            <div class="burger-button" id="navbar-burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="navbar-brand">
+                <h2 class="navbar-brand-name">MEM</h2>
+                <img class="navbar-brand-logo" src="public/img/logo.svg" alt="Logo memonks">
+                <h2 class="navbar-brand-name">ONKS</h2>
+            </div>
             <ul class="navbar-list">
-                <li>Glówna</li>
-                <li>Poczekalnia</li>
-                <li>Losowy mem</li>
-                <li>Dodaj mema</li>
-                <li>Ulubione</li>
-                <li>Profil</li>
+                <li><a href="">Glówna</a></li>
+                <li><a href="waiting-room">Poczekalnia</a></li>
+                <li><a href="random-meme">Losowy mem</a></li>
+                <li><a href="add-meme">Dodaj mema</a></li>
+                <li><a href="favorites">Ulubione</a></li>
+                <li><a href="profile">Profil</a></li>
             </ul>
-        </div>
-        <?php
-        if ($userIsAuthenticated) {
-            echo '<a href="logout">Wyloguj</a>';
-        } else {
-            echo '<a href="login">Zaloguj</a>';
-        }
-        ?>
-    </nav>
+            <?php
+            if ($userIsAuthenticated) {
+                echo '<a href="logout">Wyloguj</a>';
+            } else {
+                echo '<a href="login">Zaloguj</a>';
+            }
+            ?>
+        </nav>
+    </div>
 </header>

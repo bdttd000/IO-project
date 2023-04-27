@@ -10,12 +10,16 @@ $userIsAuthenticated = $SessionController::isLogged() === "true";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/style.css">
-    <title>Document</title>
+    <link rel="icon" href="public/img/logo.svg" type="image/svg+xml">
+    <script src="public/js/sidebar-interactions.js" defer></script>
+    <script src="public/js/navbar-interactions.js" defer></script>
+    <title>Główna</title>
 </head>
 
 <body>
     <?php include("public/views/components/navbar.php"); ?>
-    <div>asd</div>
+    <?php include("public/views/components/sidebar.php"); ?>
+    <div class="body-container"></div>
     <?php include("public/views/components/footer.php"); ?>
 </body>
 

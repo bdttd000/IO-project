@@ -13,7 +13,11 @@
     align-items: center;
     justify-content: space-between;
     color: var(--primary);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+}
+
+.nav a:link, .nav a:visited {
+    color: inherit;
 }
 
 .navbar-list {
@@ -41,3 +45,35 @@
     align-items: center;
 }
 
+.burger-button {
+    display: none;
+}
+
+.burger-button > div {
+    width: 30px;
+    height: 3px;
+    background-color: var(--primary);
+    margin: 7px 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar-list {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar-brand {
+        display: none;
+    }
+
+    .burger-button {
+        display: block;
+        cursor: pointer;
+    }
+
+    .burger-button > div {
+        width: 25px;
+        margin: 5px 0;
+    }
+}
