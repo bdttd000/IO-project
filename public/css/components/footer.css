@@ -1,6 +1,8 @@
 .footer {
+    z-index: var(--z-fixed);
     width: 100%;
     background-color: var(--grey-1000);
+    position: relative;
 }
 
 .footer-content {
