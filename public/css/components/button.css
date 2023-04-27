@@ -1,0 +1,15 @@
+.button {
+    width: fit-content;
+    padding: var(--m-0-5) 3rem;
+    color: var(--white-text);
+    background-color: var(--grey-800);
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: var(--default-transition);
+}
+
+.button:hover {
+    color: var(--primary)
+}

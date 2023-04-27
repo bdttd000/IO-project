@@ -1,0 +1,33 @@
+.card {
+    width: 50%;
+}
+
+.card-title {
+    width: 100%;
+    padding: var(--m-0-5);
+    border-radius: 10px 10px 0 0;
+    background-color: var(--black);
+    color: var(--white-text);
+    text-align: center;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--m-2);
+    padding: var(--m-2);
+    border-radius: 0 0 10px 10px;
+    background-color: var(--grey-100);
+}
+
+@media screen and (max-width: 1024px) {
+    .card {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 90%;
+    }
+}

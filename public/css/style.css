@@ -6,6 +6,13 @@
 @import "./components/sidebar.css";
 @import "./components/footer.css";
 
+@import "./components/card.css";
+@import "./components/form.css";
+@import "./components/input.css";
+@import "./components/button.css";
+
+@import "./login.css";
+
 * {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
@@ -14,7 +21,29 @@
 body {
     margin: var(--navbar-height) 0 0 0;
     padding: 0;
-    background-color: var(--main-bg)
+    background-color: var(--main-bg);
+}
+
+main {
+    padding: var(--navbar-height) 0;
+    min-height: calc(100vh - 2*var(--navbar-height));
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
 }
 
 ul {
