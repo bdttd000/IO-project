@@ -56,6 +56,13 @@
     margin: 7px 0;
 }
 
+.navbar-list-d-none-sx {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    gap: var(--m-1);
+}
+
 @media screen and (max-width: 1024px) {
     .navbar-list {
         display: none;
@@ -63,13 +70,13 @@
 }
 
 @media screen and (max-width: 600px) {
-    .navbar-brand {
-        display: none;
-    }
-
     .burger-button {
         display: block;
         cursor: pointer;
+    }
+
+    .navbar-list-d-none-sx {
+        display: none;
     }
 
     .burger-button > div {

@@ -12,18 +12,31 @@
                 <h2 class="navbar-brand-name">ONKS</h2>
             </div>
             <ul class="navbar-list">
-                <li><a href="">Glówna</a></li>
+                <li><a href="home">Glówna</a></li>
                 <li><a href="waiting-room">Poczekalnia</a></li>
                 <li><a href="random-meme">Losowy mem</a></li>
-                <li><a href="add-meme">Dodaj mema</a></li>
-                <li><a href="favorites">Ulubione</a></li>
-                <li><a href="profile">Profil</a></li>
+                <?php
+                if ($userIsAuthenticated) {
+                    echo '
+                    <li><a href="add-meme">Dodaj mema</a></li>
+                    <li><a href="favorites">Ulubione</a></li>
+                    <li><a href="profile">Profil</a></li>
+                    ';
+                }
+                ?>
             </ul>
             <?php
             if ($userIsAuthenticated) {
-                echo '<a href="logout">Wyloguj</a>';
+                echo '
+                <a class="navbar-list-d-none-sx" href="logout">Wyloguj</a>
+                ';
             } else {
-                echo '<a href="login">Zaloguj</a>';
+                echo '
+                <div class="navbar-list-d-none-sx">
+                <a href="login">Zaloguj</a>
+                <a href="register">Zarejestruj</a>
+                </div>
+                ';
             }
             ?>
         </nav>
