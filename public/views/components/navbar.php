@@ -12,12 +12,12 @@
                 <h2 class="navbar-brand-name">ONKS</h2>
             </div>
             <ul class="navbar-list">
-                <li>Glówna</li>
-                <li>Poczekalnia</li>
-                <li>Losowy mem</li>
-                <li>Dodaj mema</li>
-                <li>Ulubione</li>
-                <li>Profil</li>
+                <li><a href="">Glówna</a></li>
+                <li><a href="waiting-room">Poczekalnia</a></li>
+                <li><a href="random-meme">Losowy mem</a></li>
+                <li><a href="add-meme">Dodaj mema</a></li>
+                <li><a href="favorites">Ulubione</a></li>
+                <li><a href="profile">Profil</a></li>
             </ul>
             <?php
             if ($userIsAuthenticated) {

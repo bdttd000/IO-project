@@ -16,6 +16,10 @@
     font-size: 1.2rem;
 }
 
+.nav a:link, .nav a:visited {
+    color: inherit;
+}
+
 .navbar-list {
     display: flex;
     list-style-type: none;
