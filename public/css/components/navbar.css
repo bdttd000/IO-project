@@ -65,6 +65,7 @@
 
     .burger-button {
         display: block;
+        cursor: pointer;
     }
 
     .burger-button > div {

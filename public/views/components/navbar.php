@@ -1,7 +1,7 @@
 <header class="header" id="header">
     <div class="drop-shadow">
         <nav class="nav container">
-            <div class="burger-button">
+            <div class="burger-button" id="navbar-burger">
                 <div></div>
                 <div></div>
                 <div></div>
