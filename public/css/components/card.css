@@ -22,7 +22,13 @@
 
 @media screen and (max-width: 1024px) {
     .card {
-        width: 70%;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .card {
+        width: 60%;
     }
 }
 

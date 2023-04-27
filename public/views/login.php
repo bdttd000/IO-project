@@ -8,6 +8,7 @@ if ($userIsAuthenticated) {
 require_once "public/views/components/input.php";
 require_once "public/views/components/card.php";
 require_once "public/views/components/button.php";
+require_once "public/views/components/buttonRedirect.php";
 require_once "public/views/components/form.php";
 
 $inputEmail = [
@@ -41,8 +42,12 @@ if (isset($messages['error'])) {
         $formContent['content'];
 }
 
-$cardContent =
-    Form($formContent);
+$buttonRedirect = [
+    'link' => 'register',
+    'value' => 'rejestracja',
+];
+
+$cardContent = Form($formContent) . "<div class='text-center'>Nie masz konta?</div>" . ButtonRedirect($buttonRedirect);
 
 $cardArray = [
     'title' => 'Logowanie',
