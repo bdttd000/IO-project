@@ -10,6 +10,10 @@
     color: var(--white-text);
 }
 
+.sidebar a:visited {
+    color: var(--white-text);
+}
+
 .sidebar ul {
     padding-left: 0;
 }
@@ -68,6 +72,10 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+.sidebar-toggle-arrow {
+    transition: rotate var(--default-transition);
+}
+
 @media screen and (max-width: 1024px) {
     .sidebar {
         display: block;
@@ -80,6 +88,10 @@
 
     .sidebar:hover .sidebar-content {
         transform: translateX(0);   
+    }
+
+    .sidebar:hover .sidebar-toggle-arrow {
+        rotate: 180deg;
     }
 }
 

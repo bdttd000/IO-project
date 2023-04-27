@@ -14,21 +14,21 @@
             <li><img src="public/img/sidebar/logout.svg" alt="logout"></li>
         </ul>
         <ul class="sidebar-icon-list">
-            <li><img src="public/img/sidebar/arrow-right.svg" alt="arrow-right"></li>
+            <li><img class="sidebar-toggle-arrow" src="public/img/sidebar/arrow-right.svg" alt="arrow-right"></li>
         </ul>
     </div>
     <div class="sidebar-content">
         <ul class="sidebar-content-list">
-            <li>Główna</li>
-            <li>Poczekalnia</li>
-            <li>Losowy mem</li>
-            <li>Ulubione</li>
-            <li>Dodaj mema</li>
+            <li><a href="home">Główna</a></li>
+            <li><a href="waiting-room">Poczekalnia</a></li>
+            <li><a href="random-meme">Losowy mem</a></li>
+            <li><a href="favorites">Ulubione</a></li>
+            <li><a href="add-meme">Dodaj mema</a></li>
         </ul>
         <ul class="sidebar-content-list">
             <li>Tryb nocny</li>
-            <li>Profil</li>
-            <li>Wyloguj</li>
+            <li><a href="profile">Profil</a></li>
+            <li><a href="logout">Wyloguj</a></li>
         </ul>
         <ul class="sidebar-content-list">
             <li>Schowaj</li>
