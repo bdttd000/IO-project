@@ -8,6 +8,6 @@
     font-size: 1.1rem;
 }
 
-.input:focus {
+.input:hover, .input:focus {
     border-bottom: 2px solid var(--success);
 }
