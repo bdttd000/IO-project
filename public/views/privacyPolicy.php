@@ -19,7 +19,7 @@ $userIsAuthenticated = $SessionController::isLogged() === "true";
 <body>
     <?php include("public/views/components/navbar.php"); ?>
     <?php include("public/views/components/sidebar.php"); ?>
-    <div class="body-container">privacy-policy</div>
+    <div class="body-container">privacyPolicy</div>
     <?php include("public/views/components/footer.php"); ?>
 </body>
 
