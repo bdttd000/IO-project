@@ -9,7 +9,9 @@ Routing::get('', 'DefaultController');
 Routing::get('home', 'DefaultController');
 Routing::get('login', 'DefaultController');
 Routing::get('register', 'DefaultController');
-
+Routing::get('statute', 'DefaultController');
+Routing::get('contact', 'DefaultController');
+Routing::get('privacyPolicy', 'DefaultController');
 
 Routing::post('checkLogin', 'SecurityController');
 
