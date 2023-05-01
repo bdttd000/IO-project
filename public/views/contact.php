@@ -13,13 +13,13 @@ $userIsAuthenticated = $SessionController::isLogged() === "true";
     <link rel="icon" href="public/img/logo.svg" type="image/svg+xml">
     <script src="public/js/sidebar-interactions.js" defer></script>
     <script src="public/js/navbar-interactions.js" defer></script>
-    <title>Rejestracja</title>
+    <title>Kontakt</title>
 </head>
 
 <body>
     <?php include("public/views/components/navbar.php"); ?>
     <?php include("public/views/components/sidebar.php"); ?>
-    <div class="body-container">register</div>
+    <div class="body-container">contact</div>
     <?php include("public/views/components/footer.php"); ?>
 </body>
 
