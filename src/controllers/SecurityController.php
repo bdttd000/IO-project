@@ -1,0 +1,31 @@
+<?php
+
+require_once 'AppController.php';
+require_once __DIR__ . '/../models/User.php';
+
+class SecurityController extends AppController
+{
+    public function checkLogin()
+    {
+        $user = new User('adrianek@xd.pl', '12345', 'adrianek', 'suchy');
+
+        if (!$this->isPost()) {
+            return $this->render('login');
+        }
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        if ($user->getEmail() !== $email) {
+            return $this->render('login', ['messages' => ['error' => 'Nieprawidłowy email', 'email' => $email]]);
+        }
+
+        if ($user->getPassword() !== $password) {
+            return $this->render('login', ['messages' => ['error' => 'Nieprawidłowe hasło', 'email' => $email]]);
+        }
+
+        $_SESSION["userid"] = 1;
+
+        $this->redirectToHome();
+    }
+}
