@@ -1,6 +1,14 @@
 <?php
 $SessionController = new SessionController;
 $userIsAuthenticated = $SessionController::isLogged() === "true";
+
+require_once "public/views/components/card.php";
+require_once "public/views/contents/statuteContent.php";
+
+$cardArray = [
+    'title' => 'Regulamin',
+    'content' => $statuteContent
+];
 ?>
 
 <html lang="en">
@@ -19,7 +27,9 @@ $userIsAuthenticated = $SessionController::isLogged() === "true";
 <body>
     <?php include("public/views/components/navbar.php"); ?>
     <?php include("public/views/components/sidebar.php"); ?>
-    <div class="body-container">statute</div>
+    <main class="container flex flex-center flex-column">
+        <?php echo Card($cardArray) ?>
+    </main>
     <?php include("public/views/components/footer.php"); ?>
 </body>
 
