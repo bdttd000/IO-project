@@ -10,6 +10,7 @@
 @import "./components/form.css";
 @import "./components/input.css";
 @import "./components/button.css";
+@import "./components/toggleButton.css";
 
 @import "./login.css";
 

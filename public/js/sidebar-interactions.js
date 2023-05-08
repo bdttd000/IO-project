@@ -4,9 +4,6 @@ const sidebarArrowText = document.getElementById("sidebar-arrow-text");
 const rotateTable = ["180deg", "0deg"];
 const textTable = ["Zatrzymaj", "Schowaj"];
 
-sidebarArrow.addEventListener("click", toggleSidebar);
-sidebarArrowText.addEventListener("click", toggleSidebar);
-
 function toggleSidebar() {
     sidebarContent.classList.toggle("sidebar-content-show");
     toggleArrow()
@@ -16,3 +13,6 @@ function toggleArrow() {
     sidebarArrowText.innerHTML = sidebarArrowText.innerHTML === textTable[0] ? textTable[1] : textTable[0];
     sidebarArrow.style.rotate = sidebarArrow.style.rotate === rotateTable[0] ? rotateTable[1] : rotateTable[0];
 }
+
+sidebarArrow.addEventListener("click", toggleSidebar);
+sidebarArrowText.addEventListener("click", toggleSidebar);

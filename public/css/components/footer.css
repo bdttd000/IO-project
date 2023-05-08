@@ -23,6 +23,7 @@
 
 .footer-list > li {
     text-align: center;
+    cursor: pointer;
 }
 
 .footer-list > li:hover:nth-child(odd) {
@@ -31,4 +32,10 @@
 
 .footer a:link, .footer a:visited {
     color: inherit;
+}
+
+@media screen and (max-width: 1024px) {
+    .footer-lx-only {
+        display: none;
+    }
 }
