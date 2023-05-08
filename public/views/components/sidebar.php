@@ -15,7 +15,12 @@
             ?>
         </ul>
         <ul class="sidebar-icon-list">
-            <li>XD</li>
+            <li>
+                <label class="toggleButton">
+                    <input type="checkbox" id="toggleCheckbox">
+                    <span id="toggleButton" class="toggleButton-slider toggleButton-round"></span>
+                </label>
+            </li>
             <?php
             if ($userIsAuthenticated) {
                 echo '
@@ -54,7 +59,7 @@
             ?>
         </ul>
         <ul class="sidebar-content-list">
-            <li>Tryb nocny</li>
+            <li onclick="listenToggleText()">Zmień motyw</li>
             <?php
             if ($userIsAuthenticated) {
                 echo '
