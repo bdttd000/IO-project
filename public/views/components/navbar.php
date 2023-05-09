@@ -12,13 +12,13 @@
                 <h2 class="navbar-brand-name">ONKS</h2>
             </div>
             <ul class="navbar-list">
-                <li><a href="home">Glówna</a></li>
+                <li><a href="home">Główna</a></li>
                 <li><a href="waiting-room">Poczekalnia</a></li>
                 <li><a href="random-meme">Losowy mem</a></li>
                 <?php
                 if ($userIsAuthenticated) {
                     echo '
-                    <li><a href="add-meme">Dodaj mema</a></li>
+                    <li><a href="addMeme">Dodaj mema</a></li>
                     <li><a href="favorites">Ulubione</a></li>
                     <li><a href="profile">Profil</a></li>
                     ';

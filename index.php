@@ -13,8 +13,13 @@ Routing::get('statute', 'DefaultController');
 Routing::get('contact', 'DefaultController');
 Routing::get('privacyPolicy', 'DefaultController');
 
+Routing::get('addMeme', 'DefaultController');
+
 Routing::post('checkLogin', 'SecurityController');
 
 Routing::post('logout', 'SessionController');
+
+Routing::post('addMemeForm', 'MemeController');
+
 
 Routing::run($path);

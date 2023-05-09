@@ -35,4 +35,8 @@ class DefaultController extends AppController
         $this->render('privacyPolicy');
     }
 
+    public function addMeme()
+    {
+        $this->render('addMeme');
+    }
 }
