@@ -11,5 +11,5 @@
 }
 
 .textarea:hover, .textarea:focus {
-    border-bottom: 2px solid var(--success);
+    border: 2px solid var(--success);
 }
