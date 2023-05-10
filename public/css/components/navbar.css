@@ -4,7 +4,7 @@
     left: 0;
     z-index: var(--z-fixed);
     width: 100%;
-    background-color: var(--grey-1000);
+    background-color: var(--navbar-footer-bg);
 }
 
 .nav {
