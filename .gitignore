@@ -1,2 +1,4 @@
-public/uploads/
+.idea
 .vscode
+public/uploads/
+config.php
