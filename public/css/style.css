@@ -11,6 +11,8 @@
 @import "./components/input.css";
 @import "./components/button.css";
 @import "./components/toggleButton.css";
+@import "./components/meme.css";
+@import "./components/memeComment.css";
 
 @import "./login.css";
 

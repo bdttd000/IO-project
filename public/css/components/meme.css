@@ -1,0 +1,118 @@
+.meme {
+    width: 70%;
+}
+
+.meme-content {
+    background-color: var(--grey-100);
+    border-radius: 10px;
+    gap: var(--m-0-5);
+    padding: var(--m-0-5);
+    display: flex;
+    flex-direction: column;
+}
+
+.meme-title-and-likes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--m-0-5);
+}
+
+.meme-title {
+    padding: var(--m-0-5);
+    border-radius: 10px;
+    background-color: var(--grey-300);
+    color: var(--black-text);
+    text-align: center;
+}
+
+.meme-likes-and-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.meme-likes {
+    padding: var(--m-0-5);
+    padding: var(--m-0-5);
+    background-color: var(--grey-300);
+    color: var(--black-text);
+    text-align: center;
+}
+
+.minus-button {
+    width: 2rem;
+    padding: var(--m-0-5);
+    background-color: var(--primary);
+    border-radius: 10px 0 0 10px;
+}
+
+.plus-button {
+    width: 2rem;
+    padding: var(--m-0-5);
+    background-color: var(--success);
+    border-radius: 0 10px 10px 0;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.meme-user-date-favorite {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--m-0-5);
+}
+
+.user-avatar {
+    width: 5rem;
+    height: 5rem;
+    padding: var(--m-0-5);
+    border: 1px;
+    border-style: solid;
+}
+
+.user-name {
+    padding: var(--m-0-5);
+}
+
+.meme-photo-container {
+    display: flex;
+    justify-content: center;
+}
+
+.meme-photo {
+    width: 80%;
+    border-radius: 10px;
+    align-content: center;
+    align-items: center;
+}
+
+.meme-user-date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--m-0-5);
+}
+
+@media screen and (max-width: 1024px) {
+    .meme {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .meme {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .meme {
+        width: 90%;
+    }
+}
