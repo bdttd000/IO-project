@@ -1,0 +1,26 @@
+.meme-likes-and-buttons {
+    display: flex;
+}
+
+.meme-likes {
+    background-color: var(--grey-300);
+    color: var(--black-text);
+    flex: 1;
+    /* padding: var(--m-0-5); */
+}
+
+.minus-button {
+    width: 2rem;
+    border: none;
+    flex: 1; 
+    background-color: var(--primary);
+    border-radius: 10px 0 0 10px;
+}
+
+.plus-button {
+    width: 2rem;
+    border: none;
+    flex: 1;
+    background-color: var(--success);
+    border-radius: 0 10px 10px 0;
+}

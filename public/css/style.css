@@ -13,8 +13,11 @@
 @import "./components/toggleButton.css";
 @import "./components/meme.css";
 @import "./components/memeComment.css";
+@import "./components/memeLikes.css";
+@import "./components/recommendedMeme.css";
 
 @import "./login.css";
+@import "./home.css";
 
 * {
     box-sizing: border-box;

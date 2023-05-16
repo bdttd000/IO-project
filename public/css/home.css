@@ -1,0 +1,56 @@
+.left-aside {
+    width: 30%; 
+}
+
+.meme-section {
+    width: 100%;
+    gap: 2rem;
+}
+
+.recommended-memes-aside {
+    width: 70%;
+    margin: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .meme-section {
+        width: 90%;
+    }
+
+    .container {
+        gap: 10rem;
+    }
+
+    .left-aside {
+        margin-left: 5rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .meme-section {
+        width: 80%;
+    }
+
+    .recommended-memes-aside {
+        width: 60%;
+    }
+
+    .left-aside {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .meme-section {
+        width: 100%;
+    }
+
+    .left-aside {
+        width: 0%;
+        margin-left: 0;
+    }
+
+    .recommended-memes-aside {
+        width: 0%;
+    }
+}

@@ -13,23 +13,21 @@
 }
 
 .comment-content {
-    font-size: 70%;
     padding: var(--m-0-5);
 }
 
 .comment-user-avatar {
     width: 2rem;
     height: 2rem;
-    padding: var(--m-0-5);
     border: 1px;
     border-style: solid;
+    margin-left: var(--m-0-5);
 }
 
 .comment-user-name {
-    padding: var(--m-0-5);
-    font-size: 70%;
+    /* padding: var(--m-0-5); */
 }
 
 .comment-meme-date {
-    font-size: 70%;
+    /* padding: var(--m-0-5); */
 }

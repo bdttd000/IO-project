@@ -7,33 +7,28 @@ function Meme($content): string
 
     <div class="meme-content">
     <div class="meme-title-and-likes">';
-    $output .= '<div class="meme-title drop-shadow">';
+    $output .= '<div class="meme-title drop-shadow"><h3>';
     $output .= $content['title'];
+    $output .= '</h3></div>';
+    $output .= MemeLikes($content['likes']);
     $output .= '</div>';
-    $output .= '<div class="meme-likes-and-buttons">';
-    $output .= '<img src="public/img/meme/minus-solid.svg" class="minus-button">';
-    $output .= '<div class="meme-likes">';
-    $output .= $content['likes'];
-    $output .= '</div><img src="public/img/meme/plus-solid.svg" class="plus-button">';
-    $output .= '</div></div>';
 
     $output .= '<div class="meme-user-date-favorite">';
     $output .= '<div class="user-info">';
     $output .= '<img src="public/img/meme/plus-solid.svg" class="user-avatar">';
-    $output .= '<div class="user-name">';
+    $output .= '<div class="user-name"><h3>';
     $output .= $content['username'];
+    $output .= '</h3></div>';
     $output .= '</div>';
-    $output .= '</div>';
-    $output .= '<div class="meme-date">';
+    $output .= '<div class="meme-date"><h3>';
     $output .= $content['meme-date'];
-    $output .= '</div>';
+    $output .= '</h3></div>';
     $output .= '<img src="public/img/sidebar-favorites/plus-solid.svg" class="meme-favorite">';
     $output .= '</div>';
 
     $output .= '<div class="meme-photo-container">';
-    $output .= '<div class="meme-photo">';
-    $output .= '<img src="public/img/meme/1023.jpg">';
-    $output .= '</div></div>';
+    $output .= '<img class="meme-photo drop-shadow" src="'.$content['image'].'">';
+    $output .= '</div>';
 
     $commentArray = [
         'number' => 1,
@@ -57,9 +52,11 @@ function Meme($content): string
         'comment' => 'Test trzeci komentarz ',
     ];
    
-    $output .= memeComment($commentArray);
-    $output .= memeComment($commentArray2);
-    $output .= memeComment($commentArray3);
+    $output .= '<div>';
+    $output .= MemeComment($commentArray);
+    $output .= MemeComment($commentArray2);
+    $output .= MemeComment($commentArray3);
+    $output .= '</div>';
 
     $output .= $content['button'];
 

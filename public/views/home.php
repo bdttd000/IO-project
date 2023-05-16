@@ -2,9 +2,12 @@
 $SessionController = new SessionController;
 $userIsAuthenticated = $SessionController::isLogged() === "true";
 
-@require_once "public/views/components/meme.php";
-@require_once "public/views/components/button.php";
-@require_once "public/views/components/memeComment.php";
+require_once "public/views/components/meme.php";
+require_once "public/views/components/button.php";
+require_once "public/views/components/memeComment.php";
+require_once "public/views/components/memeLikes.php";
+require_once "public/views/components/recommendedMeme.php";
+require_once "public/views/components/card.php";
 
 $buttonArray = [
     'type' => 'more',
@@ -19,13 +22,26 @@ $commentsArray = [
 
 $memeArray = [
     'title' => 'Testtestowanie',
-    'likes' => '999',
+    'likes' => 999,
     'username' => 'Username',
     'meme-date' => '17.04.2023',
+    'image' => "public/img/meme/1023.jpg",
     'comments' => $commentsArray,
     'comment' => 'Bardzo fajny memik, pozdrawiam z rodzinka. Pozdrów mame i tate :))))',
     'button' => Button($buttonArray)
-]
+];
+
+$recomendedMemeArray = [
+    'title' => 'testr',
+    'image' => "public/img/meme/1023.jpg",
+];
+
+$recommendedCardContent = RecommendedMeme($recomendedMemeArray) . RecommendedMeme($recomendedMemeArray) . RecommendedMeme($recomendedMemeArray);
+
+$cardRecommendedArray = [
+    'title' => 'Polecane',
+    'content' => $recommendedCardContent,
+];
 ?>
 
 <html lang="en">
@@ -38,14 +54,19 @@ $memeArray = [
 <body>
     <?php include("public/views/components/navbar.php"); ?>
     <?php include("public/views/components/sidebar.php"); ?>
-    <main class="container flex flex-center flex-row" style="gap: 2rem">
-        <section style="width: 70%; height: 100px; gap: 20px;" class="flex flex-center flex-column">
+    <main class="container flex flex-center flex-row" style="gap: 1.5rem">
+        <aside class="left-aside"></aside>
+        <section class="meme-section flex flex-center flex-column">
             <?php echo Meme($memeArray) ?>
             <?php echo Meme($memeArray) ?>
             <?php echo Meme($memeArray) ?>
             <?php echo Meme($memeArray) ?>
         </section>
-        <aside style="width: 30%; height: 100px;"></aside>
+        <aside class="recommended-memes-aside">
+            <div class="recommended-memes flex flex-center flex-column">
+                <?php echo Card($cardRecommendedArray) ?>
+            </div>
+        </aside>
     </main>
     <?php include("public/views/components/footer.php"); ?>
 </body>
