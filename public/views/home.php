@@ -2,6 +2,9 @@
 $SessionController = new SessionController;
 $userIsAuthenticated = $SessionController::isLogged() === "true";
 
+require_once __DIR__ . '/../../src/models/User.php';
+
+
 require_once "public/views/components/meme.php";
 require_once "public/views/components/button.php";
 require_once "public/views/components/memeComment.php";
