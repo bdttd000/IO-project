@@ -16,6 +16,7 @@ Routing::get('privacyPolicy', 'DefaultController');
 Routing::get('addMeme', 'DefaultController');
 
 Routing::post('checkLogin', 'SecurityController');
+Routing::post('checkRegister', 'SecurityController');
 
 Routing::post('logout', 'SessionController');
 
