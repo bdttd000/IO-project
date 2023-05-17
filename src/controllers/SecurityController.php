@@ -27,7 +27,7 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['error' => 'Nieprawidłowe hasło', 'email' => $email]]);
         }
 
-        $_SESSION["userInfo"] = $user;
+        $_SESSION["user_info"] = serialize($user);
 
         $this->redirectToHome();
     }

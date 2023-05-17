@@ -6,7 +6,7 @@ class SessionController extends AppController
 {
     public static function isLogged(): string
     {
-        if (isset($_SESSION['userInfo'])) {
+        if (isset($_SESSION['user_info'])) {
             return "true";
         }
         return "false";
@@ -14,7 +14,7 @@ class SessionController extends AppController
 
     public function logout()
     {
-        unset($_SESSION['userInfo']);
+        unset($_SESSION['user_info']);
         $this->redirectToHome();
     }
 }
