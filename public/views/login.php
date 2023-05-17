@@ -12,7 +12,7 @@ require_once "public/views/components/buttonRedirect.php";
 require_once "public/views/components/form.php";
 
 $inputEmail = [
-    'type' => 'name',
+    'type' => 'text',
     'name' => 'email',
     'placeholder' => 'Wprowadź email',
     'value' => $messages['email'],
@@ -38,6 +38,13 @@ $formContent = [
 if (isset($messages['error'])) {
     $formContent['content'] = '<div class="login-error-message">' .
         $messages['error']
+        . '</div>' .
+        $formContent['content'];
+}
+
+if (isset($messages['success'])) {
+    $formContent['content'] = '<div class="login-success-message">' .
+        $messages['success']
         . '</div>' .
         $formContent['content'];
 }
