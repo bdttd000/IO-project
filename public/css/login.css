@@ -1,3 +1,7 @@
 .login-error-message {
-    color: var(--primary);
+    color: var(--error);
+}
+
+.login-success-message {
+    color: var(--success);
 }
