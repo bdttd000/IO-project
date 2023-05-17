@@ -35,4 +35,48 @@ class UserRepository extends Repository
             $description
         );
     }
+
+    public function checkUser(string $nickname, string $email): bool
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM user_profile WHERE LOWER(nickname) = :nickname OR LOWER(email) = :email
+        ');
+
+        $stmt->bindParam(':nickname', strtolower($nickname), PDO::PARAM_STR);
+        $stmt->bindParam(':email', strtolower($email), PDO::PARAM_STR);
+        $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return (bool) $user;
+    }
+
+    public function addUser(string $nickname, string $email, string $password): void
+    {
+        $id = $this->getNextId();
+        $creationDate = new DateTime();
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO user_profile (userid, nickname, email, password, creationdate) VALUES (?, ?, ?, ?, ?)
+        ');
+
+        $stmt->execute([
+            $id,
+            $nickname,
+            $email,
+            md5($password),
+            $creationDate->format('Y-m-d')
+        ]);
+    }
+
+    public function getNextId(): int
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT max(userid) FROM user_profile
+        ');
+        $stmt->execute();
+
+        $output = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $output['max'] + 1 ?: 1;
+    }
 }

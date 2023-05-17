@@ -23,7 +23,7 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['error' => 'Nie ma takiego użytkownika', 'email' => $email]]);
         }
 
-        if ($user->getPassword() !== $password) {
+        if ($user->getPassword() !== md5($password)) {
             return $this->render('login', ['messages' => ['error' => 'Nieprawidłowe hasło', 'email' => $email]]);
         }
 
@@ -31,4 +31,33 @@ class SecurityController extends AppController
 
         $this->redirectToHome();
     }
+
+    public function checkRegister()
+    {
+        $userRepository = new UserRepository();
+
+        if (!$this->isPost()) {
+            return $this->render('register');
+        }
+
+        $nickname = $_POST['nickname'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $password2 = $_POST['password2'];
+
+        $user = $userRepository->checkUser($nickname, $email);
+
+        if ($user) {
+            return $this->render('register', ['messages' => ['error' => 'Istnieje już taki użytkownik', 'nickname' => $nickname, 'email' => $email]]);
+        }
+
+        if ($password !== $password2) {
+            return $this->render('register', ['messages' => ['error' => 'Hasła nie są takie same', 'nickname' => $nickname, 'email' => $email]]);
+        }
+
+        $userRepository->addUser($nickname, $email, $password);
+
+        return $this->render('login', ['messages' => ['success' => 'Dodano użytkownika']]);
+    }
+
 }
