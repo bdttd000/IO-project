@@ -19,14 +19,20 @@ class UserRepository extends Repository
             return null;
         }
 
+        $creationDate = new DateTime($user['creationDate']);
+        $creationDate = $creationDate->format('Y-m-d');
+
+        $avatarUrl = $user['avatarUrl'] ?: "";
+        $description = $user['description'] ?: "";
+
         return new User(
-            $user['userID'],
+            intval($user['userID']),
             $user['nickname'],
             $user['email'],
             $user['password'],
-            $user['creationDate'],
-            $user['avatarUrl'],
-            $user['description'],
+            $creationDate,
+            $avatarUrl,
+            $description
         );
     }
 }
