@@ -28,7 +28,7 @@ class User
         $this->description = $description;
     }
 
-    public function getUserID(): string
+    public function getUserID(): int
     {
         return $this->userID;
     }
