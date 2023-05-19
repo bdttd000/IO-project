@@ -26,7 +26,7 @@ class UserRepository extends Repository
         $description = $user['description'] ?: "";
 
         return new User(
-            intval($user['userID']),
+            intval($user['userid']),
             $user['nickname'],
             $user['email'],
             $user['password'],
