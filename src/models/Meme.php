@@ -2,13 +2,40 @@
 
 class Meme
 {
+    private $memeid;
+    private $userid;
     private $title;
-    private $image;
+    private $photourl;
+    private $creationDate;
+    private $evaluated;
+    private $evaluationdate;
 
-    public function __construct($title, $image)
-    {
+    public function __construct(
+        int $memeid,
+        int $userid,
+        string $title,
+        string $photourl,
+        string $creationDate,
+        string $evaluated,
+        string $evaluationdate
+    ) {
+        $this->memeid = $memeid;
+        $this->userid = $userid;
         $this->title = $title;
-        $this->image = $image;
+        $this->photourl = $photourl;
+        $this->creationDate = $creationDate;
+        $this->evaluated = $evaluated;
+        $this->evaluationdate = $evaluationdate;
+    }
+
+    public function getMemeID(): int
+    {
+        return $this->memeid;
+    }
+
+    public function getuserID(): string
+    {
+        return $this->userid;
     }
 
     public function getTitle(): string
@@ -16,8 +43,23 @@ class Meme
         return $this->title;
     }
 
-    public function getImage(): string
+    public function getPhotoUrl(): string
     {
-        return $this->image;
+        return $this->photourl;
+    }
+
+    public function getCreationDate(): string
+    {
+        return $this->creationDate;
+    }
+
+    public function getEvaluated(): string
+    {
+        return $this->evaluated;
+    }
+
+    public function getEvaluationDate(): string
+    {
+        return $this->evaluationdate;
     }
 }
