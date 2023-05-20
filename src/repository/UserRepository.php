@@ -53,7 +53,7 @@ class UserRepository extends Repository
 
     public function addUser(string $nickname, string $email, string $password): void
     {
-        $id = $this->getNextId();
+        $id = $this->getNextId('user_profile', 'userid');
         $creationDate = new DateTime();
         $stmt = $this->database->connect()->prepare('
             INSERT INTO user_profile (userid, nickname, email, password, creationdate) VALUES (?, ?, ?, ?, ?)
@@ -66,17 +66,5 @@ class UserRepository extends Repository
             md5($password),
             $creationDate->format('Y-m-d')
         ]);
-    }
-
-    public function getNextId(): int
-    {
-        $stmt = $this->database->connect()->prepare('
-            SELECT max(userid) FROM user_profile
-        ');
-        $stmt->execute();
-
-        $output = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        return $output['max'] + 1 ?: 1;
     }
 }
