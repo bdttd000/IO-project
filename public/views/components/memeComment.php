@@ -9,8 +9,8 @@ function MemeComment($content): string
     }
     
     $output .= '<div class="meme-user-date">';
-    $output .= '<div class="user-info">';
-    $output .= '<img src="public/img/meme/plus-solid.svg" class="comment-user-avatar">';
+    $output .= '<div class="meme-user-info flex flex-row">';
+    $output .= '<img src="'.$content['avatar'].'" class="comment-user-avatar">';
     $output .= '<div class="comment-user-name"><h4>';
     $output .= $content['username'];
     $output .= '</h4></div>';
@@ -20,9 +20,9 @@ function MemeComment($content): string
     $output .= $content['meme-date'];
     $output .= '</h4></div>';
     $output .= '</div>';
-    $output .= '<div class="comment-content">';
+    $output .= '<p class="meme-comment-content">';
     $output .= $content['comment'];
-    $output .= '</div>';
+    $output .= '</p>';
 
     $output .= '</div>';
     return $output;

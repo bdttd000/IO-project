@@ -1,20 +1,25 @@
-.left-aside {
-    width: 30%; 
+.left-aside { 
+    flex: 1; 
 }
 
-.meme-section {
-    width: 100%;
-    gap: 2rem;
+.meme-section { 
+    width: 100%; 
+    gap: 2rem; 
+    flex: 2; 
 }
 
-.recommended-memes-aside {
-    width: 70%;
-    margin: auto;
+.recommended-memes-aside { 
+    width: 70%; 
+    flex: 1; 
+}
+
+.recommended-memes { 
+    position: -webkit-sticky; position: sticky; top: calc(var(--navbar-height) + 1.5rem); 
 }
 
 @media screen and (max-width: 1024px) {
     .meme-section {
-        width: 90%;
+        flex: 6;
     }
 
     .container {
@@ -22,27 +27,48 @@
     }
 
     .left-aside {
+        flex: 1;
         margin-left: 5rem;
+    }
+
+    .recommended-memes-aside {
+        flex: 3;
     }
 }
 
 @media screen and (max-width: 900px) {
     .meme-section {
-        width: 80%;
+        flex: 6;
     }
 
     .recommended-memes-aside {
-        width: 60%;
+        flex: 2;
     }
 
     .left-aside {
-        width: 20%;
+        flex: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .meme-section {
+        flex: 6;
+    }
+
+    .recommended-memes-aside {
+        flex: 1;
+        opacity: 0;
+    }
+
+    .left-aside {
+        flex: 1;
+        opacity: 0;
     }
 }
 
 @media screen and (max-width: 600px) {
     .meme-section {
-        width: 100%;
+        flex: 6;
     }
 
     .left-aside {

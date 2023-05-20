@@ -12,8 +12,8 @@
     justify-content: space-between;
 }
 
-.comment-content {
-    padding: var(--m-0-5);
+.meme-comment-content {
+    margin-left: var(--m-0-5);
 }
 
 .comment-user-avatar {
@@ -25,9 +25,10 @@
 }
 
 .comment-user-name {
-    /* padding: var(--m-0-5); */
+    margin-left: var(--m-0-5);
 }
 
 .comment-meme-date {
-    /* padding: var(--m-0-5); */
+    margin-right: var(--m-0-5);
 }
+

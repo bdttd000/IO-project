@@ -25,7 +25,8 @@ $memeArray = [
     'likes' => 999,
     'username' => 'Username',
     'meme-date' => '17.04.2023',
-    'image' => "public/img/meme/1023.jpg",
+    'avatar' => 'public/img/meme/plus-solid.svg',
+    'image' => 'public/img/meme/1023.jpg',
     'comments' => $commentsArray,
     'comment' => 'Bardzo fajny memik, pozdrawiam z rodzinka. Pozdrów mame i tate :))))',
     'button' => Button($buttonArray)
@@ -54,7 +55,7 @@ $cardRecommendedArray = [
 <body>
     <?php include("public/views/components/navbar.php"); ?>
     <?php include("public/views/components/sidebar.php"); ?>
-    <main class="container flex flex-center flex-row" style="gap: 1.5rem">
+    <main class="container flex flex-row" style="gap: 1.5rem">
         <aside class="left-aside"></aside>
         <section class="meme-section flex flex-center flex-column">
             <?php echo Meme($memeArray) ?>
