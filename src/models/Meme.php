@@ -33,7 +33,7 @@ class Meme
         return $this->memeid;
     }
 
-    public function getuserID(): string
+    public function getUserID(): int
     {
         return $this->userid;
     }
