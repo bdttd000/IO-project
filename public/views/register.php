@@ -1,7 +1,6 @@
 <?php
 $SessionController = new SessionController;
-$userIsAuthenticated = $SessionController::isLogged() === "true";
-if ($userIsAuthenticated) {
+if ($SessionController::isLogged()) {
     $SessionController->redirectToHome();
 }
 
