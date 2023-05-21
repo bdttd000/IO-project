@@ -29,7 +29,7 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['error' => 'Nie ma takiego użytkownika', 'email' => $email]]);
         }
 
-        if ($user->getPassword() !== md5($password)) {
+        if ($user->getPassword() !== hash('sha256', $password)) {
             return $this->render('login', ['messages' => ['error' => 'Nieprawidłowe hasło', 'email' => $email]]);
         }
 
