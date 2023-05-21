@@ -16,7 +16,7 @@
                 <li><a href="waiting-room">Poczekalnia</a></li>
                 <li><a href="random-meme">Losowy mem</a></li>
                 <?php
-                if ($userIsAuthenticated) {
+                if ($SessionController->isLogged()) {
                     echo '
                     <li><a href="addMeme">Dodaj mema</a></li>
                     <li><a href="favorites">Ulubione</a></li>
@@ -26,7 +26,7 @@
                 ?>
             </ul>
             <?php
-            if ($userIsAuthenticated) {
+            if ($SessionController->isLogged()) {
                 echo '
                 <a class="navbar-list-d-none-sx" href="logout">Wyloguj</a>
                 ';

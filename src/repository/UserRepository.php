@@ -63,7 +63,7 @@ class UserRepository extends Repository
             $id,
             $nickname,
             $email,
-            md5($password),
+            hash('sha256', $password),
             $creationDate->format('Y-m-d')
         ]);
     }
