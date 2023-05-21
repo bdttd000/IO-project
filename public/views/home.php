@@ -1,6 +1,6 @@
 <?php
 $SessionController = new SessionController;
-$userIsAuthenticated = $SessionController::isLogged() === "true";
+$userInfo = $SessionController->unserializeUser();
 
 require_once __DIR__ . '/../../src/models/User.php';
 
@@ -18,10 +18,7 @@ require_once __DIR__ . '/../../src/models/User.php';
     <?php include("public/views/components/sidebar.php"); ?>
     <main class="container flex flex-center flex-column">
         <?php
-        if (isset($_SESSION['user_info'])) {
-            $user = unserialize($_SESSION['user_info']);
-            echo "Witaj " . $user->getNickname();
-        }
+        echo $userInfo->getUserID();
         ?>
     </main>
     <?php include("public/views/components/footer.php"); ?>
