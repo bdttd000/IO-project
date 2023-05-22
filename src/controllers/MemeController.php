@@ -36,7 +36,7 @@ class MemeController extends AppController
                 && $this->validateTitle($_POST['title'])
             )
         ) {
-            return $this->render('statute', ['error' => 'Coś poszło nie tak']);
+            return $this->redirectToHome();
         }
 
         $newUrl = $this->memeRepository->generateID() . '.' . pathinfo($_FILES['meme']['name'], PATHINFO_EXTENSION);
@@ -51,7 +51,7 @@ class MemeController extends AppController
             $newUrl
         );
 
-        return $this->render('home');
+        return $this->redirectToHome();
     }
 
     private function validateFile(array $file): bool

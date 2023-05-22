@@ -4,12 +4,6 @@ require_once 'AppController.php';
 
 class DefaultController extends AppController
 {
-
-    public function home()
-    {
-        $this->render('home');
-    }
-
     public function login()
     {
         $this->render('login');
@@ -38,5 +32,10 @@ class DefaultController extends AppController
     public function addMeme()
     {
         $this->render('addMeme');
+    }
+
+    public function profile()
+    {
+        $this->render('profile');
     }
 }
