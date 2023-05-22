@@ -20,11 +20,7 @@ require_once __DIR__ . '/../../src/repository/MemeRepository.php';
     <main class="container flex flex-center flex-column">
         <?php
         $memeRepository = new MemeRepository();
-        $memes = $memeRepository->getMemes(2, 6, false);
-        foreach ($memes as $meme) {
-            print_r($meme);
-            echo '<br>';
-        }
+        $memeRepository->deleteMeme(15);
         ?>
     </main>
     <?php include("public/views/components/footer.php"); ?>

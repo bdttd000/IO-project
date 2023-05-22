@@ -56,17 +56,26 @@ class MemeRepository extends Repository
         return $result;
     }
 
-    public function getMeme(int $id): ?Meme
+    public function getMeme(int $memeid): ?Meme
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM meme_main WHERE memeid = :id
+            SELECT * FROM meme_main WHERE memeid = :memeid
         ');
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':id', $memeid, PDO::PARAM_INT);
         $stmt->execute();
 
         $meme = array_values($stmt->fetch(PDO::FETCH_ASSOC));
 
         return new Meme(...$meme);
+    }
+
+    public function deleteMeme(int $memeid): void
+    {
+        $stmt = $this->database->connect()->prepare('
+            DELETE FROM meme_main WHERE memeid = :memeid
+        ');
+        $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+        $stmt->execute();
     }
 
     public function printMeme(Meme $meme): void
