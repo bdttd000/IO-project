@@ -47,10 +47,9 @@ class MemeRepository extends Repository
         $stmt->execute();
 
         $memes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $result = [];
 
         foreach ($memes as $meme) {
-            array_push($result, new Meme(...array_values($meme)));
+            $result[] = new Meme(...array_values($meme));
         }
 
         return $result;
@@ -61,7 +60,7 @@ class MemeRepository extends Repository
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM meme_main WHERE memeid = :memeid
         ');
-        $stmt->bindParam(':id', $memeid, PDO::PARAM_INT);
+        $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
         $stmt->execute();
 
         $meme = array_values($stmt->fetch(PDO::FETCH_ASSOC));
