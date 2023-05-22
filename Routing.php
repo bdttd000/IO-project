@@ -19,7 +19,7 @@ class Routing
         self::$routes[$url] = $controller;
     }
 
-    public static function run($url)
+    public static function run($url, $query = null)
     {
         $action = explode("/", $url)[0];
 
@@ -31,6 +31,10 @@ class Routing
         $object = new $controller;
         $action = $action ?: 'home';
 
-        $object->$action();
+        if ($query) {
+            $object->$action($query);
+        } else {
+            $object->$action();
+        }
     }
 }

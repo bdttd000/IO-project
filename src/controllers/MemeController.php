@@ -9,7 +9,7 @@ class MemeController extends AppController
 {
     const MAX_FILE_SIZE = 1024 * 1024;
     const SUPPORTED_TYPES = ['image/png', 'image/jpeg'];
-    const UPLOAD_DIRECTORY = '/../public/uploads/';
+    const UPLOAD_DIRECTORY = '/../public/uploads/memes/';
     private static $messages = [];
     private $memeRepository;
 
@@ -17,6 +17,13 @@ class MemeController extends AppController
     {
         parent::__construct();
         $this->memeRepository = new MemeRepository();
+    }
+
+    public function home($query = 'page=1')
+    {
+        parse_str($query, $page);
+        $memes = $this->memeRepository->getMemes(intval($page['page']), 5, 0);
+        $this->render('home', ['page' => $page['page'], 'memes' => $memes]);
     }
 
     public function addMemeForm()
