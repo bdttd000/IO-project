@@ -3,7 +3,7 @@ $SessionController = new SessionController;
 $userInfo = $SessionController->unserializeUser();
 
 require_once __DIR__ . '/../../src/models/User.php';
-
+require_once __DIR__ . '/../../src/repository/MemeRepository.php';
 
 require_once "public/views/components/meme.php";
 require_once "public/views/components/button.php";
