@@ -19,8 +19,8 @@ require_once __DIR__ . '/../../src/repository/MemeRepository.php';
     <?php include("public/views/components/sidebar.php"); ?>
     <main class="container flex flex-center flex-column">
         <?php
-        $memeRepository = new MemeRepository();
-        $memeRepository->deleteMeme(15);
+        echo $page . '<br>';
+        print_r($memes);
         ?>
     </main>
     <?php include("public/views/components/footer.php"); ?>
