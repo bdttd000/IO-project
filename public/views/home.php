@@ -3,6 +3,7 @@ $SessionController = new SessionController;
 $userInfo = $SessionController->unserializeUser();
 
 require_once __DIR__ . '/../../src/models/User.php';
+require_once __DIR__ . '/../../src/repository/MemeRepository.php';
 
 ?>
 
@@ -18,7 +19,12 @@ require_once __DIR__ . '/../../src/models/User.php';
     <?php include("public/views/components/sidebar.php"); ?>
     <main class="container flex flex-center flex-column">
         <?php
-        echo $userInfo->getUserID();
+        $memeRepository = new MemeRepository();
+        $memes = $memeRepository->getMemes(2, 6, false);
+        foreach ($memes as $meme) {
+            print_r($meme);
+            echo '<br>';
+        }
         ?>
     </main>
     <?php include("public/views/components/footer.php"); ?>
