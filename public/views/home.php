@@ -1,5 +1,5 @@
 <?php
-$SessionController = new SessionController;
+$SessionController = new SessionController();
 $userInfo = $SessionController->unserializeUser();
 
 require_once __DIR__ . '/../../src/models/User.php';

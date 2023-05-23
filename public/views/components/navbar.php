@@ -17,10 +17,12 @@
                 <li><a href="random-meme">Losowy mem</a></li>
                 <?php
                 if ($SessionController->isLogged()) {
+                    $userInfo = $userInfo ?: $SessionController->unserializeUser();
+
                     echo '
                     <li><a href="addMeme">Dodaj mema</a></li>
                     <li><a href="favorites">Ulubione</a></li>
-                    <li><a href="profile">Profil</a></li>
+                    <li><a href="profile?userid=' . $userInfo->getUserID() . '">Profil</a></li>
                     ';
                 }
                 ?>

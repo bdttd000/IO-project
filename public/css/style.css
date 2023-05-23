@@ -5,7 +5,6 @@
 @import "./components/navbar.css";
 @import "./components/sidebar.css";
 @import "./components/footer.css";
-
 @import "./components/card.css";
 @import "./components/form.css";
 @import "./components/input.css";
@@ -16,6 +15,7 @@
 @import "./components/memeComment.css";
 @import "./components/memeLikes.css";
 @import "./components/recommendedMeme.css";
+@import "./components/avatarProfile.css";
 
 @import "./login.css";
 @import "./home.css";
