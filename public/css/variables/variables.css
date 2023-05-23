@@ -23,7 +23,7 @@
     --grey-900: #262626;
     --grey-1000: #151515;
 
-    --main-bg: var(--grey-800);
+    --main-bg: var(--grey-900);
     --navbar-footer-bg: var(--grey-1000);
     --card-bg: var(--grey-100);
 
