@@ -16,6 +16,7 @@
 @import "./components/memeLikes.css";
 @import "./components/recommendedMeme.css";
 @import "./components/avatarProfile.css";
+@import "./components/pagination.css";
 
 @import "./login.css";
 @import "./home.css";
