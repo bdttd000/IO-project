@@ -1,8 +1,14 @@
 <?php
 
-function MemeComment($content): string 
+require_once "src/models/Comment.php";
+require_once "src/repository/UserRepository.php";
+
+function MemeComment(Comment $comment, bool $isEven): string 
 {
-    if ($content['number'] % 2) {
+    $userRepository = new UserRepository();
+    $user = $userRepository->getUserById($comment->getUserID());
+
+    if ($isEven) {
         $output = '<div class="meme-comment-even">';    
     } else {
         $output = '<div class="meme-comment-odd">';    
@@ -10,18 +16,21 @@ function MemeComment($content): string
     
     $output .= '<div class="meme-user-date">';
     $output .= '<div class="meme-user-info flex flex-row">';
-    $output .= '<img src="'.$content['avatar'].'" class="comment-user-avatar">';
+
+    $output .= '<img src="public/uploads/avatars/'; 
+    $output .= ($user->getAvatarUrl()) ? $user->getAvatarUrl() : 'unknown.png';
+    $output .= '" class="comment-user-avatar">';
     $output .= '<div class="comment-user-name"><h4>';
-    $output .= $content['username'];
+    $output .= $user->getNickname();
     $output .= '</h4></div>';
     $output .= '</div>';
     
     $output .= '<div class="comment-meme-date"><h4>';
-    $output .= $content['meme-date'];
+    $output .= $comment->getCreationDate();
     $output .= '</h4></div>';
     $output .= '</div>';
     $output .= '<p class="meme-comment-content">';
-    $output .= $content['comment'];
+    $output .= $comment->getContent();
     $output .= '</p>';
 
     $output .= '</div>';
