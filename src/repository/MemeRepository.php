@@ -2,6 +2,9 @@
 
 require_once 'Repository.php';
 require_once __DIR__ . '/../models/Meme.php';
+require_once __DIR__ . '/../models/Comment.php';
+require_once __DIR__ . '/../repository/CommentRepository.php';
+require_once __DIR__ . '/../controllers/SessionController.php';
 
 class MemeRepository extends Repository
 {
@@ -27,8 +30,14 @@ class MemeRepository extends Repository
         ]);
     }
 
-    public function getMemes(int $pageNumber, int $numberOfMemes, bool $onlyEvaluated, int $userid = 0)
+    public function getMemes(int $pageNumber, int $numberOfMemes, bool $onlyEvaluated, int $userid = 0): array
     {
+        $commentRepository = new CommentRepository();
+        $sessionController = new SessionController();
+        if ($sessionController->unserializeUser()) {
+            $executionerid = $sessionController->unserializeUser()->getUserID() ?: 0;
+        }
+
         $offset = ($pageNumber - 1) * $numberOfMemes;
 
         if ($userid) {
@@ -50,7 +59,17 @@ class MemeRepository extends Repository
 
         $result = [];
         foreach ($memes as $meme) {
-            $result[] = new Meme(...array_values($meme));
+            $comments = $commentRepository->getCommentsForMeme($meme['memeid']);
+            $likes = $this->getLikesForMeme($meme['memeid']);
+            if ($executionerid) {
+                $followed = $this->getFollowForMeme($meme['memeid'], $executionerid);
+            } else {
+                $followed = 0;
+            }
+
+            $memeArray = [...array_values($meme), $comments, $likes, $followed];
+
+            $result[] = new Meme(...$memeArray);
         }
 
         return $result;
@@ -87,5 +106,32 @@ class MemeRepository extends Repository
             . $meme->getCreationDate() . ' '
             . $meme->getEvaluated() . ' '
             . $meme->getEvaluationDate();
+    }
+
+    public function getLikesForMeme(int $memeid): int
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT SUM(value) FROM meme_like WHERE memeid = :memeid
+        ');
+
+        $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $result = $stmt->fetch();
+
+        return $result['sum'] ?: 0;
+    }
+
+    public function getFollowForMeme(int $memeid, int $userid): int
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM user_follow WHERE memeid = :memeid AND userid = :userid
+        ');
+
+        $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+        $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchColumn() ?: 0;
     }
 }
