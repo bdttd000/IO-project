@@ -19,6 +19,7 @@
 
 @import "./login.css";
 @import "./home.css";
+@import "./profile.css";
 
 * {
     box-sizing: border-box;
