@@ -5,7 +5,7 @@ const toggleCheckbox = document.getElementById("toggleCheckbox");
 
 var theme = {
     "dark": {
-        "--main-bg": "var(--grey-800)",
+        "--main-bg": "var(--grey-900)",
         "--navbar-footer-bg": "var(--grey-1000)",
         "--card-bg": "var(--grey-100)",
     },
