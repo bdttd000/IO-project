@@ -12,6 +12,7 @@ class MemeController extends AppController
     const UPLOAD_DIRECTORY = '/../public/uploads/memes/';
     private static $messages = [];
     private $memeRepository;
+    private $memesPerPage = 5;
 
     public function __construct()
     {
@@ -21,9 +22,10 @@ class MemeController extends AppController
 
     public function home($query = 'page=1')
     {
-        parse_str($query, $page);
-        $memes = $this->memeRepository->getMemes(intval($page['page']), 5, 0);
-        $this->render('home', ['page' => $page['page'], 'memes' => $memes]);
+        parse_str($query, $pageNumber);
+        $memes = $this->memeRepository->getMemes(intval($pageNumber['page']), $this->memesPerPage, 0);
+        $pagesCount = ceil($this->memeRepository->memesCount() / $this->memesPerPage);
+        $this->render('home', ['pageNumber' => $pageNumber['page'], 'memes' => $memes, 'pagesCount' => $pagesCount]);
     }
 
     public function addMemeForm()

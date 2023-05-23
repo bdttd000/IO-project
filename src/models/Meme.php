@@ -19,7 +19,7 @@ class Meme
         string $title,
         string $photourl,
         string $creationDate,
-        string $evaluated,
+        int $evaluated,
         string $evaluationdate,
         array $comments,
         int $likes,
@@ -62,7 +62,7 @@ class Meme
         return $this->creationDate;
     }
 
-    public function getEvaluated(): string
+    public function getEvaluated(): int
     {
         return $this->evaluated;
     }
