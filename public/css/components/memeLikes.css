@@ -1,0 +1,37 @@
+.meme-likes-and-buttons {
+  display: flex;
+  border-radius: 10px;
+}
+
+.meme-likes {
+  background-color: var(--grey-300);
+  color: var(--black-text);
+  flex: 1;
+}
+
+.meme-likes-number {
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.meme-likes-symbol {
+  width: 2rem;
+  font-size: 1.5rem;
+  color: var(--black-text);
+}
+
+.meme-likes-symbol:link,
+.meme-likes-symbol:visited {
+  color: inherit;
+}
+
+.meme-likes-symbol-minus {
+  background-color: var(--error);
+  border-radius: 10px 0 0 10px;
+  z-index: 2;
+}
+
+.meme-likes-symbol-plus {
+  background-color: var(--success);
+  border-radius: 0 10px 10px 0;
+}

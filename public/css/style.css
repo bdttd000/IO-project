@@ -5,16 +5,20 @@
 @import "./components/navbar.css";
 @import "./components/sidebar.css";
 @import "./components/footer.css";
-
 @import "./components/card.css";
 @import "./components/form.css";
 @import "./components/input.css";
 @import "./components/textarea.css";
 @import "./components/button.css";
 @import "./components/toggleButton.css";
+@import "./components/meme.css";
+@import "./components/memeComment.css";
+@import "./components/memeLikes.css";
+@import "./components/recommendedMeme.css";
 @import "./components/avatarProfile.css";
 
 @import "./login.css";
+@import "./home.css";
 @import "./profile.css";
 
 * {
@@ -95,7 +99,6 @@ h6 {
 }
 
 .drop-shadow-animate {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
     transition: box-shadow var(--default-transition);
 }
 

@@ -1,0 +1,34 @@
+.meme-comment-even {
+    background-color: var(--grey-300);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.meme-comment-odd {
+    background-color: var(--grey-200);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.meme-comment-content {
+    margin-left: var(--m-0-5);
+}
+
+.comment-user-avatar {
+    width: 2rem;
+    height: 2rem;
+    border: 1px;
+    border-style: solid;
+    margin-left: var(--m-0-5);
+}
+
+.comment-user-name {
+    margin-left: var(--m-0-5);
+}
+
+.comment-meme-date {
+    margin-right: var(--m-0-5);
+}
+

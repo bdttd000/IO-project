@@ -1,0 +1,31 @@
+.recommended-meme-container {
+    position: relative;
+}
+
+.recommended-meme-photo {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.recommended-memes-aside .card-content {
+    background-color: black;
+}
+
+.recommended-memes-aside .card {
+    width: 100%;
+}
+
+.recommended-memes-aside h4 {
+    color: white;
+}
+
+.recommended-meme-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
