@@ -6,7 +6,7 @@
             <li><a href="waiting-room"><img src="public/img/sidebar/waiting-room.svg" alt="waiting-room"></a></li>
             <li><a href="random-meme"><img src="public/img/sidebar/random-meme.svg" alt="random-meme"></a></li>
             <?php
-            if ($userIsAuthenticated) {
+            if ($SessionController->isLogged()) {
                 echo '
                 <li><a href="favorites"><img src="public/img/sidebar/favorites.svg" alt="favorites"></a></li>
                 <li><a href="add-meme"><img src="public/img/sidebar/add-meme.svg" alt="add-meme"></a></li>
@@ -22,9 +22,9 @@
                 </label>
             </li>
             <?php
-            if ($userIsAuthenticated) {
+            if ($SessionController->isLogged()) {
                 echo '
-                <li><a href="profile"><img src="public/img/sidebar/profile.svg" alt="profile"></a></li>
+                <li><a href="profile?userid=' . $userInfo->getUserID() . '"><img src="public/img/sidebar/profile.svg" alt="profile"></a></li>
                 <li><a href="logout"><img src="public/img/sidebar/logout.svg" alt="logout"></a></li>
                 ';
             } else {
@@ -50,7 +50,7 @@
             <li><a href="waiting-room">Poczekalnia</a></li>
             <li><a href="random-meme">Losowy mem</a></li>
             <?php
-            if ($userIsAuthenticated) {
+            if ($SessionController->isLogged()) {
                 echo '
                 <li><a href="favorites">Ulubione</a></li>
                 <li><a href="add-meme">Dodaj mema</a></li>
@@ -61,9 +61,9 @@
         <ul class="sidebar-content-list">
             <li onclick="listenToggleText()">Zmień motyw</li>
             <?php
-            if ($userIsAuthenticated) {
+            if ($SessionController->isLogged()) {
                 echo '
-                <li><a href="profile">Profil</a></li>
+                <li><a href="profile?userid=' . $userInfo->getUserID() . '">Profil</a></li>
                 <li><a href="logout">Wyloguj</a></li>
                 ';
             } else {

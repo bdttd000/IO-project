@@ -16,8 +16,8 @@ class User
         string $email,
         string $password,
         string $creationDate,
-        string $avatarUrl,
-        string $description
+        $avatarUrl,
+        $description
     ) {
         $this->userID = $userID;
         $this->nickname = $nickname;
@@ -53,12 +53,12 @@ class User
         return $this->creationDate;
     }
 
-    public function getAvatarUrl(): string
+    public function getAvatarUrl(): ?string
     {
         return $this->avatarUrl;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
