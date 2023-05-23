@@ -1,0 +1,6 @@
+.avatarProfile {
+    width: 150px;
+    height: auto;
+    border: 2px solid var(--grey-400);
+    background-color: var(--grey-200);
+}

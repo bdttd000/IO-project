@@ -12,8 +12,10 @@
 @import "./components/textarea.css";
 @import "./components/button.css";
 @import "./components/toggleButton.css";
+@import "./components/avatarProfile.css";
 
 @import "./login.css";
+@import "./profile.css";
 
 * {
     box-sizing: border-box;

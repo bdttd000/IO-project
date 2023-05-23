@@ -48,6 +48,7 @@ class MemeRepository extends Repository
 
         $memes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        $result = [];
         foreach ($memes as $meme) {
             $result[] = new Meme(...array_values($meme));
         }
