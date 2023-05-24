@@ -25,8 +25,7 @@ class Database
             $conn = new PDO(
                 "pgsql:host=$this->host;port=$this->port;dbname=$this->database",
                 $this->username,
-                $this->password,
-                ["sslmode" => "prefer"]
+                $this->password
             );
 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
