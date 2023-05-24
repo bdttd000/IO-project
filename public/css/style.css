@@ -20,6 +20,7 @@
 @import "./login.css";
 @import "./home.css";
 @import "./profile.css";
+@import "./privacyPolicyContent.css";
 
 * {
     box-sizing: border-box;
