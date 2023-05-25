@@ -33,7 +33,6 @@ require_once "public/views/components/ads.php";
             ?>
         </section>
         <?php echo RecommendedMeme(); ?>
-        <img src="public/uploads/ads/RydVS9vm0GIfuFp0.png" alt="">
     </main>
     <?php include("public/views/components/footer.php"); ?>
 </body>
