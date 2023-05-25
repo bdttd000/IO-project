@@ -1,0 +1,20 @@
+
+.pagination-button {
+    height: 2rem;
+    padding: 0.2rem 0.5rem;
+    background-color: var(--grey-1000);
+    border-radius: 0.6rem;
+    border: none;
+    font-size: 1rem;
+    color: var(--white-text);
+}
+
+.pagination-button > img {
+    height: 100%;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+.pagination-button > span {
+    text-transform: uppercase;
+}
