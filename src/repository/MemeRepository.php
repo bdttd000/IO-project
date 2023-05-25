@@ -30,7 +30,7 @@ class MemeRepository extends Repository
         ]);
     }
 
-    public function getMemes(int $pageNumber, int $numberOfMemes, bool $onlyEvaluated, int $userid = 0): array
+    public function getMemes(int $pageNumber, int $numberOfMemes, int $onlyEvaluated, int $userid = 0): array
     {
         $commentRepository = new CommentRepository();
         $sessionController = new SessionController();
@@ -75,6 +75,26 @@ class MemeRepository extends Repository
         return $result;
     }
 
+    public function memesCount(int $onlyEvaluated = 0, int $userid = 0): int
+    {
+        if ($userid) {
+            $stmt = $this->database->connect()->prepare('
+            SELECT COUNT(*) FROM meme_main WHERE userid = :userid
+            ');
+            $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+        } else {
+            $stmt = $this->database->connect()->prepare('
+            SELECT COUNT(*) FROM meme_main
+            ');
+        }
+
+        $stmt->execute();
+
+        $counted = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $counted['count'];
+    }
+
     public function getMeme(int $memeid): ?Meme
     {
         $stmt = $this->database->connect()->prepare('
@@ -95,17 +115,6 @@ class MemeRepository extends Repository
         ');
         $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
         $stmt->execute();
-    }
-
-    public function printMeme(Meme $meme): void
-    {
-        echo $meme->getMemeID() . ' '
-            . $meme->getUserID() . ' '
-            . $meme->getTitle() . ' '
-            . $meme->getPhotoUrl() . ' '
-            . $meme->getCreationDate() . ' '
-            . $meme->getEvaluated() . ' '
-            . $meme->getEvaluationDate();
     }
 
     public function getLikesForMeme(int $memeid): int
