@@ -6,7 +6,7 @@ require_once __DIR__ . '/../controllers/SessionController.php';
 
 class AdRepository extends Repository
 {
-    public function addAd($dateFrom, $dateTo, string $photoUrl): void
+    public function addAd(string $title, $dateFrom, $dateTo, string $photoUrl): void
     {
         $adID = $this->getNextId('ad_main', 'adid');
 
@@ -16,6 +16,7 @@ class AdRepository extends Repository
 
         $stmt->execute([
             $adID,
+            $title,
             $dateFrom,
             $dateTo,
             $photoUrl

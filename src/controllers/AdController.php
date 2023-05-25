@@ -40,6 +40,7 @@ class AdController extends AppController
         );
 
         $this->adRepository->addAd(
+            $_POST['title'],
             $dateFrom,
             $dateTo,
             $newUrl

@@ -27,7 +27,7 @@ class MemeController extends AppController
     {
         parse_str($query, $pageNumber);
         $memes = $this->memeRepository->getMemes(intval($pageNumber['page']), $this->memesPerPage, 0);
-        $ads = $this->adRepository->getAds(3);
+        $ads = $this->adRepository->getAds(5);
         $pagesCount = ceil($this->memeRepository->memesCount() / $this->memesPerPage);
         $this->render('home', ['pageNumber' => $pageNumber['page'], 'memes' => $memes, 'ads' => $ads, 'pagesCount' => $pagesCount]);
     }
