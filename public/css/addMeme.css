@@ -1,0 +1,10 @@
+input[type="file"] {
+    display: none;
+}
+
+.meme-preview {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}

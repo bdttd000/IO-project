@@ -23,6 +23,7 @@
 @import "./home.css";
 @import "./profile.css";
 @import "./privacyPolicyContent.css";
+@import "./addMeme.css";
 
 * {
     box-sizing: border-box;

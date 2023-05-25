@@ -7,3 +7,4 @@
 <script src="public/js/navbar-interactions.js" defer></script>
 <script src="public/js/theme.js" defer></script>
 <script src="public/js/meme-interactions.js" defer></script>
+<script src="public/js/meme-preview-interactions.js" defer></script>
