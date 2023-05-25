@@ -13,7 +13,8 @@
 }
 
 .meme-comment-content {
-    margin-left: var(--m-0-5);
+    margin: 0;
+    padding: 0 0.5rem 0.5rem 0.5rem;
 }
 
 .comment-user-avatar {
@@ -21,14 +22,8 @@
     height: 2rem;
     border: 1px;
     border-style: solid;
-    margin-left: var(--m-0-5);
 }
 
 .comment-user-name {
     margin-left: var(--m-0-5);
 }
-
-.comment-meme-date {
-    margin-right: var(--m-0-5);
-}
-

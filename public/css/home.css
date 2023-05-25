@@ -22,10 +22,6 @@
         flex: 6;
     }
 
-    .container {
-        gap: 10rem;
-    }
-
     .left-aside {
         flex: 1;
         margin-left: 5rem;
