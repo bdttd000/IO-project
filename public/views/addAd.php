@@ -15,6 +15,7 @@ $userIsAuthenticated = $SessionController::isLogged() === "true";
     <?php include("public/views/components/sidebar.php"); ?>
     <main class="container flex flex-center flex-column">
         <form action="addAdForm" method="POST" enctype="multipart/form-data">
+            <input type="text" name="title">
             <input type="date" name="dateFrom">
             <input type="date" name="dateTo">
             <input type="file" name="ad">
