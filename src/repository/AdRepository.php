@@ -11,7 +11,7 @@ class AdRepository extends Repository
         $adID = $this->getNextId('ad_main', 'adid');
 
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO ad_main (adid, activefrom, expirationdate, photourl) VALUES (?, ?, ?, ?)
+            INSERT INTO ad_main (adid, title, activefrom, expirationdate, photourl) VALUES (?, ?, ?, ?, ?)
         ');
 
         $stmt->execute([
