@@ -1,31 +1,46 @@
-.recommended-meme-container {
+.recommended-memes { 
+    position: -webkit-sticky; 
+    position: sticky; 
+    top: calc(var(--navbar-height) + 1.5rem); 
+}
+
+.recommended-memes-aside {
+    gap: 2rem;
+}
+
+.recommended-meme-sticky {
+    flex: 1;
+}
+
+.recommended-meme-box {
+    width: 100%;
+    border-radius: 15px;
+    background-color: var(--grey-1000);
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.recommended-meme-title > h2 {
+    color: var(--white-text);
+    margin: 0;
+}
+
+.recommended-meme-card {
     position: relative;
-}
-
-.recommended-meme-photo {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-.recommended-memes-aside .card-content {
-    background-color: black;
-}
-
-.recommended-memes-aside .card {
     width: 100%;
 }
 
-.recommended-memes-aside h4 {
-    color: white;
+.recommended-meme-card > img {
+    width: 100%;
+    height: auto;
 }
 
-.recommended-meme-title {
+.recommended-meme-card > div {
     position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
     bottom: 0;
-    left: 0;
-    height: 30%;
+    font-size: 1.2rem;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    height: 3rem;
+    color: var(--white-text);
 }

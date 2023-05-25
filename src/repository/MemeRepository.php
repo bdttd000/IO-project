@@ -42,12 +42,12 @@ class MemeRepository extends Repository
 
         if ($userid) {
             $stmt = $this->database->connect()->prepare('
-            SELECT * FROM meme_main WHERE userid = :userid ORDER BY memeid OFFSET :offset ROWS FETCH NEXT :numberofmemes ROWS ONLY
+            SELECT * FROM meme_main WHERE userid = :userid ORDER BY memeid DESC OFFSET :offset ROWS FETCH NEXT :numberofmemes ROWS ONLY
             ');
             $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
         } else {
             $stmt = $this->database->connect()->prepare('
-            SELECT * FROM meme_main ORDER BY memeid OFFSET :offset ROWS FETCH NEXT :numberofmemes ROWS ONLY
+            SELECT * FROM meme_main ORDER BY memeid DESC OFFSET :offset ROWS FETCH NEXT :numberofmemes ROWS ONLY
             ');
         }
 
@@ -106,6 +106,24 @@ class MemeRepository extends Repository
         $meme = array_values($stmt->fetch(PDO::FETCH_ASSOC));
 
         return new Meme(...$meme);
+    }
+
+    public function getBestMemes(int $numberOfMemes, int $time = 30)
+    {
+        $time = $time == 7 ? 7 : 30;
+
+        $stmt = $this->database->connect()->prepare("
+        SELECT t1.memeid, t1.title, t1.photourl, SUM(t2.value) likes
+        FROM meme_main t1, meme_like t2 
+        WHERE t1.memeid = t2.memeid AND (DATE_PART('day', CURRENT_DATE::timestamp - t1.creationdate::timestamp) < :time)
+        GROUP BY t1.memeid 
+        ORDER BY likes DESC LIMIT :numberofmemes
+        ");
+        $stmt->bindParam(':time', $time, PDO::PARAM_INT);
+        $stmt->bindParam(':numberofmemes', $numberOfMemes, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function deleteMeme(int $memeid): void

@@ -11,6 +11,9 @@ Routing::get('', 'MemeController');
 Routing::get('home', 'MemeController');
 Routing::post('addMemeForm', 'MemeController');
 
+//AdController
+Routing::post('addAdForm', 'AdController');
+
 //UserController
 Routing::get('profile', 'UserController');
 
@@ -23,6 +26,7 @@ Routing::get('privacyPolicy', 'DefaultController');
 
 //DefaultController only logged users
 Routing::get('addMeme', 'DefaultController');
+Routing::get('addAd', 'DefaultController');
 
 //SecurityController
 Routing::post('checkLogin', 'SecurityController');

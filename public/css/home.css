@@ -13,10 +13,6 @@
     flex: 1; 
 }
 
-.recommended-memes { 
-    position: -webkit-sticky; position: sticky; top: calc(var(--navbar-height) + 1.5rem); 
-}
-
 @media screen and (max-width: 1024px) {
     .meme-section {
         flex: 6;
