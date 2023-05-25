@@ -3,6 +3,7 @@
 require_once 'AppController.php';
 require_once __DIR__ . '/../models/Meme.php';
 require_once __DIR__ . '/../repository/MemeRepository.php';
+require_once __DIR__ . '/../repository/AdRepository.php';
 require_once 'SessionController.php';
 
 class MemeController extends AppController
@@ -12,11 +13,13 @@ class MemeController extends AppController
     const UPLOAD_DIRECTORY = '/../public/uploads/memes/';
     private static $messages = [];
     private $memeRepository;
-    private $memesPerPage = 5;
+    private $adRepository;
+    private $memesPerPage = 10;
 
     public function __construct()
     {
         parent::__construct();
+        $this->adRepository = new AdRepository();
         $this->memeRepository = new MemeRepository();
     }
 
@@ -24,8 +27,9 @@ class MemeController extends AppController
     {
         parse_str($query, $pageNumber);
         $memes = $this->memeRepository->getMemes(intval($pageNumber['page']), $this->memesPerPage, 0);
+        $ads = $this->adRepository->getAds(3);
         $pagesCount = ceil($this->memeRepository->memesCount() / $this->memesPerPage);
-        $this->render('home', ['pageNumber' => $pageNumber['page'], 'memes' => $memes, 'pagesCount' => $pagesCount]);
+        $this->render('home', ['pageNumber' => $pageNumber['page'], 'memes' => $memes, 'ads' => $ads, 'pagesCount' => $pagesCount]);
     }
 
     public function addMemeForm()
