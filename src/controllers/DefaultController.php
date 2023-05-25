@@ -34,8 +34,8 @@ class DefaultController extends AppController
         $this->render('addMeme');
     }
 
-    public function profile()
+    public function addAd()
     {
-        $this->render('profile');
+        $this->render('addAd');
     }
 }
