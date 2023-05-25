@@ -44,6 +44,10 @@
   justify-content: space-between;
 }
 
+.meme-user-date-favorite h3, .meme-user-date-favorite h4 {
+  margin: 0;
+}
+
 .meme-user-avatar {
   width: 2.5rem;
   height: 2.5rem;
@@ -78,6 +82,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.meme-user-date h4 {
+  margin: 0;
 }
 
 .button {

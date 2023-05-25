@@ -6,8 +6,8 @@
     height: 100vh;
     width: 5rem;
     background-color: var(--grey-800);
-    border-top: 3rem solid var(--grey-900);
-    border-bottom: 3rem solid var(--grey-900);
+    border-top: 3rem solid var(--grey-800);
+    border-bottom: 3rem solid var(--grey-800);
     font-size: 1.2rem;
     color: var(--white-text);
 }
