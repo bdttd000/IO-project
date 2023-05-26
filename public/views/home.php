@@ -32,7 +32,7 @@ require_once "public/views/components/ads.php";
             echo Pagination('home', $pageNumber, $pagesCount);
             ?>
         </section>
-        <?php echo RecommendedMeme(); ?>
+        <?php echo RecommendedMeme(3, 3); ?>
     </main>
     <?php include("public/views/components/footer.php"); ?>
 </body>
