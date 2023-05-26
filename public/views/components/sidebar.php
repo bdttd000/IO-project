@@ -4,7 +4,7 @@
         <ul class="sidebar-icon-list">
             <li><a href="home"><img src="public/img/sidebar/home.svg" alt="home"></a></li>
             <li><a href="waiting-room"><img src="public/img/sidebar/waiting-room.svg" alt="waiting-room"></a></li>
-            <li><a href="random-meme"><img src="public/img/sidebar/random-meme.svg" alt="random-meme"></a></li>
+            <li><a href="meme"><img src="public/img/sidebar/random-meme.svg" alt="random-meme"></a></li>
             <?php
             if ($SessionController->isLogged()) {
                 echo '
@@ -48,7 +48,7 @@
         <ul class="sidebar-content-list">
             <li><a href="home">Główna</a></li>
             <li><a href="waiting-room">Poczekalnia</a></li>
-            <li><a href="random-meme">Losowy mem</a></li>
+            <li><a href="meme">Losowy mem</a></li>
             <?php
             if ($SessionController->isLogged()) {
                 echo '

@@ -14,7 +14,7 @@
             <ul class="navbar-list">
                 <li><a href="home">Główna</a></li>
                 <li><a href="waiting-room">Poczekalnia</a></li>
-                <li><a href="random-meme">Losowy mem</a></li>
+                <li><a href="meme">Losowy mem</a></li>
                 <?php
                 if ($SessionController->isLogged()) {
                     $userInfo = $userInfo ?: $SessionController->unserializeUser();
