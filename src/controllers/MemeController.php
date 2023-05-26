@@ -32,6 +32,21 @@ class MemeController extends AppController
         $this->render('home', ['pageNumber' => $pageNumber['page'], 'memes' => $memes, 'ads' => $ads, 'pagesCount' => $pagesCount]);
     }
 
+    public function meme($query = null)
+    {
+        if (!$query) {
+            $memeid = $this->memeRepository->getRandomMemeID();
+        } else {
+            parse_str($query, $memeid);
+            $memeid = $memeid['memeid'];
+        }
+
+        $ads = $this->adRepository->getAds(2);
+        $meme = $this->memeRepository->getMemeByID($memeid);
+
+        $this->render('meme', ['meme' => $meme, 'ads' => $ads]);
+    }
+
     public function addMemeForm()
     {
         if (

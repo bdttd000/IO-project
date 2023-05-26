@@ -13,3 +13,9 @@
 .button:hover {
     color: var(--primary)
 }
+
+.button-random-meme {
+    padding: 0.75rem 1rem;
+    background-color: var(--grey-300);
+    border-radius: 1rem;
+}

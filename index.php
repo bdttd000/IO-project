@@ -9,6 +9,7 @@ $query = parse_url($path, PHP_URL_QUERY);
 //MemeController
 Routing::get('', 'MemeController');
 Routing::get('home', 'MemeController');
+Routing::get('meme', 'MemeController');
 Routing::post('addMemeForm', 'MemeController');
 
 //AdController

@@ -5,10 +5,15 @@ $userInfo = $SessionController->unserializeUser();
 require_once __DIR__ . '/../../src/models/User.php';
 require_once __DIR__ . '/../../src/repository/MemeRepository.php';
 
-require_once "public/views/components/meme.php";
-require_once "public/views/components/pagination.php";
+require_once "public/views/components/memeSolo.php";
 require_once "public/views/components/recommendedMeme.php";
 require_once "public/views/components/ads.php";
+require_once "public/views/components/buttonRedirect.php";
+
+$getNextMeme = [
+    'link' => 'meme',
+    'value' => 'Losuj mema'
+];
 ?>
 
 <html lang="en">
@@ -25,14 +30,12 @@ require_once "public/views/components/ads.php";
     <main class="container flex flex-row" style="gap: 1.5rem">
         <?php echo Ads($ads); ?>
         <section class="meme-section flex flex-center flex-column">
-            <?php
-            foreach ($memes as $meme) {
-                echo Meme($meme);
-            }
-            echo Pagination('home', $pageNumber, $pagesCount);
-            ?>
+            <?php echo Meme($meme); ?>
+            <div class="drop-shadow button-random-meme">
+                <?php echo ButtonRedirect($getNextMeme); ?>
+            </div>
         </section>
-        <?php echo RecommendedMeme(3, 3); ?>
+        <?php echo RecommendedMeme(2, 0); ?>
     </main>
     <?php include("public/views/components/footer.php"); ?>
 </body>
