@@ -75,6 +75,35 @@ class MemeRepository extends Repository
         return $result;
     }
 
+    public function getMemeByID(int $memeid): ?Meme
+    {
+        $commentRepository = new CommentRepository();
+        $sessionController = new SessionController();
+        if ($sessionController->unserializeUser()) {
+            $executionerid = $sessionController->unserializeUser()->getUserID() ?: 0;
+        }
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM meme_main WHERE memeid = :memeid
+        ');
+        $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $meme = array_values($stmt->fetch(PDO::FETCH_ASSOC));
+
+        $comments = $commentRepository->getCommentsForMeme($memeid);
+        $likes = $this->getLikesForMeme($memeid);
+        if ($executionerid) {
+            $followed = $this->getFollowForMeme($memeid, $executionerid);
+        } else {
+            $followed = 0;
+        }
+
+        $memeArray = [...array_values($meme), $comments, $likes, $followed];
+
+        return new Meme(...$memeArray);
+    }
+
     public function memesCount(int $onlyEvaluated = 0, int $userid = 0): int
     {
         if ($userid) {
@@ -95,17 +124,16 @@ class MemeRepository extends Repository
         return $counted['count'];
     }
 
-    public function getMeme(int $memeid): ?Meme
+    public function getRandomMemeID(): int
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM meme_main WHERE memeid = :memeid
+            SELECT memeid FROM meme_main
+            ORDER BY RANDOM()
+            LIMIT 1
         ');
-        $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
         $stmt->execute();
 
-        $meme = array_values($stmt->fetch(PDO::FETCH_ASSOC));
-
-        return new Meme(...$meme);
+        return $stmt->fetch(PDO::FETCH_ASSOC)['memeid'];
     }
 
     public function getBestMemes(int $numberOfMemes, int $time = 30)
