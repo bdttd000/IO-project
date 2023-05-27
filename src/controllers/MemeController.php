@@ -41,7 +41,7 @@ class MemeController extends AppController
             $memeid = $memeid['memeid'];
         }
 
-        $ads = $this->adRepository->getAds(2);
+        $ads = $this->adRepository->getAds(1);
         $meme = $this->memeRepository->getMemeByID($memeid);
 
         $this->render('meme', ['meme' => $meme, 'ads' => $ads]);
