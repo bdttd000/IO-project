@@ -2,9 +2,6 @@
 $SessionController = new SessionController();
 $userInfo = $SessionController->unserializeUser();
 
-require_once __DIR__ . '/../../src/models/User.php';
-require_once __DIR__ . '/../../src/repository/MemeRepository.php';
-
 require_once "public/views/components/meme.php";
 require_once "public/views/components/pagination.php";
 require_once "public/views/components/recommendedMeme.php";
@@ -24,7 +21,7 @@ require_once "public/views/components/ads.php";
 
     <main class="container flex flex-row" style="gap: 1.5rem">
         <?php echo Ads($ads); ?>
-        <section class="meme-section flex flex-center flex-column">
+        <section class="meme-section flex flex-center-align flex-column">
             <?php
             foreach ($memes as $meme) {
                 echo Meme($meme);

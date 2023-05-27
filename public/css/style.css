@@ -45,6 +45,14 @@ main {
     display: flex;
 }
 
+.flex-center-justify {
+    justify-content: center;
+}
+
+.flex-center-align {
+    align-items: center;
+}
+
 .flex-center {
     justify-content: center;
     align-items: center;
@@ -64,6 +72,10 @@ ul {
 
 a {
     text-decoration: none;
+}
+
+a:link, a:visited {
+    color: inherit;
 }
 
 button {

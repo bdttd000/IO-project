@@ -11,24 +11,19 @@ function Meme(Meme $meme): string
     $userRepository = new UserRepository();
     $user = $userRepository->getUserById($meme->getUserID());
 
-    $buttonArray = [
-        'link' => 'meme?memeid=' . $meme->getMemeID(),
-        'value' => 'Zobacz więcej / Dodaj komentarz'
-    ];
-
     $output = '
     <div class="meme">
 
     <div class="meme-content">
     <div class="meme-title-and-likes">';
-    $output .= '<div class="meme-title drop-shadow"><h3 class="meme-title-content">';
+    $output .= '<div class="meme-title drop-shadow"><a href="meme?memeid=' . $meme->getMemeID() . '" class="a-link"><h3 class="meme-title-content">';
     $output .= $meme->getTitle();
-    $output .= '</h3></div>';
-    $output .= MemeLikes($meme->getLikes());
+    $output .= '</h3></a></div>';
+    $output .= MemeLikes($meme->getLikes(), $meme->getMemeID());
     $output .= '</div>';
 
     $output .= '<div class="meme-user-date-favorite">';
-    $output .= '<div class="meme-user-info">';
+    $output .= '<a href="profile?userid=' . $user->getUserID() . '" class="meme-user-info a-link">';
 
     $output .= '<img src="public/uploads/avatars/';
     $output .= ($user->getAvatarUrl()) ? $user->getAvatarUrl() : 'unknown.png';
@@ -37,7 +32,7 @@ function Meme(Meme $meme): string
     $output .= '<div class="meme-user-name"><h3>';
     $output .= $user->getNickname();
     $output .= '</h3></div>';
-    $output .= '</div>';
+    $output .= '</a>';
     $output .= '<div class="meme-date"><h3>';
     $output .= $meme->getCreationDate();
     $output .= '</h3></div>';

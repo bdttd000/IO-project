@@ -1,6 +1,6 @@
 <?php
 $SessionController = new SessionController;
-$userIsAuthenticated = $SessionController::isLogged() === "true";
+$userIsAuthenticated = $SessionController::isLogged();
 
 require_once "public/views/components/card.php";
 require_once "public/views/contents/statuteContent.php";
