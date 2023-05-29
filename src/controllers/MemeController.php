@@ -4,7 +4,6 @@ require_once 'AppController.php';
 require_once __DIR__ . '/../models/Meme.php';
 require_once __DIR__ . '/../repository/MemeRepository.php';
 require_once __DIR__ . '/../repository/AdRepository.php';
-require_once 'SessionController.php';
 
 class MemeController extends AppController
 {
@@ -73,6 +72,29 @@ class MemeController extends AppController
         );
 
         return $this->redirectToHome();
+    }
+
+    public function likesAction()
+    {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+        if ($contentType !== "application/json") {
+            return;
+        }
+
+        $content = trim(file_get_contents("php://input"));
+        [$action, $memeid] = json_decode($content, true);
+
+        if ($action === 'addLike') {
+            $output = $this->memeRepository->addLike(intval($memeid));
+        } else {
+            $output = $this->memeRepository->addDislike(intval($memeid));
+        }
+
+        header('Content-type: application/json');
+        http_response_code(200);
+
+        echo json_encode($output);
     }
 
     private function validateFile(array $file): bool

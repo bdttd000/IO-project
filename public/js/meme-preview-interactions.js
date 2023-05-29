@@ -2,7 +2,7 @@ const memeInput = document.getElementById('meme-input');
 const memePreview = document.getElementById('meme-preview');
 const button = document.querySelector(".custom-meme-input button");
 
-button.addEventListener("click", function() {
+button.addEventListener("click", function(event) {
     event.preventDefault();
     memeInput.click();
 });
