@@ -11,6 +11,7 @@ Routing::get('', 'MemeController');
 Routing::get('home', 'MemeController');
 Routing::get('meme', 'MemeController');
 Routing::post('addMemeForm', 'MemeController');
+Routing::post('likesAction', 'MemeController');
 
 //AdController
 Routing::post('addAdForm', 'AdController');
