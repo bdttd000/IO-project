@@ -8,11 +8,18 @@ require_once __DIR__ . '/../controllers/SessionController.php';
 
 class MemeRepository extends Repository
 {
+    private $sessionController;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->sessionController = new SessionController();
+    }
+
     public function addMeme(string $title, string $photoUrl, int $evaluated = 0, string $evaluationDate = '0001-01-01'): void
     {
         $memeID = $this->getNextId('meme_main', 'memeid');
-        $sessionController = new SessionController();
-        $userID = $sessionController->unserializeUser()->getUserID();
+        $userID = $this->sessionController->unserializeUser()->getUserID();
         $creationDate = new DateTime();
 
         $stmt = $this->database->connect()->prepare('
@@ -33,9 +40,8 @@ class MemeRepository extends Repository
     public function getMemes(int $pageNumber, int $numberOfMemes, int $onlyEvaluated, int $userid = 0): array
     {
         $commentRepository = new CommentRepository();
-        $sessionController = new SessionController();
-        if ($sessionController->unserializeUser()) {
-            $executionerid = $sessionController->unserializeUser()->getUserID() ?: 0;
+        if ($this->sessionController->unserializeUser()) {
+            $executionerid = $this->sessionController->unserializeUser()->getUserID() ?: 0;
         }
 
         $offset = ($pageNumber - 1) * $numberOfMemes;
@@ -78,9 +84,8 @@ class MemeRepository extends Repository
     public function getMemeByID(int $memeid): ?Meme
     {
         $commentRepository = new CommentRepository();
-        $sessionController = new SessionController();
-        if ($sessionController->unserializeUser()) {
-            $executionerid = $sessionController->unserializeUser()->getUserID() ?: 0;
+        if ($this->sessionController->unserializeUser()) {
+            $executionerid = $this->sessionController->unserializeUser()->getUserID() ?: 0;
         }
 
         $stmt = $this->database->connect()->prepare('
@@ -188,5 +193,145 @@ class MemeRepository extends Repository
         $stmt->execute();
 
         return $stmt->fetchColumn() ?: 0;
+    }
+
+    public function addLike($memeid): int
+    {
+        $isMemeEvaluated = $this->isMemeEvaluated($memeid);
+
+        if ($this->sessionController->unserializeUser()) {
+            $executionerid = $this->sessionController->unserializeUser()->getUserID() ?: 0;
+        } else {
+            return 0;
+        }
+
+        $value = $this->getLikeInfo($executionerid, $memeid);
+        $memeLikes = $this->getLikesForMeme($memeid);
+
+        if ($value === 0) {
+            $creationDate = new DateTime();
+            $stmt = $this->database->connect()->prepare('
+                INSERT INTO meme_like (likeid, memeid, userid, value, creationdate) VALUES (?, ?, ?, ?, ?)
+            ');
+            $stmt->execute([
+                $this->getNextId('meme_like', 'likeid'),
+                $memeid,
+                $executionerid,
+                1,
+                $creationDate->format('Y-m-d')
+            ]);
+
+            if (!$isMemeEvaluated && $memeLikes === 9) {
+                $this->evaluateMeme($memeid);
+            }
+
+            return 1;
+        } else if ($value === -1) {
+            $creationDate = new DateTime();
+            $stmt = $this->database->connect()->prepare('
+                UPDATE meme_like SET value = 1 WHERE memeid = :memeid AND userid = :userid
+                ');
+            $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+            $stmt->bindParam(':userid', $executionerid, PDO::PARAM_INT);
+            $stmt->execute();
+
+            if (!$isMemeEvaluated && $memeLikes === 8) {
+                $this->evaluateMeme($memeid);
+            }
+
+            return 2;
+        } else {
+            $stmt = $this->database->connect()->prepare('
+                DELETE FROM meme_like WHERE memeid = :memeid AND userid = :userid
+            ');
+            $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+            $stmt->bindParam(':userid', $executionerid, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return -1;
+        }
+    }
+
+    public function addDislike($memeid): int
+    {
+        if ($this->sessionController->unserializeUser()) {
+            $executionerid = $this->sessionController->unserializeUser()->getUserID() ?: 0;
+        } else {
+            return 0;
+        }
+
+        $value = $this->getLikeInfo($executionerid, $memeid);
+
+        if ($value === 0) {
+            $creationDate = new DateTime();
+            $stmt = $this->database->connect()->prepare('
+                INSERT INTO meme_like (likeid, memeid, userid, value, creationdate) VALUES (?, ?, ?, ?, ?)
+            ');
+            $stmt->execute([
+                $this->getNextId('meme_like', 'likeid'),
+                $memeid,
+                $executionerid,
+                -1,
+                $creationDate->format('Y-m-d')
+            ]);
+
+            return -1;
+        } else if ($value === 1) {
+            $creationDate = new DateTime();
+            $stmt = $this->database->connect()->prepare('
+                UPDATE meme_like SET value = -1 WHERE memeid = :memeid AND userid = :userid
+            ');
+            $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+            $stmt->bindParam(':userid', $executionerid, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return -2;
+        } else {
+            $stmt = $this->database->connect()->prepare('
+                DELETE FROM meme_like WHERE memeid = :memeid AND userid = :userid
+            ');
+            $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+            $stmt->bindParam(':userid', $executionerid, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return 1;
+        }
+    }
+
+    public function getLikeInfo($userid, $memeid): int
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT value FROM meme_like WHERE memeid=:memeid AND userid=:userid;
+        ');
+
+        $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+        $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC)['value'] ?: 0;
+    }
+
+    public function evaluateMeme($memeid): void
+    {
+        $creationDate = new DateTime();
+        $creationDate = $creationDate->format('Y-m-d');
+
+        $stmt = $this->database->connect()->prepare('
+            UPDATE meme_main SET evaluated = true, evaluationdate = :creationdate WHERE memeid = :memeid
+        ');
+        $stmt->bindParam(':creationdate', $creationDate, PDO::PARAM_INT);
+        $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function isMemeEvaluated($memeid)
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT evaluated FROM meme_main WHERE memeid = :memeid
+        ');
+        $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC)['evaluated'] ?: false;
     }
 }
