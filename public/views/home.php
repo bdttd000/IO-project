@@ -12,6 +12,7 @@ require_once "public/views/components/ads.php";
 
 <head>
     <?php include("public/views/components/headImports.php"); ?>
+    <script src="public/js/meme-interactions.js" defer></script>
     <title>Główna</title>
 </head>
 

@@ -44,6 +44,7 @@ $cardArray = [
 
 <head>
     <?php include("public/views/components/headImports.php"); ?>
+    <script src="public/js/meme-preview-interactions.js" defer></script>
     <title>Dodaj mema</title>
 </head>
 
@@ -51,7 +52,7 @@ $cardArray = [
     <?php include("public/views/components/navbar.php"); ?>
     <?php include("public/views/components/sidebar.php"); ?>
     <main class="container flex flex-center flex-column">
-            <?php echo Card($cardArray) ?>
+        <?php echo Card($cardArray) ?>
     </main>
     <?php include("public/views/components/footer.php"); ?>
 </body>

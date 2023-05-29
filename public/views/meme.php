@@ -17,7 +17,8 @@ $getNextMeme = [
 
 <head>
     <?php include("public/views/components/headImports.php"); ?>
-    <title>Główna</title>
+    <script src="public/js/meme-interactions.js" defer></script>
+    <title>Memy</title>
 </head>
 
 <body>
