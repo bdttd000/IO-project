@@ -4,6 +4,7 @@ require_once 'AppController.php';
 require_once __DIR__ . '/../models/Meme.php';
 require_once __DIR__ . '/../repository/MemeRepository.php';
 require_once __DIR__ . '/../repository/AdRepository.php';
+require_once 'SessionController.php';
 
 class MemeController extends AppController
 {
@@ -56,6 +57,32 @@ class MemeController extends AppController
         $ads = $this->adRepository->getAds(5);
         $pagesCount = ceil($this->memeRepository->memesCount(0, $userid) / $this->memesPerPage);
         $this->render('userMemes', ['pageNumber' => $page, 'memes' => $memes, 'ads' => $ads, 'pagesCount' => $pagesCount, 'userid' => $userid]);
+    }
+
+    public function favorites($query = 'page=1')
+    {
+        parse_str($query, $query);
+        $page = intval($query['page']);
+
+        $sessionController = new SessionController();
+        $userInfo = $sessionController->unserializeUser();
+        if (!$userInfo || !$userInfo->getUserID()) {
+            $this->render('login');
+        }
+
+        $userid = $userInfo->getUserID();
+
+        $followedMemes = $this->memeRepository->getFollowedMemesIds($userid);
+
+        $memes = [];
+        foreach ($followedMemes as $memeid) {
+            array_push($memes, $this->memeRepository->getMemeByID($memeid));
+        }
+
+        $memes = array_slice($memes, $page * 10 - 10, 10);
+
+        $pagesCount = ceil(count($followedMemes) / $this->memesPerPage);
+        $this->render('favorites', ['pageNumber' => $page, 'memes' => $memes, 'pagesCount' => $pagesCount, 'userid' => $userid]);
     }
 
     public function meme($query = null)

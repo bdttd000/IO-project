@@ -4,6 +4,10 @@ require_once 'paginationButton.php';
 
 function Pagination(string $pageName, int $pageNumber, int $pageCount, int $userid = 0): string
 {
+    if ($pageCount === 0) {
+        return '';
+    }
+
     $userid = $userid !== 0 ? 'userid=' . $userid . '&' : '';
 
     $previousPage = [
