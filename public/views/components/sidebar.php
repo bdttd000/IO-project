@@ -9,7 +9,7 @@
             if ($SessionController->isLogged()) {
                 echo '
                 <li><a href="favorites"><img src="public/img/sidebar/favorites.svg" alt="favorites"></a></li>
-                <li><a href="add-meme"><img src="public/img/sidebar/add-meme.svg" alt="add-meme"></a></li>
+                <li><a href="addMeme"><img src="public/img/sidebar/add-meme.svg" alt="add-meme"></a></li>
                 ';
             }
             ?>
@@ -53,7 +53,7 @@
             if ($SessionController->isLogged()) {
                 echo '
                 <li><a href="favorites">Ulubione</a></li>
-                <li><a href="add-meme">Dodaj mema</a></li>
+                <li><a href="addMeme">Dodaj mema</a></li>
                 ';
             }
             ?>
