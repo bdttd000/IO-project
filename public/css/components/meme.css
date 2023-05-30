@@ -95,6 +95,7 @@
 
 .meme-favorite-button {
   transition: color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
 .meme-favorite-button:hover {

@@ -25,7 +25,7 @@ $buttonRedirectMyMemes = [
 ];
 
 $buttonRedirectEditProfile = [
-    'link' => 'editprofile',
+    'link' => 'editProfile',
     'value' => 'Edytuj profil',
 ];
 

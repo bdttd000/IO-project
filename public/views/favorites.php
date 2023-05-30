@@ -2,6 +2,10 @@
 $SessionController = new SessionController();
 $userInfo = $SessionController->unserializeUser();
 
+if ($SessionController::isLogged() === false) {
+    $SessionController->redirectToHome();
+}
+
 require_once "public/views/components/meme.php";
 require_once "public/views/components/pagination.php";
 require_once "public/views/components/recommendedMeme.php";
