@@ -30,4 +30,9 @@ class UserController extends AppController
 
         $this->render('profile', ['userid' => $userid['userid'], 'user' => $user]);
     }
+
+    public function editProfile()
+    {
+        $this->render('editProfile');
+    }
 }
