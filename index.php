@@ -12,6 +12,7 @@ Routing::get('home', 'MemeController');
 Routing::get('waitingRoom', 'MemeController');
 Routing::get('userMemes', 'MemeController');
 Routing::get('meme', 'MemeController');
+Routing::get('favorites', 'MemeController');
 Routing::post('addMemeForm', 'MemeController');
 Routing::post('likesAction', 'MemeController');
 Routing::post('favoritesAction', 'MemeController');
