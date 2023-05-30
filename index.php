@@ -10,6 +10,7 @@ $query = parse_url($path, PHP_URL_QUERY);
 Routing::get('', 'MemeController');
 Routing::get('home', 'MemeController');
 Routing::get('waitingRoom', 'MemeController');
+Routing::get('userMemes', 'MemeController');
 Routing::get('meme', 'MemeController');
 Routing::post('addMemeForm', 'MemeController');
 Routing::post('likesAction', 'MemeController');
