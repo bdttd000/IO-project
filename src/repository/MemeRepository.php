@@ -44,19 +44,26 @@ class MemeRepository extends Repository
             $executionerid = $this->sessionController->unserializeUser()->getUserID() ?: 0;
         }
 
-        $offset = ($pageNumber - 1) * $numberOfMemes;
+        $useridQuery = $userid ? 'WHERE userid = :userid ' : '';
 
-        if ($userid) {
-            $stmt = $this->database->connect()->prepare('
-            SELECT * FROM meme_main WHERE userid = :userid ORDER BY memeid DESC OFFSET :offset ROWS FETCH NEXT :numberofmemes ROWS ONLY
-            ');
-            $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+        // 0: evaluated = true/false, 1: evaluated = true, 2: evaluated = false
+        if ($onlyEvaluated === 1) {
+            $evaluatedQuery = $userid ? 'AND evaluated = true' : 'WHERE evaluated = true';
+        } else if ($onlyEvaluated === 2) {
+            $evaluatedQuery = $userid ? 'AND evaluated = false' : 'WHERE evaluated = false';
         } else {
-            $stmt = $this->database->connect()->prepare('
-            SELECT * FROM meme_main ORDER BY memeid DESC OFFSET :offset ROWS FETCH NEXT :numberofmemes ROWS ONLY
-            ');
+            $evaluatedQuery = '';
         }
 
+        $offset = ($pageNumber - 1) * $numberOfMemes;
+
+        $stmt = $this->database->connect()->prepare('
+        SELECT * FROM meme_main ' . $useridQuery . $evaluatedQuery . ' ORDER BY memeid DESC OFFSET :offset ROWS FETCH NEXT :numberofmemes ROWS ONLY
+        ');
+
+        if ($userid) {
+            $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+        }
         $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
         $stmt->bindParam(':numberofmemes', $numberOfMemes, PDO::PARAM_INT);
         $stmt->execute();
@@ -111,17 +118,24 @@ class MemeRepository extends Repository
 
     public function memesCount(int $onlyEvaluated = 0, int $userid = 0): int
     {
-        if ($userid) {
-            $stmt = $this->database->connect()->prepare('
-            SELECT COUNT(*) FROM meme_main WHERE userid = :userid
-            ');
-            $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+        $useridQuery = $userid ? 'WHERE userid = :userid ' : '';
+
+        // 0: evaluated = true/false, 1: evaluated = true, 2: evaluated = false
+        if ($onlyEvaluated === 1) {
+            $evaluatedQuery = $userid ? 'AND evaluated = true' : 'WHERE evaluated = true';
+        } else if ($onlyEvaluated === 2) {
+            $evaluatedQuery = $userid ? 'AND evaluated = false' : 'WHERE evaluated = false';
         } else {
-            $stmt = $this->database->connect()->prepare('
-            SELECT COUNT(*) FROM meme_main
-            ');
+            $evaluatedQuery = '';
         }
 
+        $stmt = $this->database->connect()->prepare('
+            SELECT COUNT(*) FROM meme_main ' . $useridQuery . $evaluatedQuery
+        );
+
+        if ($userid) {
+            $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+        }
         $stmt->execute();
 
         $counted = $stmt->fetch(PDO::FETCH_ASSOC);

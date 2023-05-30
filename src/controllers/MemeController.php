@@ -25,10 +25,21 @@ class MemeController extends AppController
     public function home($query = 'page=1')
     {
         parse_str($query, $pageNumber);
-        $memes = $this->memeRepository->getMemes(intval($pageNumber['page']), $this->memesPerPage, 0);
+        $evaluated = 1;
+        $memes = $this->memeRepository->getMemes(intval($pageNumber['page']), $this->memesPerPage, $evaluated);
         $ads = $this->adRepository->getAds(5);
-        $pagesCount = ceil($this->memeRepository->memesCount() / $this->memesPerPage);
+        $pagesCount = ceil($this->memeRepository->memesCount($evaluated) / $this->memesPerPage);
         $this->render('home', ['pageNumber' => $pageNumber['page'], 'memes' => $memes, 'ads' => $ads, 'pagesCount' => $pagesCount]);
+    }
+
+    public function waitingRoom($query = 'page=1')
+    {
+        parse_str($query, $pageNumber);
+        $evaluated = 2;
+        $memes = $this->memeRepository->getMemes(intval($pageNumber['page']), $this->memesPerPage, $evaluated);
+        $ads = $this->adRepository->getAds(5);
+        $pagesCount = ceil($this->memeRepository->memesCount($evaluated) / $this->memesPerPage);
+        $this->render('waitingRoom', ['pageNumber' => $pageNumber['page'], 'memes' => $memes, 'ads' => $ads, 'pagesCount' => $pagesCount]);
     }
 
     public function meme($query = null)
