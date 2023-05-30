@@ -162,7 +162,10 @@ class MemeRepository extends Repository
     public function deleteMeme(int $memeid): void
     {
         $stmt = $this->database->connect()->prepare('
-            DELETE FROM meme_main WHERE memeid = :memeid
+            DELETE FROM meme_main WHERE memeid = :memeid;
+            DELETE FROM meme_like WHERE memeid = :memeid;
+            DELETE FROM meme_comment WHERE memeid = :memeid;
+            DELETE FROM user_follow WHERE memeid = :memeid;
         ');
         $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
         $stmt->execute();
