@@ -26,16 +26,19 @@ $addMemeAndPreview = '
 
 $inputMemeName = [
     'type' => 'text',
+    'name' => 'title',
     'placeholder' => 'Nazwa mema'
 ];
 
 $formContent = [
-    'content' => Input($inputMemeName) . $addMemeAndPreview
+    'action' => 'addMemeForm',
+    'method' => 'POST',
+    'content' => Input($inputMemeName) . $addMemeAndPreview . Button($addMemeButtonArray)
 ];
 
 $cardArray = [
     'title' => 'Dodaj mema',
-    'content' => Form($formContent) . Button($addMemeButtonArray)
+    'content' => Form($formContent)
 ];
 
 ?>

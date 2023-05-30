@@ -4,6 +4,8 @@
 }
 
 .meme-likes {
+  display: flex;
+  align-items: center;
   background-color: var(--grey-300);
   color: var(--black-text);
   flex: 1;

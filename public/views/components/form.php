@@ -6,7 +6,7 @@ function Form($content): string
         $content['action']
         . "' method='" .
         $content['method']
-        . "'>";
+        . "' enctype='multipart/form-data'>";
 
     $output .= $content['content'];
 
