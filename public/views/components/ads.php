@@ -4,7 +4,7 @@ require_once 'src/models/Ad.php';
 
 function Ads($ads): string
 {
-    $output = '<aside class="recommended-memes-aside flex flex-column">';
+    $output = '<aside class="recommended-memes-aside flex flex-column left-aside">';
 
     foreach ($ads as $ad) {
         $output .= '<div class="recommended-meme-sticky"><div class="recommended-memes flex flex-center flex-column">';
