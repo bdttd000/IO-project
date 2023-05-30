@@ -13,7 +13,7 @@
             </div>
             <ul class="navbar-list">
                 <li><a href="home">Główna</a></li>
-                <li><a href="waiting-room">Poczekalnia</a></li>
+                <li><a href="waitingRoom">Poczekalnia</a></li>
                 <li><a href="meme">Losowy mem</a></li>
                 <?php
                 if ($SessionController->isLogged()) {
