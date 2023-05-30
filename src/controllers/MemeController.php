@@ -24,22 +24,38 @@ class MemeController extends AppController
 
     public function home($query = 'page=1')
     {
-        parse_str($query, $pageNumber);
+        parse_str($query, $query);
+        $page = intval($query['page']);
         $evaluated = 1;
-        $memes = $this->memeRepository->getMemes(intval($pageNumber['page']), $this->memesPerPage, $evaluated);
+
+        $memes = $this->memeRepository->getMemes($page, $this->memesPerPage, $evaluated);
         $ads = $this->adRepository->getAds(5);
         $pagesCount = ceil($this->memeRepository->memesCount($evaluated) / $this->memesPerPage);
-        $this->render('home', ['pageNumber' => $pageNumber['page'], 'memes' => $memes, 'ads' => $ads, 'pagesCount' => $pagesCount]);
+        $this->render('home', ['pageNumber' => $page, 'memes' => $memes, 'ads' => $ads, 'pagesCount' => $pagesCount]);
     }
 
     public function waitingRoom($query = 'page=1')
     {
-        parse_str($query, $pageNumber);
+        parse_str($query, $query);
+        $page = intval($query['page']);
         $evaluated = 2;
-        $memes = $this->memeRepository->getMemes(intval($pageNumber['page']), $this->memesPerPage, $evaluated);
+
+        $memes = $this->memeRepository->getMemes($page, $this->memesPerPage, $evaluated);
         $ads = $this->adRepository->getAds(5);
         $pagesCount = ceil($this->memeRepository->memesCount($evaluated) / $this->memesPerPage);
-        $this->render('waitingRoom', ['pageNumber' => $pageNumber['page'], 'memes' => $memes, 'ads' => $ads, 'pagesCount' => $pagesCount]);
+        $this->render('waitingRoom', ['pageNumber' => $page, 'memes' => $memes, 'ads' => $ads, 'pagesCount' => $pagesCount]);
+    }
+
+    public function userMemes($query = 'userid=1&page=1')
+    {
+        parse_str($query, $query);
+        $userid = intval($query['userid']);
+        $page = intval($query['page']);
+
+        $memes = $this->memeRepository->getMemes($page, $this->memesPerPage, 0, $userid);
+        $ads = $this->adRepository->getAds(5);
+        $pagesCount = ceil($this->memeRepository->memesCount(0, $userid) / $this->memesPerPage);
+        $this->render('userMemes', ['pageNumber' => $page, 'memes' => $memes, 'ads' => $ads, 'pagesCount' => $pagesCount, 'userid' => $userid]);
     }
 
     public function meme($query = null)

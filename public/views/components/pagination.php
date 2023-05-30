@@ -2,8 +2,10 @@
 
 require_once 'paginationButton.php';
 
-function Pagination(string $pageName, int $pageNumber, int $pageCount): string
+function Pagination(string $pageName, int $pageNumber, int $pageCount, int $userid = 0): string
 {
+    $userid = $userid !== 0 ? 'userid=' . $userid . '&' : '';
+
     $previousPage = [
         'link' => $pageName . '?page=' . ($pageNumber - 1),
         'value' => '<img src="public/img/sidebar/arrow-left.svg" alt="arrow-left">',
@@ -20,7 +22,7 @@ function Pagination(string $pageName, int $pageNumber, int $pageCount): string
     ];
 
     $randomPage = [
-        'link' => $pageName . '?page=' . rand(1, $pageCount),
+        'link' => $pageName . '?' . $userid . 'page=' . rand(1, $pageCount),
         'value' => '<img src="public/img/sidebar/random-meme.svg" alt="random-meme">',
     ];
 

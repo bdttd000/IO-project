@@ -20,7 +20,7 @@ $cardArray = [
 ];
 
 $buttonRedirectMyMemes = [
-    'link' => 'usermemes',
+    'link' => 'userMemes?userid=' . $user->getUserID() . '&page=1',
     'value' => 'Moje memy',
 ];
 
@@ -40,7 +40,7 @@ $buttonRedirectCreateMeme = [
 ];
 
 $buttonRedirectUserMemes = [
-    'link' => 'usermemes',
+    'link' => 'userMemes?userid=' . $user->getUserID() . '&page=1',
     'value' => 'Memy użytkownika',
 ];
 
