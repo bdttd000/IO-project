@@ -14,61 +14,50 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .meme-section {
-        flex: 6;
+    .left-aside {
+        display: none !important;
     }
 
-    .left-aside {
-        flex: 1;
-        margin-left: 5rem;
+    .meme-section {
+        flex: 6;
+        margin-left: 7rem;
     }
 
     .recommended-memes-aside {
         flex: 3;
+        margin-right: 2rem;
     }
 }
 
 @media screen and (max-width: 900px) {
     .meme-section {
-        flex: 6;
-    }
-
-    .recommended-memes-aside {
         flex: 2;
     }
 
-    .left-aside {
+    .recommended-memes-aside {
         flex: 1;
     }
 }
 
 @media screen and (max-width: 768px) {
     .meme-section {
-        flex: 6;
+        flex: 1;
+        margin: 0 3rem 0 8rem;
     }
 
     .recommended-memes-aside {
-        flex: 1;
-        opacity: 0;
-    }
-
-    .left-aside {
-        flex: 1;
-        opacity: 0;
+        display: none !important;
     }
 }
 
 @media screen and (max-width: 600px) {
     .meme-section {
-        flex: 6;
+        margin: 1rem;
     }
+}
 
-    .left-aside {
-        width: 0%;
-        margin-left: 0;
-    }
-
-    .recommended-memes-aside {
-        width: 0%;
+@media screen and (max-width: 476px) {
+    .meme-section {
+        margin: 0.5rem;
     }
 }

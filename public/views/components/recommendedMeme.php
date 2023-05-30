@@ -8,7 +8,7 @@ function RecommendedMeme(int $numberOfWeekMemes = 3, int $numberOfMonthMemes = 3
     $bestWeek = $memeRepository->getBestMemes($numberOfWeekMemes, 7);
     $bestMonth = $memeRepository->getBestMemes($numberOfMonthMemes, 30);
 
-    $output = '<aside class="recommended-memes-aside flex flex-column">';
+    $output = '<aside class="right-aside recommended-memes-aside flex flex-column">';
 
     if ($numberOfWeekMemes > 0) {
         $output .= '<div class="recommended-meme-sticky"><div class="recommended-memes flex flex-center flex-column">';
