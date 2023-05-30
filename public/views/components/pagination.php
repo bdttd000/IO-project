@@ -38,7 +38,10 @@ function Pagination(string $pageName, int $pageNumber, int $pageCount, int $user
         $output .= PaginationButton($nextPage);
     }
 
-    $output .= PaginationButton($randomPage);
+    if ($pageCount !== 1) {
+        $output .= PaginationButton($randomPage);
+    }
+
 
     $output .= '</div>';
 
