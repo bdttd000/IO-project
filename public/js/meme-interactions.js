@@ -1,9 +1,23 @@
-const heart = document.getElementById("meme-favorite-button");
+const hearts = document.getElementsByClassName("meme-favorite-button");
 
-heart.addEventListener("click", () => {
-    if (heart.innerHTML == '\u2661') {
-        heart.innerHTML = '\u2665';
-    } else {
-        heart.innerHTML = '\u2661';
-        }
-});
+for (const heart of hearts) {
+    heart.addEventListener("click", () => {
+        const data = heart.dataset.memeId;
+
+        console.log('xD');
+
+        fetch("/favoritesAction", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then((response) => {
+            return response.json()
+        }).then((result) => {
+            console.log(result);
+            heart.style.color = result;
+        });
+    });
+}
+

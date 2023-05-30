@@ -202,14 +202,14 @@ class MemeRepository extends Repository
     public function getFollowForMeme(int $memeid, int $userid): int
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM user_follow WHERE memeid = :memeid AND userid = :userid
+            SELECT followid FROM user_follow WHERE memeid = :memeid AND userid = :userid
         ');
 
         $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
         $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
         $stmt->execute();
 
-        return $stmt->fetchColumn() ?: 0;
+        return $stmt->fetch(PDO::FETCH_ASSOC)['followid'] ? 1 : 0;
     }
 
     public function addLike($memeid): int
@@ -326,6 +326,54 @@ class MemeRepository extends Repository
         $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_ASSOC)['value'] ?: 0;
+    }
+
+    public function addFavorites($memeid): string
+    {
+        if ($this->sessionController->unserializeUser()) {
+            $executionerid = $this->sessionController->unserializeUser()->getUserID() ?: 0;
+        } else {
+            return 'black';
+        }
+
+        $isFollowed = $this->getInfoFavorites($memeid, $executionerid);
+
+        if ($isFollowed) {
+            $stmt = $this->database->connect()->prepare('
+                DELETE FROM user_follow WHERE memeid = :memeid AND userid = :userid
+            ');
+            $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+            $stmt->bindParam(':userid', $executionerid, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return 'black';
+        } else {
+            $creationDate = new DateTime();
+            $stmt = $this->database->connect()->prepare('
+                INSERT INTO user_follow (followid, memeid, userid, creationdate) VALUES (?, ?, ?, ?)
+            ');
+            $stmt->execute([
+                $this->getNextId('user_follow', 'followid'),
+                $memeid,
+                $executionerid,
+                $creationDate->format('Y-m-d')
+            ]);
+
+            return 'red';
+        }
+    }
+
+    public function getInfoFavorites($memeid, $userid): int
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT followid FROM user_follow WHERE memeid=:memeid AND userid=:userid;
+        ');
+
+        $stmt->bindParam(':memeid', $memeid, PDO::PARAM_INT);
+        $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC)['followid'] ? 1 : 0;
     }
 
     public function evaluateMeme($memeid): void

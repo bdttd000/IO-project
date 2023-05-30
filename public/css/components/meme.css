@@ -93,11 +93,13 @@
   margin: 0 auto;
 }
 
-/* @media screen and (max-width: 1024px) {
-  .meme {
-    width: 80%;
-  }
-} */
+.meme-favorite-button {
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.meme-favorite-button:hover {
+  transform: scale(1.2);
+}
 
 @media screen and (max-width: 900px) {
   .meme {

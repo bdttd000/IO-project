@@ -124,6 +124,25 @@ class MemeController extends AppController
         echo json_encode($output);
     }
 
+    public function favoritesAction()
+    {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+        if ($contentType !== "application/json") {
+            return;
+        }
+
+        $content = trim(file_get_contents("php://input"));
+        $memeid = json_decode($content, true);
+
+        $output = $this->memeRepository->addFavorites(intval($memeid));
+
+        header('Content-type: application/json');
+        http_response_code(200);
+
+        echo json_encode($output);
+    }
+
     private function validateFile(array $file): bool
     {
         if ($file['size'] > self::MAX_FILE_SIZE) {
