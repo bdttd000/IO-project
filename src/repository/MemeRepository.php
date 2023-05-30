@@ -212,6 +212,24 @@ class MemeRepository extends Repository
         return $stmt->fetch(PDO::FETCH_ASSOC)['followid'] ? 1 : 0;
     }
 
+    public function getFollowedMemesIds($userid): array
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT followid, memeid FROM user_follow WHERE userid = :userid ORDER BY followid DESC
+        ');
+
+        $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+        $stmt->execute();
+
+
+        $result = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($result, $row['memeid']);
+        }
+
+        return $result;
+    }
+
     public function addLike($memeid): int
     {
         $isMemeEvaluated = $this->isMemeEvaluated($memeid);

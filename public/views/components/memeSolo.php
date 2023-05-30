@@ -11,6 +11,8 @@ function Meme(Meme $meme): string
     $userRepository = new UserRepository();
     $user = $userRepository->getUserById($meme->getUserID());
 
+    $heartColor = $meme->getFollowed() ? 'red' : 'black';
+
     $output = '
     <div class="meme">
 
@@ -36,7 +38,7 @@ function Meme(Meme $meme): string
     $output .= '<div class="meme-date"><h3>';
     $output .= $meme->getCreationDate();
     $output .= '</h3></div>';
-    $output .= '<p id="meme-favorite-button">&#9825</p>';
+    $output .= '<i data-meme-id="' . $meme->getMemeID() . '" class="fa fa-heart meme-favorite-button" style="font-size: 1.5rem; color:' . $heartColor . '"></i>';
     $output .= '</div>';
 
     $output .= '<div class="meme-photo-container">';
