@@ -16,6 +16,7 @@ Routing::get('favorites', 'MemeController');
 Routing::post('addMemeForm', 'MemeController');
 Routing::post('likesAction', 'MemeController');
 Routing::post('favoritesAction', 'MemeController');
+Routing::post('validateComment', 'MemeController');
 
 //AdController
 Routing::post('addAdForm', 'AdController');

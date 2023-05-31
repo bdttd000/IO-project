@@ -18,6 +18,7 @@ $getNextMeme = [
 <head>
     <?php include("public/views/components/headImports.php"); ?>
     <script src="public/js/meme-interactions.js" defer></script>
+    <script src="public/js/add-comment.js" defer></script>
     <title>Memy</title>
 </head>
 
@@ -35,6 +36,24 @@ $getNextMeme = [
         </section>
         <?php echo RecommendedMeme(2, 0); ?>
     </main>
+
+    <template id="meme-comment">
+        <div class="meme-comment-new">
+            <div class="meme-user-date">
+                <div class="meme-user-info flex flex-row">
+                    <img src="" class="comment-user-avatar">
+                    <div class="comment-user-name">
+                        <h4></h4>
+                    </div>
+                </div>
+                <div class="comment-meme-date">
+                    <h4></h4>
+                </div>
+            </div>
+            <p class="meme-comment-content"></p>
+        </div>
+    </template>
+
     <?php include("public/views/components/footer.php"); ?>
 </body>
 
