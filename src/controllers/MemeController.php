@@ -4,6 +4,7 @@ require_once 'AppController.php';
 require_once __DIR__ . '/../models/Meme.php';
 require_once __DIR__ . '/../repository/MemeRepository.php';
 require_once __DIR__ . '/../repository/AdRepository.php';
+require_once __DIR__ . '/../repository/CommentRepository.php';
 require_once 'SessionController.php';
 
 class MemeController extends AppController
@@ -14,6 +15,8 @@ class MemeController extends AppController
     private static $messages = [];
     private $memeRepository;
     private $adRepository;
+    private $sessionController;
+    private $commentRepository;
     private $memesPerPage = 10;
 
     public function __construct()
@@ -21,6 +24,8 @@ class MemeController extends AppController
         parent::__construct();
         $this->adRepository = new AdRepository();
         $this->memeRepository = new MemeRepository();
+        $this->commentRepository = new CommentRepository();
+        $this->sessionController = new SessionController();
     }
 
     public function home($query = 'page=1')
@@ -64,8 +69,7 @@ class MemeController extends AppController
         parse_str($query, $query);
         $page = intval($query['page']);
 
-        $sessionController = new SessionController();
-        $userInfo = $sessionController->unserializeUser();
+        $userInfo = $this->sessionController->unserializeUser();
         if (!$userInfo || !$userInfo->getUserID()) {
             $this->render('login');
         }
@@ -163,6 +167,33 @@ class MemeController extends AppController
         $memeid = json_decode($content, true);
 
         $output = $this->memeRepository->addFavorites(intval($memeid));
+
+        header('Content-type: application/json');
+        http_response_code(200);
+
+        echo json_encode($output);
+    }
+
+    public function validateComment()
+    {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+        if ($contentType !== "application/json") {
+            return;
+        }
+
+        if ($userInfo = $this->sessionController->unserializeUser()) {
+            $executionerid = $userInfo->getUserID() ?: 0;
+        } else {
+            return;
+        }
+
+        $content = trim(file_get_contents("php://input"));
+        [$memeid, $content] = json_decode($content, true);
+
+        $output = $this->commentRepository->addComment(intval($memeid), $executionerid, $content);
+        $output['usernickname'] = $userInfo->getNickname();
+        $output['useravatar'] = $userInfo->getAvatarUrl();
 
         header('Content-type: application/json');
         http_response_code(200);

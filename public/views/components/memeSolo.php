@@ -6,12 +6,27 @@ require_once "public/views/components/memeComment.php";
 require_once "src/models/Meme.php";
 require_once "src/repository/UserRepository.php";
 
+require_once 'input.php';
+require_once 'button.php';
+require_once 'form.php';
+
 function Meme(Meme $meme): string
 {
     $userRepository = new UserRepository();
     $user = $userRepository->getUserById($meme->getUserID());
 
     $heartColor = $meme->getFollowed() ? 'red' : 'black';
+
+    $inputArray = [
+        'type' => 'text',
+        'name' => 'comment',
+        'placeholder' => 'Dodaj komentarz'
+    ];
+
+    $buttonArray = [
+        'type' => 'submit',
+        'value' => 'Dodaj'
+    ];
 
     $output = '
     <div class="meme">
@@ -45,7 +60,7 @@ function Meme(Meme $meme): string
     $output .= '<img class="meme-photo drop-shadow" src="public/uploads/memes/' . $meme->getPhotoUrl() . '">';
     $output .= '</div>';
 
-    $output .= '<div>';
+    $output .= '<div id="comments-section">';
 
     $counter = 1;
     foreach ($meme->getComments() as $comment) {
@@ -55,6 +70,10 @@ function Meme(Meme $meme): string
     $output .= '</div>';
 
     //TODO: ADD FORM TO ADD COMMENT AND FAKE IT WITH JS
+
+    $output .= '<div class="meme-solo-comment" data-meme-id="' . $meme->getMemeID() . '">';
+    $output .= Input($inputArray) . Button($buttonArray);
+    $output .= '</div>';
 
     $output .= '</div></div>';
 
