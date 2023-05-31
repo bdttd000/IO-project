@@ -32,6 +32,7 @@ $formContent = [
     'action' => 'checkLogin',
     'method' => 'POST',
     'content' => Input($inputEmail) . Input($inputPassword) . Button($button),
+    'id' => 'login-form'
 ];
 
 if (isset($messages['error'])) {
@@ -66,6 +67,7 @@ $cardArray = [
 
 <head>
     <?php include("public/views/components/headImports.php"); ?>
+    <script src="public/js/login-validation.js" defer></script>
     <title>Logowanie</title>
 </head>
 
