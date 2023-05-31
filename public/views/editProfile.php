@@ -29,12 +29,12 @@ $addMemeAndPreview = '
     '. Button($changeAvatarButtonArray) . '
     </label>
     <input type="file" name="avatar" accept=".jpg, .jpeg" id="avatar-input">
-    <img id="avatar-preview" class="avatar-preview" src="#" alt="Podgląd" style="display: none";>';
+    ';
     
-
 $inputProfileDescription = [
     'name' => 'message',
-    'value' => 'testtesttest'
+    'value' => 'testtesttest',
+    'id' => 'edit-profile-textarea'
 ];
 
 $cardArrayDescription = '<div class="profile-upper">'
@@ -42,7 +42,7 @@ $cardArrayDescription = '<div class="profile-upper">'
     . AvatarPofile()
     . '</div>'
     . $addMemeAndPreview
-    . '</div><h4 class="profile-description">'
+    . '</div><h4 class="edit-profile-description">'
     . Textarea($inputProfileDescription) . '</h4>';
 
 $formContent = [
