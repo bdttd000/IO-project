@@ -43,6 +43,7 @@ passwordInput.addEventListener('input', function() {
     passwordInput.classList.add('input-error');
   } else {
     passwordInput.classList.remove('input-error');
+    passwordInput.classList.add('input-success');
   }
 });
 
@@ -53,6 +54,7 @@ nicknameInput.addEventListener('input', function() {
       nicknameInput.classList.add('input-error');
     } else {
       nicknameInput.classList.remove('input-error');
+      nicknameInput.classList.add('input-success');
     }
   });
   
@@ -64,6 +66,7 @@ nicknameInput.addEventListener('input', function() {
       password2Input.classList.add('input-error');
     } else {
       password2Input.classList.remove('input-error');
+      password2Input.classList.add('input-success');
     }
   });
 
@@ -75,5 +78,6 @@ nicknameInput.addEventListener('input', function() {
       emailInput.classList.add('input-error');
     } else {
       emailInput.classList.remove('input-error');
+      emailInput.classList.add('input-success');
     }
   });
