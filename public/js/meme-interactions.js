@@ -4,8 +4,6 @@ for (const heart of hearts) {
     heart.addEventListener("click", () => {
         const data = heart.dataset.memeId;
 
-        console.log('xD');
-
         fetch("/favoritesAction", {
             method: "POST",
             headers: {
