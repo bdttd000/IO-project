@@ -1,0 +1,23 @@
+.edit-profile-description {
+    padding: 1rem;
+    margin: 0;
+    border-radius: 10px;
+    font-weight: normal;
+    background-color: var(--grey-200);
+    width: 80%;
+}
+
+.edit-profile-description .textarea {
+    width: 100%;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.avatar-preview {
+    width: 150px;
+    height: auto;
+    border: 2px solid var(--grey-400);
+    background-color: var(--grey-200);
+}
