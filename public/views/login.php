@@ -67,6 +67,7 @@ $cardArray = [
 
 <head>
     <?php include("public/views/components/headImports.php"); ?>
+    <script src="public/js/login-validation.js" defer></script>
     <title>Logowanie</title>
 </head>
 
