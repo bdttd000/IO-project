@@ -45,6 +45,7 @@ $formContent = [
     'action' => 'checkRegister',
     'method' => 'POST',
     'content' => Input($inputNickname) . Input($inputEmail) . Input($inputPassword) . Input($inputPassword2) . Button($button),
+    'id' => 'registration-form'
 ];
 
 if (isset($messages['error'])) {
@@ -72,6 +73,7 @@ $cardArray = [
 
 <head>
     <?php include("public/views/components/headImports.php"); ?>
+    <script src="public/js/registration-validation.js" defer></script>
     <title>Rejestracja</title>
 </head>
 

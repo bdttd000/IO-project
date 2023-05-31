@@ -11,3 +11,12 @@
 .input:hover, .input:focus {
     border-bottom: 2px solid var(--success);
 }
+
+input.input-error,
+input.input-error:focus {
+  border-bottom: 2px solid var(--error);
+}
+
+input.input-success, input.input-success:focus {
+     border-bottom: 2px solid var(--success);
+}
