@@ -8,3 +8,4 @@
 <script src="public/js/navbar-interactions.js" defer></script>
 <script src="public/js/theme.js" defer></script>
 <script src="public/js/meme-likes.js" defer></script>
+<script src="public/js/login-validation.js" defer></script>

@@ -33,7 +33,8 @@ $inputMemeName = [
 $formContent = [
     'action' => 'addMemeForm',
     'method' => 'POST',
-    'content' => Input($inputMemeName) . $addMemeAndPreview . Button($addMemeButtonArray)
+    'content' => Input($inputMemeName) . $addMemeAndPreview . Button($addMemeButtonArray),
+    'id' => 'login-form'
 ];
 
 $cardArray = [

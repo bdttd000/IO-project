@@ -32,6 +32,7 @@ $formContent = [
     'action' => 'checkLogin',
     'method' => 'POST',
     'content' => Input($inputEmail) . Input($inputPassword) . Button($button),
+    'id' => 'login-form'
 ];
 
 if (isset($messages['error'])) {
