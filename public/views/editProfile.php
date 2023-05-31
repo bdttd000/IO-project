@@ -1,7 +1,7 @@
 <?php
 $SessionController = new SessionController();
 $userIsAuthenticated = $SessionController::isLogged();
-$userInfo = $SessionController->unserializeUser();
+
 
 if ($SessionController::isLogged() === false) {
     $SessionController->redirectToHome();
@@ -16,7 +16,7 @@ require_once "public/views/components/textarea.php";
 
 $userInfo = $SessionController->unserializeUser();
 
-// $description = $user->getDescription() ?: 'Ten użytkownik nie dodał jeszcze swojego opisu...';
+$description = $userInfo->getDescription() ?: '';
 
 
 
@@ -32,8 +32,8 @@ $addMemeAndPreview = '
     ';
     
 $inputProfileDescription = [
-    'name' => 'message',
-    'value' => 'testtesttest',
+    'name' => 'description',
+    'value' => $description,
     'id' => 'edit-profile-textarea'
 ];
 
@@ -46,7 +46,7 @@ $cardArrayDescription = '<div class="profile-upper">'
     . Textarea($inputProfileDescription) . '</h4>';
 
 $formContent = [
-    'action' => 'editProfile',
+    'action' => 'editProfileForm',
     'method' => 'POST',
     'content' => $cardArrayDescription
 ];
@@ -57,7 +57,7 @@ $changeButtonArray = [
 ];
 
 $cardArray = [
-    'title' => 'nickName',
+    'title' => $userInfo->getNickname() . ' - edycja profilu',
     'content' => Form($formContent) . Button($changeButtonArray)
 ];
 
@@ -67,13 +67,15 @@ $cardArray = [
 
 <head>
     <?php include("public/views/components/headImports.php"); ?>
+    <script src="public/js/meme-preview-interactions.js" defer></script>
+    <script src="public/js/avatar-interactions.js" defer></script>
     <title>Edycja profilu</title>
 </head>
 
 <body>
     <?php include("public/views/components/navbar.php"); ?>
     <?php include("public/views/components/sidebar.php"); ?>
-    <main class="conainter flex flex-center flex-column profile">
+    <main class="container flex flex-center flex-column profile">
     <?php
             echo Card($cardArray);
     ?>
