@@ -6,7 +6,7 @@ function Textarea($content): string
         $content['name']
         . "' placeholder='" .
         $content['placeholder']
-        . "'>";
+        . "' id='" . $content['id'] ."'>";
 
     if (isset($content['value'])) {
         $output .= $content['value'];
