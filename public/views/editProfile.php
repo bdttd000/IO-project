@@ -1,11 +1,65 @@
 <?php
-$SessionController = new SessionController;
+$SessionController = new SessionController();
+$userIsAuthenticated = $SessionController::isLogged();
+$userInfo = $SessionController->unserializeUser();
 
 if ($SessionController::isLogged() === false) {
     $SessionController->redirectToHome();
 }
 
+require_once "public/views/components/card.php";
+require_once "public/views/components/buttonRedirect.php";
+require_once "public/views/components/avatarProfile.php";
+require_once "public/views/components/button.php";
+require_once "public/views/components/form.php";
+require_once "public/views/components/textarea.php";
+
 $userInfo = $SessionController->unserializeUser();
+
+// $description = $user->getDescription() ?: 'Ten użytkownik nie dodał jeszcze swojego opisu...';
+
+
+
+$changeAvatarButtonArray = [
+    'value' => "Zmień avatar"
+];
+
+$addMemeAndPreview = '
+    <label for="avatar-input" class="custom-avatar-input">
+    '. Button($changeAvatarButtonArray) . '
+    </label>
+    <input type="file" name="avatar" accept=".jpg, .jpeg" id="avatar-input">
+    <img id="avatar-preview" class="avatar-preview" src="#" alt="Podgląd" style="display: none";>';
+    
+
+$inputProfileDescription = [
+    'name' => 'message',
+    'value' => 'testtesttest'
+];
+
+$cardArrayDescription = '<div class="profile-upper">'
+    . '<div class="avatar-wrapper">'
+    . AvatarPofile()
+    . '</div>'
+    . $addMemeAndPreview
+    . '</div><h4 class="profile-description">'
+    . Textarea($inputProfileDescription) . '</h4>';
+
+$formContent = [
+    'action' => 'editProfile',
+    'method' => 'POST',
+    'content' => $cardArrayDescription
+];
+
+$changeButtonArray = [
+    'type' => 'submit',
+    'value' => 'zmień'
+];
+
+$cardArray = [
+    'title' => 'nickName',
+    'content' => Form($formContent) . Button($changeButtonArray)
+];
 
 ?>
 
@@ -19,11 +73,10 @@ $userInfo = $SessionController->unserializeUser();
 <body>
     <?php include("public/views/components/navbar.php"); ?>
     <?php include("public/views/components/sidebar.php"); ?>
-    <main class="conainter flex flex-center flex-column">
-        <form action="editProfileAction" method="POST">
-            <input type="file" name="avatar" value="asda">
-            <textarea><?php echo $userInfo->getDescription() !== '' ? $userInfo->getDescription() : ''; ?></textarea>
-        </form>
+    <main class="conainter flex flex-center flex-column profile">
+    <?php
+            echo Card($cardArray);
+    ?>
     </main>
     <?php include("public/views/components/footer.php"); ?>
 </body>

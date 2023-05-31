@@ -1,0 +1,19 @@
+.profile-description {
+    width: 80%;
+}
+
+.profile-description .textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.avatar-preview {
+    width: 150px;
+    height: auto;
+    border: 2px solid var(--grey-400);
+    background-color: var(--grey-200);
+}
