@@ -23,4 +23,33 @@ class CommentRepository extends Repository
 
         return $result;
     }
+
+    public function addComment(int $memeid, int $userid, string $content): array
+    {
+        $creationDate = new DateTime();
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO meme_comment (commentid, memeid, userid, content, creationdate) VALUES (?, ?, ?, ?, ?)
+        ');
+        $commentid = $this->getNextId('meme_comment', 'commentid');
+
+        if (
+            $stmt->execute([
+                $commentid,
+                $memeid,
+                $userid,
+                $content,
+                $creationDate->format('Y-m-d')
+            ])
+        ) {
+            return [
+                'commentid' => $commentid,
+                'memeid' => $memeid,
+                'userid' => $userid,
+                'content' => $content,
+                'creationdate' => $creationDate->format('Y-m-d')
+            ];
+        } else {
+            return [];
+        }
+    }
 }
