@@ -66,7 +66,7 @@ $cardArray = [
 <body>
     <?php include("public/views/components/navbar.php"); ?>
     <?php include("public/views/components/sidebar.php"); ?>
-    <main class="conainter flex flex-center flex-column">
+    <main class="container flex flex-center flex-column">
         <?php echo Card($cardArray); ?>
     </main>
     <?php include("public/views/components/footer.php"); ?>
