@@ -13,7 +13,6 @@ for (const heart of hearts) {
         }).then((response) => {
             return response.json()
         }).then((result) => {
-            console.log(result);
             heart.style.color = result;
         });
     });

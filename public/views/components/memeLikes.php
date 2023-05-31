@@ -44,7 +44,7 @@ function MemeLikes(int $likes, int $memeid): string
             href="login"
             class="flex flex-center drop-shadow-animate meme-likes-symbol meme-likes-symbol-plus like-button"
         >
-            &#8722
+            &#43;
         </a>
         ';
     }

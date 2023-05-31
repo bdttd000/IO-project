@@ -62,7 +62,7 @@ $buttonRedirectUserMemes = [
 
         echo Card($cardArray);
 
-        if ($user->getUserID() === $userInfo->getUserID()) {
+        if ($user && $userInfo && $user->getUserID() === $userInfo->getUserID()) {
             echo ButtonRedirect($buttonRedirectMyMemes);
             echo ButtonRedirect($buttonRedirectEditProfile);
             echo ButtonRedirect($buttonRedirectFavorites);

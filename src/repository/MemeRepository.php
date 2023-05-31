@@ -160,11 +160,12 @@ class MemeRepository extends Repository
         $time = $time == 7 ? 7 : 30;
 
         $stmt = $this->database->connect()->prepare("
-        SELECT t1.memeid, t1.title, t1.photourl, SUM(t2.value) likes
-        FROM meme_main t1, meme_like t2 
-        WHERE t1.memeid = t2.memeid AND (DATE_PART('day', CURRENT_DATE::timestamp - t1.creationdate::timestamp) < :time)
-        GROUP BY t1.memeid 
-        ORDER BY likes DESC LIMIT :numberofmemes
+        SELECT t1.memeid, t1.title, t1.photourl, COALESCE(SUM(t2.value), 0) AS likes
+        FROM meme_main t1
+        LEFT JOIN meme_like t2 ON t1.memeid = t2.memeid 
+            AND DATE_PART('day', CURRENT_DATE::timestamp - t1.creationdate::timestamp) < :time
+        GROUP BY t1.memeid
+        ORDER BY likes DESC LIMIT :numberofmemes;
         ");
         $stmt->bindParam(':time', $time, PDO::PARAM_INT);
         $stmt->bindParam(':numberofmemes', $numberOfMemes, PDO::PARAM_INT);
