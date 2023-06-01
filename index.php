@@ -24,6 +24,7 @@ Routing::post('addAdForm', 'AdController');
 //UserController
 Routing::get('profile', 'UserController');
 Routing::get('editProfile', 'UserController');
+Routing::post('editProfileForm', 'UserController');
 
 //DefaultController
 Routing::get('login', 'DefaultController');
