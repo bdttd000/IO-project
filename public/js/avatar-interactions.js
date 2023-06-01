@@ -20,7 +20,6 @@ avatarInput.addEventListener('change', () => {
 
     reader.onload = function(event) {
         avatarWrapper.querySelector("img.avatarProfile").src = event.target.result;
-        avatarPreview.style.display = 'none';
         avatarWrapper.style.display = "block";
         
     }
