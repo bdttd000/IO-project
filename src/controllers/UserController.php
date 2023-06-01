@@ -8,7 +8,7 @@ require_once 'SessionController.php';
 class UserController extends AppController
 {
     const MAX_FILE_SIZE = 1024 * 1024;
-    const SUPPORTED_TYPES = ['image/png', 'image/jpeg'];
+    const SUPPORTED_TYPES = ['image/png', 'image/jpeg', 'image/jpg'];
     const UPLOAD_DIRECTORY = '/../public/uploads/avatars/';
     private static $messages = [];
     private $userRepository;
