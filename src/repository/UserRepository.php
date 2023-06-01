@@ -70,4 +70,16 @@ class UserRepository extends Repository
             $creationDate->format('Y-m-d')
         ]);
     }
+
+    public function editUser(string $newUrl, string $description, int $userid): void
+    {
+        $stmt = $this->database->connect()->prepare('
+            UPDATE user_profile SET avatarurl = :avatarurl, description = :description WHERE userid = :userid
+        ');
+
+        $stmt->bindParam(':avatarurl', $newUrl, PDO::PARAM_STR);
+        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+        $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

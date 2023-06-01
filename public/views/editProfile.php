@@ -17,8 +17,7 @@ require_once "public/views/components/textarea.php";
 $userInfo = $SessionController->unserializeUser();
 
 $description = $userInfo->getDescription() ?: '';
-
-
+$avatarUrl = $userInfo->getAvatarUrl() ?: '';
 
 $changeAvatarButtonArray = [
     'value' => "Zmień avatar"
@@ -26,39 +25,40 @@ $changeAvatarButtonArray = [
 
 $addMemeAndPreview = '
     <label for="avatar-input" class="custom-avatar-input">
-    '. Button($changeAvatarButtonArray) . '
+    ' . Button($changeAvatarButtonArray) . '
     </label>
     <input type="file" name="avatar" accept=".jpg, .jpeg" id="avatar-input">
     ';
-    
+
 $inputProfileDescription = [
     'name' => 'description',
     'value' => $description,
-    'id' => 'edit-profile-textarea'
+    'id' => 'edit-profile-textarea',
+    'placeholder' => 'Dodaj swój opis...'
 ];
 
 $cardArrayDescription = '<div class="profile-upper">'
     . '<div class="avatar-wrapper">'
-    . AvatarPofile()
+    . AvatarPofile($avatarUrl)
     . '</div>'
     . $addMemeAndPreview
     . '</div><h4 class="edit-profile-description">'
     . Textarea($inputProfileDescription) . '</h4>';
-
-$formContent = [
-    'action' => 'editProfileForm',
-    'method' => 'POST',
-    'content' => $cardArrayDescription
-];
 
 $changeButtonArray = [
     'type' => 'submit',
     'value' => 'zmień'
 ];
 
+$formContent = [
+    'action' => 'editProfileForm',
+    'method' => 'POST',
+    'content' => $cardArrayDescription . Button($changeButtonArray)
+];
+
 $cardArray = [
     'title' => $userInfo->getNickname() . ' - edycja profilu',
-    'content' => Form($formContent) . Button($changeButtonArray)
+    'content' => Form($formContent)
 ];
 
 ?>
@@ -67,7 +67,6 @@ $cardArray = [
 
 <head>
     <?php include("public/views/components/headImports.php"); ?>
-    <script src="public/js/meme-preview-interactions.js" defer></script>
     <script src="public/js/avatar-interactions.js" defer></script>
     <title>Edycja profilu</title>
 </head>
@@ -76,9 +75,9 @@ $cardArray = [
     <?php include("public/views/components/navbar.php"); ?>
     <?php include("public/views/components/sidebar.php"); ?>
     <main class="container flex flex-center flex-column profile">
-    <?php
-            echo Card($cardArray);
-    ?>
+        <?php
+        echo Card($cardArray);
+        ?>
     </main>
     <?php include("public/views/components/footer.php"); ?>
 </body>
