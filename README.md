@@ -21,7 +21,15 @@
 
 ### Figma
 
-[kliknij tutaj](https://www.figma.com/file/t94vF4c78WgwzIS14Ocx5m/IO?node-id=1%3A8&t=epHnj09kp8rHfNhz-1)
+#### Diagram ERD
+
+<img src="./readme-images/diagram_erd.png" width=800px />
+
+#### Diagram UML
+
+<img src="./readme-images/diagram_uml.png" width=800px />
+
+<!-- [kliknij tutaj](https://www.figma.com/file/t94vF4c78WgwzIS14Ocx5m/IO?node-id=1%3A8&t=epHnj09kp8rHfNhz-1) -->
 
 ## Format Pracy
 
