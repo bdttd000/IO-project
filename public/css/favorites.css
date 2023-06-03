@@ -1,0 +1,24 @@
+.favorites-empty {
+    color: var(--white-text); 
+    font-weight: 200; 
+    max-width: 60%; 
+    text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+    .favorites-empty {
+        max-width: 70%; 
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .favorites-empty {
+        max-width: 80%; 
+    }
+}
+
+@media screen and (max-width: 476px) {
+    .favorites-empty {
+        max-width: 95%; 
+    }
+}

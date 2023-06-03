@@ -24,17 +24,22 @@ require_once "public/views/components/ads.php";
     <?php include("public/views/components/navbar.php"); ?>
     <?php include("public/views/components/sidebar.php"); ?>
 
-    <main class="container flex flex-row" style="gap: 1.5rem">
+    <?php
+    if ($memes[0]) {
+        echo '
+        <main class="container flex flex-row" style="gap: 1.5rem">
         <aside class="right-aside recommended-memes-aside flex flex-column"></aside>
-        <section class="meme-section flex flex-center-align flex-column">
-            <?php
-            foreach ($memes as $meme) {
-                echo Meme($meme);
-            }
-            echo Pagination('favorites', $pageNumber, $pagesCount);
-            ?>
-        </section>
-        <aside class="recommended-memes-aside flex flex-column left-aside"></aside>
+        <section class="meme-section flex flex-center-align flex-column">';
+        foreach ($memes as $meme) {
+            echo Meme($meme);
+        }
+        echo Pagination('favorites', $pageNumber, $pagesCount);
+        echo '</section>
+        <aside class="recommended-memes-aside flex flex-column left-aside"></aside>';
+    } else {
+        echo '<main class="container flex flex-center flex-column profile"><h2 class="favorites-empty">Nie dodałeś/aś jeszcze nic do ulubionych, zrób to koniecznie by nie zapomnieć swoich ulubionych memów</h2>';
+    }
+    ?>
     </main>
     <?php include("public/views/components/footer.php"); ?>
 </body>
