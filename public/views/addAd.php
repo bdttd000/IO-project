@@ -1,13 +1,17 @@
 <?php
 $SessionController = new SessionController;
 $userIsAuthenticated = $SessionController::isLogged() === "true";
+$userInfo = $SessionController->unserializeUser();
+if ($userInfo->getUserID() !== 1) {
+    $SessionController->redirectToHome();
+}
 ?>
 
 <html lang="en">
 
 <head>
     <?php include("public/views/components/headImports.php"); ?>
-    <title>Dodaj mema</title>
+    <title>Dodaj reklamę</title>
 </head>
 
 <body>
