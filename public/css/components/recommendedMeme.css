@@ -32,7 +32,8 @@
 
 .recommended-meme-card > img {
     width: 100%;
-    height: auto;
+    height: 23vh;
+    object-fit: cover;
 }
 
 .recommended-meme-card > div {
