@@ -45,6 +45,8 @@ Git workflow to sposób organizacji pracy z systemem kontroli wersji Git. Istnie
 
 GitFlow pomaga w zorganizowaniu pracy zespołu, umożliwiając równoczesne tworzenie nowych funkcji, poprawki błędów oraz utrzymanie stabilnej wersji produkcyjnej.
 
+Z racji poziomu zaawansowania projektu oraz faktu iż jest to dopiero prototyp, ominiemy gałęzie takie jak release oraz hotfix.
+
 <img src="./readme-images/workflow.png" width=800px />
 
 ## Dodatkowe informacje
