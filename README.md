@@ -6,6 +6,7 @@
 - CSS
 - PHP
 - Docker
+- PostgreSQL
 
 ### Struktura strony
 
@@ -52,6 +53,38 @@ GitFlow pomaga w zorganizowaniu pracy zespołu, umożliwiając równoczesne twor
 ##### Z racji poziomu zaawansowania projektu oraz faktu, iż jest to dopiero prototyp, ominiemy gałęzie takie jak release oraz hotfix.
 
 <img src="./readme-images/workflow.png" width=800px />
+
+## Kierunek rozwoju
+
+Aplikacja przez swoją łatwą skalowalność może w przyszłości wiele funckcji i nowych rozwiązań dla starych metod, oto niektóre z nich:
+
+- Przeglądanie memów w formie przesuwania obrazka (głównie dla użytkowników mobilnych).
+
+- Dodanie w pełni działającego panelu admina.
+
+- Dodanie ciasteczek spełniających rolę pozyskania teści wyszukiwanych przez użytkownika.
+
+- Podział memów na podkategorie.
+
+- Możliwość odpowiadania na komentarze.
+
+- Możliwość reagowania na komentarze.
+
+- Dodanie sekcji premium oraz kont bez reklam.
+
+- Dodanie wyszukiwania memów przez wpisanie tytułu.
+
+- Dodanie kolejnych rozszerzeń plików (.mp4 / .gif).
+
+- Dodanie filtrowania przez rodzaj mema (obrazek / text / gif).
+
+- Rejestracja / logowanie za pomocą stron takich jak facebook.
+
+- Punkty użytkownika dla najbardziej rozchwytywanych.
+
+- Specjalne reakcje na memy.
+
+Oraz wiele, wiele więcej...
 
 ## Dodatkowe informacje
 
