@@ -48,9 +48,13 @@ Oprócz nich mamy 3 podfoldery:
     - components - części widoków używane, aby uniknąć redundancji kodu
     - contents - dłuższe testy, przechowywane aby nasz kod pozostał czysty oraz przejrzysty
 
-### Funkcjonalności
+### Diagram ERD
 
-...
+<img src="./readme-images/diagram_erd.png" width=800px />
+
+### Diagram UML
+
+<img src="./readme-images/diagram_uml.png" width=800px />
 
 ### Wymagania
 
@@ -74,15 +78,9 @@ Oprócz nich mamy 3 podfoldery:
 | przeglądanie profili użytkowników         | łatwość konserwacji (model mvc)                           |
 | edycja profilu                            |                                                           |
 
-### Diagramy
+### Funkcjonalności
 
-#### Diagram ERD
-
-<img src="./readme-images/diagram_erd.png" width=800px />
-
-#### Diagram UML
-
-<img src="./readme-images/diagram_uml.png" width=800px />
+...
 
 ### Figma
 
