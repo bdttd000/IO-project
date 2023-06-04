@@ -16,9 +16,11 @@ PostgreSQL - potężny, otwartoźródłowy system zarządzania bazą danych rela
 
 JavaScript - skryptowy językiem programowania, który jest wykonywany po stronie klienta (w przeglądarce). JavaScript pozwala na interakcję z elementami strony, manipulację zawartością, obsługę zdarzeń, walidację formularzy i wiele innych. Jest szeroko stosowany do tworzenia interaktywnych i dynamicznych stron internetowych oraz aplikacji internetowych.
 
-### Struktura strony
+### Struktura oraz architektura aplikacji
 
-...
+Dla naszej aplikacji utworzyliśmy następujące drzewo folderów:
+
+<img src="./readme-images/folders.png" width=800px />
 
 ### Funkcjonalności
 
