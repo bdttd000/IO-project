@@ -78,134 +78,15 @@ Oprócz nich mamy 3 podfoldery:
 | przeglądanie profili użytkowników         | łatwość konserwacji (model mvc)                           |
 | edycja profilu                            |                                                           |
 
-### Funkcjonalności
+### Przypadki użycia
 
-| Przypadek użycia                      | Przeglądanie memów                                                                                                                   |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Użytkownik                                                                                                                          |
-| Opis                                  | treści dostępne na stronie głównej są dostępne niezależnie od statusu użytkownika                                                  |
-| Warunki wstępne                       | 1. Użytkownicy dodali memy do bazy.                                                                                                 |
-| Przebieg                              | 1. Użytkownik wchodzi na odpowiednią podstronę.                                                                                     |
-|                                       | 2. Użytkownik przewija stronę w poszukiwaniu interesujących go treści.                                                               |
+<img src="./readme-images/przypadek_1.png" width=700px />
 
-| Przypadek użycia                      | Przeglądanie memów danego użytkownika                                                                                                |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Użytkownik                                                                                                                          |
-| Opis                                  | każdy użytkownik posiada dodane przez siebie memy przypisane do profilu.                                                            |
-| Warunki wstępne                       | 1. Użytkownik istnieje w bazie.                                                                                                      |
-|                                       | 2. Użytkownik dodał memy.                                                                                                           |
-| Przebieg                              | 1. Użytkownik odwiedza czyjś profil przez wciśnięcie awataru (lub bezpośrednio link).                                                |
-|                                       | 2. Użytkownik odwiedza "memy użytkownika".                                                                                           |
-|                                       | 3. Użytkownik przewija stronę w poszukiwaniu interesujących go treści.                                                               |
+<img src="./readme-images/przypadek_2.png" width=700px />
 
-| Przypadek użycia                      | Przeglądanie ulubionych memów                                                                                                        |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Zalogowany Użytkownik                                                                                                                |
-| Opis                                  | zalogowany użytkownik posiada funkcję wyświetlania swoich ulubionych memów.                                                          |
-| Warunki wstępne                       | 1. Użytkownik jest zalogowany.                                                                                                       |
-|                                       | 2. Użytkownik dodał memy do ulubionych.                                                                                              |
-| Przebieg                              | 1. Użytkownik przechodzi do zakładki ulubione lub ulubione memy (z poziomu profilu)                                                  |
-|                                       | 2. Użytkownik przewija stronę w poszukiwaniu interesujących go treści.                                                               |
+<img src="./readme-images/przypadek_3.png" width=700px />
 
-| Przypadek użycia                      | logowanie                                                                                                                           |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Użytkownik                                                                                                                          |
-| Opis                                  | Użytkownik posiada opcję zalogowania się do serwisu                                                                                  |
-| Warunki wstępne                       | 1. Użytkownik posiada konto w serwisie                                                                                               |
-| Przebieg                              | 1. Użytkownik przechodzi na podstronę z logowaniem                                                                                   |
-|                                       | 2. Użytkownik uzupełnia formularz                                                                                                    |
-|                                       | 3. Użytkownik zatwierdza dane przyciskiem "enter" na klawiaturze lub przyciskiem "zaloguj"                                          |
-
-| Przypadek użycia                      | rejestracja                                                                                                                         |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Użytkownik                                                                                                                          |
-| Opis                                  | Użytkownik posiada możliwość założenia konta na platformie                                                                            |
-| Warunki wstępne                       | 1. Użytkownik przechodzi na podstronę z rejestracją                                                                                  |
-| Przebieg                              | 1. Użytkownik uzupełnia formularz zgodnie z podpowiedziami                                                                            |
-|                                       | 2. Użytkownik poda unikatowy adres email oraz nickname                                                                                |
-|                                       | 3. Użytkownik kończy rejestrację wciskając "enter" na klawiaturze lub przyciskiem "zarejestruj"                                      |
-
-| Przypadek użycia                      | dodawanie memów                                                                                                                     |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Zalogowany Użytkownik                                                                                                                |
-| Opis                                  | każdy zalogowany Użytkownik może dodać własnego mema wraz z opisem                                                                    |
-| Warunki wstępne                       | 1. Użytkownik przejdzie do podstrony addMeme z navbar'a lub przycisku na profilu                                                      |
-| Przebieg                              | 1. Użytkownik doda zarówno obrazek jak i nazwę mema                                                                                   |
-|                                       | 2. Użytkownik zatwierdzi akcję                                                                                                       |
-
-| Przypadek użycia                      | dodawanie komentarzy                                                                                                                 |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Zalogowany użytkownik                                                                                                                |
-| Opis                                  | Użytkownik posiada opcję komentowania postów                                                                                         |
-| Warunki wstępne                       | 1. Użytkownik przejdzie na podstronę z danym memem przez wciśnięcie "dodaj komentarz"                                                 |
-| Przebieg                              | 1. Użytkownik wpisuje treść komentarza.                                                                                              |
-|                                       | 2. Użytkownik dodaje komentarz zatwierdzając jego treść.                                                                              |
-
-| Przypadek użycia                      | dodawanie reakcji do mema                                                                                                            |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Zalogowany użytkownik                                                                                                                |
-| Opis                                  | Użytkownik posiada opcję reagowania na treści które widzi                                                                             |
-| Warunki wstępne                       | 1. Użytkownik znajduje się na stronie z memem.                                                                                        |
-| Przebieg                              | 1. Użytkownik wybiera swoją reakcję przez wciśnięcie odpowiedniego przycisku "+" lub "-"                                              |
-|                                       | 2. Akcja użytkownika wpływa na ranking obrazka                                                                                        |
-
-| Przypadek użycia                      | dodawanie mema do ulubionych                                                                                                         |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Zalogowany użytkownik                                                                                                                |
-| Opis                                  | Użytkownik posiada opcję polubienia postów                                                                                           |
-| Warunki wstępne                       | 1. Użytkownik przejdzie na podstronę z danym memem.                                                                                   |
-| Przebieg                              | 1. Użytkownik klika guzik w kształcie serduszka.                                                                                      |
-|                                       | 2. Użytkownik może następnie przeglądać ulubione memy na odpowiedniej podstronie.                                                     |
-
-| Przypadek użycia                      | przeglądanie profili użytkowników                                                                                                    |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Użytkownik                                                                                                                          |
-| Opis                                  | Użytkownik posiada możliwość wejścia na czyjś profil                                                                                  |
-| Warunki wstępne                       | 1. Użytkownik widzi dodany przez kogoś mem                                                                                            |
-| Przebieg                              | 1. Użytkownik klika na czyjś awatar.                                                                                                  |
-|                                       | 2. Użytkownik znajduje się na podstronie z czyimś profilem                                                                            |
-
-| Przypadek użycia                      | edycja profilu                                                                                                                      |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Zalogowany Użytkownik                                                                                                                |
-| Opis                                  | Użytkownik posiada możliwość zmiany awatara oraz opisu na profilu                                                                     |
-| Warunki wstępne                       | 1. Użytkownik znajduje się w zakładce ze swoim profilem                                                                               |
-| Przebieg                              | 1. Użytkownik wciska przycisk z napisem "edytuj profil".                                                                              |
-|                                       | 2. Użytkownik zmienia Awatar lub opis.                                                                                                |
-
-| Przypadek użycia                      | wyloguj                                                                                                                             |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Zalogowany użytkownik                                                                                                                |
-| Opis                                  | Użytkownik posiada opcję wylogowania się ze strony                                                                                    |
-| Warunki wstępne                       | 1. Użytkownik jest zalogowany.                                                                                                        |
-| Przebieg                              | 1. Użytkownik klika przycisk wyloguj w pasku nawigacji.                                                                                |
-|                                       | 2. Użytkownik przenoszony jest na stronę główną.                                                                                      |
-
-| Przypadek użycia                      | przejście na losową podstronę z memami                                                                                                |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Użytkownik                                                                                                                          |
-| Opis                                  | Użytkownik posiada możliwość przejścia na losową podstronę z memami                                                                   |
-| Warunki wstępne                       | 1. Użytkownik przewinie stronę do końca.                                                                                              |
-| Przebieg                              | 1. Użytkownik wciska przycisk losowania podstrony.                                                                                    |
-|                                       | 2. Użytkownik zostaje przeniesiony na stronę z losowym indeksem.                                                                      |
-
-| Przypadek użycia                      | dodanie reklamy                                                                                                                     |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Administrator                                                                                                                       |
-| Opis                                  | Administrator posiada możliwość dodania reklamy na stronie                                                                             |
-| Warunki wstępne                       | 1. Administrator ma dostęp do panelu administracyjnego                                                                                |
-| Przebieg                              | 1. Administrator wybiera opcję dodania reklamy                                                                                        |
-|                                       | 2. Administrator wprowadza odpowiednie dane dotyczące reklamy                                                                          |
-|                                       | 3. Reklama pojawia się na stronie dla użytkowników                                                                                    |
-
-| Przypadek użycia                      | usuwanie memów                                                                                                                      |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Aktor                                 | Zalogowany Użytkownik                                                                                                                |
-| Opis                                  | Użytkownik posiada możliwość usunięcia swoich memów                                                                                   |
-| Warunki wstępne                       | 1. Użytkownik znajduje się na podstronie z danym memem.                                                                               |
-| Przebieg                              | 1. Użytkownik klika przycisk "usuń" w opcjach danego mema.                                                                             |
-|                                       | 2. Użytkownik potwierdza chęć usunięcia mema.                                                                                         |
-
+<img src="./readme-images/przypadek_4.png" width=700px />
 
 ### Figma
 
