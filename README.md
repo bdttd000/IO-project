@@ -263,7 +263,3 @@ Aplikacja przez swoją łatwą skalowalność może w przyszłości wiele funckc
 - Specjalne reakcje na memy.
 
 Oraz wiele, wiele więcej...
-
-## Dodatkowe informacje
-
-...
