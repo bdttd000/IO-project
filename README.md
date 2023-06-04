@@ -110,6 +110,33 @@ Aplikacja przez swoją łatwą skalowalność może w przyszłości wiele funckc
 
 Oraz wiele, wiele więcej...
 
+## Bezpieczeństwo aplikacji
+
+Niniejsza sekcja przedstawia zastosowane środki bezpieczeństwa w aplikacji w celu ochrony danych użytkowników.
+
+### Logowanie i rejestracja
+Aplikacja zapewnia funkcjonalność logowania i rejestracji, co umożliwia kontrolę dostępu do danych. W celu zabezpieczenia tych procesów, zastosowano następujące środki bezpieczeństwa:
+
+- Hasła są hashowane przed zapisaniem ich w bazie danych. Dzięki temu, nawet w przypadku naruszenia bazy danych, trudno jest odzyskać oryginalne hasła.
+- Przy rejestracji nowego konta, sprawdzane są unikalność adresów e-mail oraz nazw użytkowników, aby zapobiec duplikatom i potencjalnym atakom na konta użytkowników.
+- W przypadku logowania, zastosowano technikę uwierzytelniania z wykorzystaniem sesji. Sesje są odpowiednio zarządzane i zabezpieczane przed atakami typu session hijacking czy session fixation.
+
+
+### Metody POST
+Aplikacja korzysta z metody POST do przesyłania danych między klientem a serwerem. W celu zapewnienia bezpieczeństwa przesyłanych informacji, zastosowano następujące środki:
+
+- Dane przesyłane za pomocą metody POST są szyfrowane za pomocą protokołu HTTPS, co zapewnia poufność i integralność danych podczas transmisji.
+- Weryfikacja poprawności i integralności danych jest przeprowadzana po stronie serwera, aby zapobiec atakom typu SQL injection czy cross-site scripting (XSS).
+
+
+### Hashowanie haseł, memów oraz avatarów
+W celu zabezpieczenia poufności i integralności haseł, memów oraz avatarów, zastosowano technikę hashowania. Poniżej przedstawiono szczegóły dotyczące każdego z tych elementów:
+
+- Hasła użytkowników są hashowane przed zapisaniem ich do bazy danych. Zastosowano silne funkcje haszujące, takie jak bcrypt, aby utrudnić odtworzenie oryginalnych haseł w przypadku naruszenia bazy danych.
+- Memy oraz avatarów również poddawane są procesowi hashowania przed zapisaniem ich do bazy danych. To zapewnia zachowanie integralności tych elementów i utrudnia manipulację nimi.
+
+Dzięki zastosowaniu powyższych środków bezpieczeństwa, aplikacja dba o ochronę danych użytkowników i minimalizuje ryzyko naruszenia bezpieczeństwa.
+
 ## Dodatkowe informacje
 
 ...
