@@ -22,6 +22,32 @@ Dla naszej aplikacji utworzyliśmy następujące drzewo folderów:
 
 <img src="./readme-images/folders.png" width=800px />
 
+W głównym folderze znajdziemy pliki konfiuracyjne takie jak połączenie z bazą danych, routing czy też plik docker-compose służący do panowania nad naszym kontenerem.
+
+W tym momencie mamy 3 podfoldery:
+
+- docker - znajdują się w nim pliki konfiguracyjne dla naszego kontenera
+  - nginx - konfiguracja naszego serwera WWW
+  - php - konfiguracja naszego języka backendowego
+- src - folder dla operacji serwerowych
+  - controllers - pliki kontrolujące naszą aplikację
+  - data - zmienne przechowywane do importowania w funkcjach
+  - models - modele potrzebne do
+  - repository - funkcje odpowiedzialne za operacje na bazie danych, ingerujące w jej strukturę
+- public - pliki udostępnione dla użytkownika
+  - css - pliki stylowania naszych widoków oraz plik główny style.css
+    - components - pliki stylowania naszych komponentów
+    - variables - zmienne importowane do pozostałych plików stylowania
+  - img - zdjęcia wykorzystywane w layoucie strony
+  - uploads - zdjęcie dodane przez użytkowników / administartorów
+    - ads - reklamy
+    - avatars - zdjęcie profilowe
+    - memes - memy
+  - js - pliki skrytpowe po stronie użytkownika
+  - views - widoki, inaczej nasze endpointy, które docelowo wyświetlamy użytkownikowi
+    - components - części widoków używane, aby uniknąć redundancji kodu
+    - contents - dłuższe testy, przechowywane aby nasz kod pozostał czysty oraz przejrzysty
+
 ### Funkcjonalności
 
 ...
