@@ -1,6 +1,6 @@
 ﻿## Cel projektu
 
-Za cel obraliśmy sobie stworzenie z memami jest stworzenie platformy, na której użytkownicy mogą łatwo przeglądać, udostępniać i komentować memy. Strona ma na celu dostarczenie użytkownikom rozrywki i humoru poprzez kolekcję memów z różnych kategorii, tematów i gatunków. Użytkownicy będą mogli przeglądać memy, lajkować, komentować i udostępniać swoje ulubione memy. Dodatkowo, strona umożliwi użytkownikom dodawanie własnych memów, co pozwoli na interaktywną i dynamiczną społeczność, gdzie będą mogli się dzielić swoimi kreatywnymi tworami z innymi użytkownikami. Celem strony jest zatem zapewnienie użytkownikom miejsca, gdzie mogą się bawić, śmiać i cieszyć się memami w przyjaznej i interaktywnej atmosferze.
+Za cel obraliśmy sobie stworzenie platformy z memami, na której użytkownicy mogą łatwo przeglądać, udostępniać i komentować memy. Strona ma na celu dostarczenie użytkownikom rozrywki i humoru poprzez kolekcję memów z różnych kategorii, tematów i gatunków. Użytkownicy będą mogli przeglądać memy, lajkować, komentować i udostępniać swoje ulubione memy. Dodatkowo, strona umożliwi użytkownikom dodawanie własnych memów, co pozwoli na interaktywną i dynamiczną społeczność, gdzie będą mogli się dzielić swoimi kreatywnymi tworami z innymi użytkownikami. Celem strony jest zatem zapewnienie użytkownikom miejsca, gdzie mogą się bawić, śmiać i cieszyć się memami w przyjaznej i interaktywnej atmosferze.
 
 ### Zaimplementowane technologie
 
