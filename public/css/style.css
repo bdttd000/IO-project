@@ -25,6 +25,7 @@
 @import "./editProfile.css";
 @import "./privacyPolicyContent.css";
 @import "./addMeme.css";
+@import "./favorites.css";
 
 * {
     box-sizing: border-box;

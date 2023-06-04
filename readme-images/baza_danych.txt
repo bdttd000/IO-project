@@ -1,0 +1,61 @@
+CREATE TABLE IF NOT EXISTS public.ad_main
+(
+    adid integer,
+    title text COLLATE pg_catalog."default",
+    activefrom text COLLATE pg_catalog."default",
+    expirationdate text COLLATE pg_catalog."default",
+    photourl text COLLATE pg_catalog."default"
+);
+
+CREATE TABLE IF NOT EXISTS public.meme_comment
+(
+    commentid integer NOT NULL,
+    memeid integer NOT NULL,
+    userid integer NOT NULL,
+    content text COLLATE pg_catalog."default" NOT NULL,
+    creationdate date NOT NULL,
+    CONSTRAINT meme_comment_pkey PRIMARY KEY (commentid)
+);
+
+CREATE TABLE IF NOT EXISTS public.meme_like
+(
+    likeid integer NOT NULL,
+    memeid integer NOT NULL,
+    userid integer NOT NULL,
+    value integer NOT NULL,
+    creationdate date NOT NULL,
+    CONSTRAINT meme_like_pkey PRIMARY KEY (likeid)
+);
+
+CREATE TABLE IF NOT EXISTS public.meme_main
+(
+    memeid integer NOT NULL,
+    userid integer NOT NULL,
+    title text COLLATE pg_catalog."default" NOT NULL,
+    photourl text COLLATE pg_catalog."default" NOT NULL,
+    creationdate date NOT NULL,
+    evaluated boolean,
+    evaluationdate date,
+    CONSTRAINT meme_main_pkey PRIMARY KEY (memeid)
+);
+
+CREATE TABLE IF NOT EXISTS public.user_follow
+(
+    followid integer NOT NULL,
+    memeid integer NOT NULL,
+    userid integer NOT NULL,
+    creationdate date NOT NULL,
+    CONSTRAINT user_follow_pkey PRIMARY KEY (followid)
+);
+
+CREATE TABLE IF NOT EXISTS public.user_profile
+(
+    userid integer NOT NULL,
+    nickname text COLLATE pg_catalog."default" NOT NULL,
+    email text COLLATE pg_catalog."default" NOT NULL,
+    password text COLLATE pg_catalog."default" NOT NULL,
+    creationdate date,
+    avatarurl text COLLATE pg_catalog."default",
+    description text COLLATE pg_catalog."default",
+    CONSTRAINT user_profile_pkey PRIMARY KEY (userid)
+);
