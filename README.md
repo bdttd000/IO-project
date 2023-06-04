@@ -12,6 +12,8 @@ Docker - platforma open-source do wdrażania i uruchamiania aplikacji w kontener
 
 PostgreSQL - potężny, otwartoźródłowy system zarządzania bazą danych relacyjnych. Posiada wiele zaawansowanych funkcji, takich jak transakcje, klucze obce, indeksy, widoki i triggery. PostgreSQL obsługuje standardowy język zapytań SQL oraz oferuje rozszerzenia, które umożliwiają bardziej zaawansowane operacje i funkcje.
 
+JavaScript - skryptowy językiem programowania, który jest wykonywany po stronie klienta (w przeglądarce). JavaScript pozwala na interakcję z elementami strony, manipulację zawartością, obsługę zdarzeń, walidację formularzy i wiele innych. Jest szeroko stosowany do tworzenia interaktywnych i dynamicznych stron internetowych oraz aplikacji internetowych.
+
 ### Struktura strony
 
 ...
