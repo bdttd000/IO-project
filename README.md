@@ -24,7 +24,7 @@ Dla naszej aplikacji utworzyliśmy następujące drzewo folderów:
 
 W głównym folderze znajdziemy pliki konfiuracyjne takie jak połączenie z bazą danych, routing czy też plik docker-compose służący do panowania nad naszym kontenerem.
 
-W tym momencie mamy 3 podfoldery:
+Oprócz nich mamy 3 podfoldery:
 
 - docker - znajdują się w nim pliki konfiguracyjne dla naszego kontenera
   - nginx - konfiguracja naszego serwera WWW
