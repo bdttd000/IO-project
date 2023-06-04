@@ -24,6 +24,28 @@ JavaScript - skryptowy językiem programowania, który jest wykonywany po stroni
 
 ...
 
+### Wymagania
+
+| Wymagania funkcjonalne                    | Wymagania niefunkcjonalne                                 |
+| ----------------------------------------- | --------------------------------------------------------- |
+| przeglądanie memów na stronie głównej     | zmiana motywu kolorystycznego                             |
+| przeglądanie memów w poczekalni           | responsywność aplikacji                                   |
+| przeglądanie losowych memów               | szybka odpowiedź na interakcje                            |
+| przeglądanie ulubionych memów             | skalowalność                                              |
+| przeglądanie mema wraz z komentarzami     | wieloplatformowość                                        |
+| przeglądanie własnych memów               | intuicyjny interfejs                                      |
+| przeglądanie memów tygodnia oraz miesiąca | bezpieczeństwo haseł                                      |
+| przeglądanie memów danego użytkownika     | bezpieczeństwo avatarów                                   |
+| wyświetlanie reklam                       | bezpieczeństwo memów                                      |
+| logowanie                                 | zabezpieczenie metody porozumiewania się z serwerem       |
+| rejestracja                               | animacje dla przycisków                                   |
+| dodawanie memów                           | dodawanie treści po zatwierdzeniu (komentarz, polubienie) |
+| dodawanie komentarzy                      | ciągła dostępność                                         |
+| dodawanie polubień mema                   | interakcja między użytkownikami (memy, komentarze, opisy) |
+| dodawanie mema do ulubionych              | edytowalność profilu                                      |
+| przeglądanie profili użytkowników         | łatwość konserwacji (model mvc)                           |
+| edycja profilu                            |                                                           |
+
 ### Diagramy
 
 #### Diagram ERD
