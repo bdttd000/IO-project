@@ -263,3 +263,25 @@ Aplikacja przez swoją łatwą skalowalność może w przyszłości wiele funckc
 - Specjalne reakcje na memy.
 
 Oraz wiele, wiele więcej...
+
+## Dodatkowe informacje
+
+Do uruchomienia projektu wpisujemy
+
+```
+docker-compose up
+```
+
+Przeszukujemy nasze kontenery
+
+```
+docker container ls
+```
+
+Wybieramy ten, który nazywa się "postgres"
+
+```
+docker inspect <postgres_id>
+```
+
+Szukamy IP_ADDRESS dla naszego serwera i wpisujemy go do pliku config.php
