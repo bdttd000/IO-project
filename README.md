@@ -54,13 +54,13 @@ Figma jest popularnym narzędziem wśród projektantów interfejsów użytkownik
 
 Oto kilka zrzutów z prototypu naszej aplikacji:
 
-<img src="./readme-images/figma1.png" width=800px />
+<img src="./readme-images/figma1.png" width=500px />
 
-<img src="./readme-images/figma2.png" width=800px />
+<img src="./readme-images/figma2.png" width=500px />
 
-<img src="./readme-images/figma3.png" width=800px />
+<img src="./readme-images/figma3.png" width=500px />
 
-<img src="./readme-images/figma4.png" width=800px />
+<img src="./readme-images/figma4.png" width=500px />
 
 [Aby zobaczyć całość naszej pracy, kliknij w ten link](https://www.figma.com/file/t94vF4c78WgwzIS14Ocx5m/IO?node-id=1%3A8&t=epHnj09kp8rHfNhz-1)
 
