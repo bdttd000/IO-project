@@ -100,7 +100,7 @@ Podstrona na której znajdują się memy oznaczone przez nas jako ulubione.
 
 Podstrona generująca losowy mem po wciśnięciu przycisku "LOSUJ".
 
-<img src="./readme-images/randnom_meme.png" width=800px />
+<img src="./readme-images/random_meme.png" width=800px />
 
 Strona oczywiście jest responsywna i dla mniejszych ekranów pasek nawigacji przesunięty zostaje na bok ekranu.
 
