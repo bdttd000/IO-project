@@ -2,11 +2,15 @@
 
 ### Zaimplementowane technologie
 
-- HTML
-- CSS
-- PHP
-- Docker
-- PostgreSQL
+HTML - język znaczników używanym do tworzenia struktur i zawartości stron internetowych. Pozwala na definiowanie elementów takich jak nagłówki, paragrafy, listy, tabele, obrazy i linki. HTML jest podstawowym składnikiem stron internetowych i jest interpretowany przez przeglądarki internetowe.
+
+CSS - język używanym do opisywania wyglądu i formatowania stron internetowych napisanych w HTML. Pozwala na kontrolę takich aspektów jak kolory, czcionki, marginesy, wyrównanie, tło i wiele innych. Dzięki CSS możemy oddzielić prezentację strony od jej zawartości, co ułatwia utrzymanie i modyfikację stylu strony.
+
+PHP - język programowania często używanym do tworzenia stron internetowych dynamicznych. PHP pozwala na generowanie dynamicznej zawartości, przetwarzanie formularzy, manipulację plikami, interakcję z bazami danych i wiele innych. Skrypty PHP są wykonywane po stronie serwera i wynik ich działania jest przesyłany do przeglądarki.
+
+Docker - platforma open-source do wdrażania i uruchamiania aplikacji w kontenerach. Kontenery Docker są lekkimi, przenośnymi i izolowanymi jednostkami, które zawierają wszystko, co jest potrzebne do uruchomienia aplikacji, włącznie z kodem, zależnościami i konfiguracją. Dzięki Dockerowi można łatwo uruchomić aplikację na różnych środowiskach, niezależnie od systemu operacyjnego czy konfiguracji sprzętowej.
+
+PostgreSQL - potężny, otwartoźródłowy system zarządzania bazą danych relacyjnych. Posiada wiele zaawansowanych funkcji, takich jak transakcje, klucze obce, indeksy, widoki i triggery. PostgreSQL obsługuje standardowy język zapytań SQL oraz oferuje rozszerzenia, które umożliwiają bardziej zaawansowane operacje i funkcje.
 
 ### Struktura strony
 
