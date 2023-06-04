@@ -112,12 +112,10 @@ Oraz wiele, wiele więcej...
 
 ## Bezpieczeństwo aplikacji
 
-Niniejsza sekcja przedstawia zastosowane środki bezpieczeństwa w aplikacji w celu ochrony danych użytkowników.
-
 ### Logowanie i rejestracja
 Aplikacja zapewnia funkcjonalność logowania i rejestracji, co umożliwia kontrolę dostępu do danych. W celu zabezpieczenia tych procesów, zastosowano następujące środki bezpieczeństwa:
 
-- Hasła są hashowane przed zapisaniem ich w bazie danych. Dzięki temu, nawet w przypadku naruszenia bazy danych, trudno jest odzyskać oryginalne hasła.
+- Hasła są hashowane przed zapisaniem ich w bazie danych. Dzięki temu, nawet w przypadku naruszenia bazy danych, niemożliwym jest odzyskać oryginalne hasła.
 - Przy rejestracji nowego konta, sprawdzane są unikalność adresów e-mail oraz nazw użytkowników, aby zapobiec duplikatom i potencjalnym atakom na konta użytkowników.
 - W przypadku logowania, zastosowano technikę uwierzytelniania z wykorzystaniem sesji. Sesje są odpowiednio zarządzane i zabezpieczane przed atakami typu session hijacking czy session fixation.
 
