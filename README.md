@@ -48,72 +48,6 @@ Oprócz nich mamy 3 podfoldery:
     - components - części widoków używane, aby uniknąć redundancji kodu
     - contents - dłuższe testy, przechowywane aby nasz kod pozostał czysty oraz przejrzysty
 
-### Opis widoków
-
-Po wejściu na stronę główną niezalogowany Użytkownik posiada ograniczony dostęp do funkcjonalności serwisu, jednakże może on bez problemu przeglądać treści zamieszczane przez innych Użytkowników.
-
-<img src="./readme-images/home_nl.png" width=800px />
-
-Podstrona zawierająca panel logowania oraz opcję przejścia do rejestracji.
-
-<img src="./readme-images/login.png" width=800px />
-
-Aby się zarejestrować potrzebujemy podać unikatowy nickname oraz adres email.
-
-<img src="./readme-images/register.png" width=800px />
-
-Gdy jesteśmy już zalogowani na stronie głównej pojawiają się dodatkowe funkcje.
-
-<img src="./readme-images/home.png" width=800px />
-
-Jeśli nie pasuje nam wygląd aplikacji w pasku na dole strony znajduje się opcja zmiany motywu.
-
-<img src="./readme-images/theme.png" width=800px />
-
-W tym samym miejscu znajdziemy także regulamin serwisu.
-
-<img src="./readme-images/statute.png" width=800px />
-
-Lub jeśli nas interesuje polityka prywatności, także możemy przejść do odpowiedniej podstrony.
-
-<img src="./readme-images/policy.png" width=800px />
-
-Ostatnią funkcjonalnością footer'a jest przejście do formularza z kontaktem (obecnie jest on nieaktywny ale przed wypuszczeniem aplikacji bez problemu można podłączyć do go pod protokół SMTP za pomocą metodologii PHPMailer)
-
-<img src="./readme-images/contact.png" width=800px />
-
-Wracając do nagłówka strony, znajduje się tam opcja przejścia na nasz profil. Na profilu znajdują się te same funkcjonalności co na pasku nawigacji.
-
-<img src="./readme-images/profile.png" width=800px />
-
-Wygląd podstrony "stwórz mem" (nowe memy bez wystarczająco dużej ilości reakcji znajdują się w poczekalni).
-
-<img src="./readme-images/add_meme.png" width=800px />
-
-Opcja edycji profilu przez zmianę awatara oraz opisu.
-
-<img src="./readme-images/edit_profile.png" width=800px />
-
-Podstrona na której znajdują się memy oznaczone przez nas jako ulubione.
-
-<img src="./readme-images/favorites.png" width=800px />
-
-Podstrona generująca losowy mem po wciśnięciu przycisku "LOSUJ".
-
-<img src="./readme-images/random_meme.png" width=800px />
-
-Strona oczywiście jest responsywna i dla mniejszych ekranów pasek nawigacji przesunięty zostaje na bok ekranu.
-
-<img src="./readme-images/responsive_1.png" width=500px />
-
-Dla jeszcze mniejszych ekranów pasek chowa się całkowicie i możemy go rozwinąć klikacjąc na odpowiednią ikonę.
-
-<img src="./readme-images/responsive_2.png" width=300px />
-
-Przykład zachowania tekstu na stronie z profilem użytkownika dla mniejszych urządzeń.
-
-<img src="./readme-images/responsive_3.png" width=300px />
-
 ### Funkcjonalności
 
 ...
@@ -179,6 +113,72 @@ Oto kilka zrzutów z prototypu naszej aplikacji:
 <img src="./readme-images/figma4.png" width=500px />
 
 [Aby zobaczyć całość naszej pracy, kliknij w ten link](https://www.figma.com/file/t94vF4c78WgwzIS14Ocx5m/IO?node-id=1%3A8&t=epHnj09kp8rHfNhz-1)
+
+### Opis widoków
+
+Po wejściu na stronę główną niezalogowany Użytkownik posiada ograniczony dostęp do funkcjonalności serwisu, jednakże może on bez problemu przeglądać treści zamieszczane przez innych Użytkowników.
+
+<img src="./readme-images/home_nl.png" width=800px />
+
+Podstrona zawierająca panel logowania oraz opcję przejścia do rejestracji.
+
+<img src="./readme-images/login.png" width=800px />
+
+Aby się zarejestrować potrzebujemy podać unikatowy nickname oraz adres email.
+
+<img src="./readme-images/register.png" width=800px />
+
+Gdy jesteśmy już zalogowani na stronie głównej pojawiają się dodatkowe funkcje.
+
+<img src="./readme-images/home.png" width=800px />
+
+Jeśli nie pasuje nam wygląd aplikacji w pasku na dole strony znajduje się opcja zmiany motywu.
+
+<img src="./readme-images/theme.png" width=800px />
+
+W tym samym miejscu znajdziemy także regulamin serwisu.
+
+<img src="./readme-images/statute.png" width=800px />
+
+Lub jeśli nas interesuje polityka prywatności, także możemy przejść do odpowiedniej podstrony.
+
+<img src="./readme-images/policy.png" width=800px />
+
+Ostatnią funkcjonalnością footer'a jest przejście do formularza z kontaktem (obecnie jest on nieaktywny ale przed wypuszczeniem aplikacji bez problemu można podłączyć do go pod protokół SMTP za pomocą metodologii PHPMailer)
+
+<img src="./readme-images/contact.png" width=800px />
+
+Wracając do nagłówka strony, znajduje się tam opcja przejścia na nasz profil. Na profilu znajdują się te same funkcjonalności co na pasku nawigacji.
+
+<img src="./readme-images/profile.png" width=800px />
+
+Wygląd podstrony "stwórz mem" (nowe memy bez wystarczająco dużej ilości reakcji znajdują się w poczekalni).
+
+<img src="./readme-images/add_meme.png" width=800px />
+
+Opcja edycji profilu przez zmianę awatara oraz opisu.
+
+<img src="./readme-images/edit_profile.png" width=800px />
+
+Podstrona na której znajdują się memy oznaczone przez nas jako ulubione.
+
+<img src="./readme-images/favorites.png" width=800px />
+
+Podstrona generująca losowy mem po wciśnięciu przycisku "LOSUJ".
+
+<img src="./readme-images/random_meme.png" width=800px />
+
+Strona oczywiście jest responsywna i dla mniejszych ekranów pasek nawigacji przesunięty zostaje na bok ekranu.
+
+<img src="./readme-images/responsive_1.png" width=500px />
+
+Dla jeszcze mniejszych ekranów pasek chowa się całkowicie i możemy go rozwinąć klikacjąc na odpowiednią ikonę.
+
+<img src="./readme-images/responsive_2.png" width=300px />
+
+Przykład zachowania tekstu na stronie z profilem użytkownika dla mniejszych urządzeń.
+
+<img src="./readme-images/responsive_3.png" width=300px />
 
 ## Format Pracy
 
