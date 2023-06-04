@@ -285,3 +285,7 @@ docker inspect <postgres_id>
 ```
 
 Szukamy IP_ADDRESS dla naszego serwera i wpisujemy go do pliku config.php
+
+Baza danych:
+
+[link](https://github.com/bdttd000/IO-project/tree/master/readme-images/baza_danych.txt)
