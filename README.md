@@ -114,7 +114,57 @@ Oto kilka zrzutów z prototypu naszej aplikacji:
 
 [Aby zobaczyć całość naszej pracy, kliknij w ten link](https://www.figma.com/file/t94vF4c78WgwzIS14Ocx5m/IO?node-id=1%3A8&t=epHnj09kp8rHfNhz-1)
 
-### Opis widoków
+## Format Pracy
+
+#### Git workflow to sposób organizacji pracy z systemem kontroli wersji Git. Istnieje wiele różnych podejść do tego, ale jednym z popularnych modeli jest GitFlow. Oto krótka informacja na temat działania GitFlow:
+
+- Głównym elementem GitFlow są dwie gałęzie: "master" i "develop". Gałąź "master" zawiera stabilny kod produkcyjny, natomiast gałąź "develop" służy do integracji kodu.
+
+- Aby rozpocząć pracę nad nowym zadaniem, tworzymy gałąź funkcji od gałęzi "develop". Ta gałąź jest tworzona dla każdej nowej funkcji, której praca jest rozpoczynana.
+
+- Kiedy praca nad funkcją zostanie ukończona, gałąź funkcji jest scalana z gałęzią "develop". W ten sposób wprowadzamy zmiany do głównej gałęzi projektu.
+
+- Przed wprowadzeniem zmian z gałęzi "develop" do "master" tworzona jest gałąź "release". Na tej gałęzi dokonywane są ostatnie poprawki, testy i przygotowania przed wydaniem nowej wersji.
+
+- Po zakończeniu prac na gałęzi "release", jest ona scalana z gałęzią "master", a także z gałęzią "develop". Dodatkowo, po scaleniu z gałęzią "master", oznaczamy ten punkt jako nową wersję oprogramowania.
+
+- Jeśli wystąpią błędy lub problemy po wydaniu wersji, naprawki są wykonywane na gałęzi "hotfix". Gałąź "hotfix" jest tworzona bezpośrednio z gałęzi "master", aby umożliwić szybkie wprowadzenie poprawek do stabilnej wersji.
+
+- Po naprawieniu błędu na gałęzi "hotfix", zmiany są scalane z gałęzią "master" i "develop". Po scaleniu z "master" oznaczamy ten punkt jako nową wersję.
+
+GitFlow pomaga w zorganizowaniu pracy zespołu, umożliwiając równoczesne tworzenie nowych funkcji, poprawki błędów oraz utrzymanie stabilnej wersji produkcyjnej.
+
+##### Z racji poziomu zaawansowania projektu oraz faktu, iż jest to dopiero prototyp, ominiemy gałęzie takie jak release oraz hotfix.
+
+<img src="./readme-images/workflow.png" width=800px />
+
+## Bezpieczeństwo aplikacji
+
+### Logowanie i rejestracja
+
+Aplikacja zapewnia funkcjonalność logowania i rejestracji, co umożliwia kontrolę dostępu do danych. W celu zabezpieczenia tych procesów, zastosowano następujące środki bezpieczeństwa:
+
+- Hasła są hashowane przed zapisaniem ich w bazie danych. Dzięki temu, nawet w przypadku naruszenia bazy danych, niemożliwym jest odzyskać oryginalne hasła.
+- Przy rejestracji nowego konta, sprawdzane są unikalność adresów e-mail oraz nazw użytkowników, aby zapobiec duplikatom i potencjalnym atakom na konta użytkowników.
+- W przypadku logowania, zastosowano technikę uwierzytelniania z wykorzystaniem sesji. Sesje są odpowiednio zarządzane i zabezpieczane przed atakami typu session hijacking czy session fixation.
+
+### Metody POST
+
+Aplikacja korzysta z metody POST do przesyłania danych między klientem a serwerem. W celu zapewnienia bezpieczeństwa przesyłanych informacji, zastosowano następujące środki:
+
+- Dane przesyłane za pomocą metody POST są szyfrowane za pomocą protokołu HTTPS, co zapewnia poufność i integralność danych podczas transmisji.
+- Weryfikacja poprawności i integralności danych jest przeprowadzana po stronie serwera, aby zapobiec atakom typu SQL injection czy cross-site scripting (XSS).
+
+### Hashowanie haseł, memów oraz avatarów
+
+W celu zabezpieczenia poufności i integralności haseł, memów oraz avatarów, zastosowano technikę hashowania. Poniżej przedstawiono szczegóły dotyczące każdego z tych elementów:
+
+- Hasła użytkowników są hashowane przed zapisaniem ich do bazy danych. Zastosowano silne funkcje haszujące, takie jak bcrypt, aby utrudnić odtworzenie oryginalnych haseł w przypadku naruszenia bazy danych.
+- Memy oraz avatarów również poddawane są procesowi hashowania przed zapisaniem ich do bazy danych. To zapewnia zachowanie integralności tych elementów i utrudnia manipulację nimi.
+
+Dzięki zastosowaniu powyższych środków bezpieczeństwa, aplikacja dba o ochronę danych użytkowników i minimalizuje ryzyko naruszenia bezpieczeństwa.
+
+## Opis widoków
 
 Po wejściu na stronę główną niezalogowany Użytkownik posiada ograniczony dostęp do funkcjonalności serwisu, jednakże może on bez problemu przeglądać treści zamieszczane przez innych Użytkowników.
 
@@ -180,30 +230,6 @@ Przykład zachowania tekstu na stronie z profilem użytkownika dla mniejszych ur
 
 <img src="./readme-images/responsive_3.png" width=300px />
 
-## Format Pracy
-
-#### Git workflow to sposób organizacji pracy z systemem kontroli wersji Git. Istnieje wiele różnych podejść do tego, ale jednym z popularnych modeli jest GitFlow. Oto krótka informacja na temat działania GitFlow:
-
-- Głównym elementem GitFlow są dwie gałęzie: "master" i "develop". Gałąź "master" zawiera stabilny kod produkcyjny, natomiast gałąź "develop" służy do integracji kodu.
-
-- Aby rozpocząć pracę nad nowym zadaniem, tworzymy gałąź funkcji od gałęzi "develop". Ta gałąź jest tworzona dla każdej nowej funkcji, której praca jest rozpoczynana.
-
-- Kiedy praca nad funkcją zostanie ukończona, gałąź funkcji jest scalana z gałęzią "develop". W ten sposób wprowadzamy zmiany do głównej gałęzi projektu.
-
-- Przed wprowadzeniem zmian z gałęzi "develop" do "master" tworzona jest gałąź "release". Na tej gałęzi dokonywane są ostatnie poprawki, testy i przygotowania przed wydaniem nowej wersji.
-
-- Po zakończeniu prac na gałęzi "release", jest ona scalana z gałęzią "master", a także z gałęzią "develop". Dodatkowo, po scaleniu z gałęzią "master", oznaczamy ten punkt jako nową wersję oprogramowania.
-
-- Jeśli wystąpią błędy lub problemy po wydaniu wersji, naprawki są wykonywane na gałęzi "hotfix". Gałąź "hotfix" jest tworzona bezpośrednio z gałęzi "master", aby umożliwić szybkie wprowadzenie poprawek do stabilnej wersji.
-
-- Po naprawieniu błędu na gałęzi "hotfix", zmiany są scalane z gałęzią "master" i "develop". Po scaleniu z "master" oznaczamy ten punkt jako nową wersję.
-
-GitFlow pomaga w zorganizowaniu pracy zespołu, umożliwiając równoczesne tworzenie nowych funkcji, poprawki błędów oraz utrzymanie stabilnej wersji produkcyjnej.
-
-##### Z racji poziomu zaawansowania projektu oraz faktu, iż jest to dopiero prototyp, ominiemy gałęzie takie jak release oraz hotfix.
-
-<img src="./readme-images/workflow.png" width=800px />
-
 ## Kierunek rozwoju
 
 Aplikacja przez swoją łatwą skalowalność może w przyszłości wiele funckcji i nowych rozwiązań dla starych metod, oto niektóre z nich:
@@ -235,32 +261,6 @@ Aplikacja przez swoją łatwą skalowalność może w przyszłości wiele funckc
 - Specjalne reakcje na memy.
 
 Oraz wiele, wiele więcej...
-
-## Bezpieczeństwo aplikacji
-
-### Logowanie i rejestracja
-
-Aplikacja zapewnia funkcjonalność logowania i rejestracji, co umożliwia kontrolę dostępu do danych. W celu zabezpieczenia tych procesów, zastosowano następujące środki bezpieczeństwa:
-
-- Hasła są hashowane przed zapisaniem ich w bazie danych. Dzięki temu, nawet w przypadku naruszenia bazy danych, niemożliwym jest odzyskać oryginalne hasła.
-- Przy rejestracji nowego konta, sprawdzane są unikalność adresów e-mail oraz nazw użytkowników, aby zapobiec duplikatom i potencjalnym atakom na konta użytkowników.
-- W przypadku logowania, zastosowano technikę uwierzytelniania z wykorzystaniem sesji. Sesje są odpowiednio zarządzane i zabezpieczane przed atakami typu session hijacking czy session fixation.
-
-### Metody POST
-
-Aplikacja korzysta z metody POST do przesyłania danych między klientem a serwerem. W celu zapewnienia bezpieczeństwa przesyłanych informacji, zastosowano następujące środki:
-
-- Dane przesyłane za pomocą metody POST są szyfrowane za pomocą protokołu HTTPS, co zapewnia poufność i integralność danych podczas transmisji.
-- Weryfikacja poprawności i integralności danych jest przeprowadzana po stronie serwera, aby zapobiec atakom typu SQL injection czy cross-site scripting (XSS).
-
-### Hashowanie haseł, memów oraz avatarów
-
-W celu zabezpieczenia poufności i integralności haseł, memów oraz avatarów, zastosowano technikę hashowania. Poniżej przedstawiono szczegóły dotyczące każdego z tych elementów:
-
-- Hasła użytkowników są hashowane przed zapisaniem ich do bazy danych. Zastosowano silne funkcje haszujące, takie jak bcrypt, aby utrudnić odtworzenie oryginalnych haseł w przypadku naruszenia bazy danych.
-- Memy oraz avatarów również poddawane są procesowi hashowania przed zapisaniem ich do bazy danych. To zapewnia zachowanie integralności tych elementów i utrudnia manipulację nimi.
-
-Dzięki zastosowaniu powyższych środków bezpieczeństwa, aplikacja dba o ochronę danych użytkowników i minimalizuje ryzyko naruszenia bezpieczeństwa.
 
 ## Dodatkowe informacje
 
