@@ -52,7 +52,17 @@ Oto kilka cech i funkcji Figmy:
 
 Figma jest popularnym narzędziem wśród projektantów interfejsów użytkownika, ponieważ umożliwia tworzenie projektów w sposób łatwy, elastyczny i umożliwiający współpracę zespołową.
 
-[kliknij tutaj](https://www.figma.com/file/t94vF4c78WgwzIS14Ocx5m/IO?node-id=1%3A8&t=epHnj09kp8rHfNhz-1)
+Oto kilka zrzutów z prototypu naszej aplikacji:
+
+<img src="./readme-images/figma1.png" width=800px />
+
+<img src="./readme-images/figma2.png" width=800px />
+
+<img src="./readme-images/figma3.png" width=800px />
+
+<img src="./readme-images/figma4.png" width=800px />
+
+[Aby zobaczyć całość naszej pracy, kliknij w ten link](https://www.figma.com/file/t94vF4c78WgwzIS14Ocx5m/IO?node-id=1%3A8&t=epHnj09kp8rHfNhz-1)
 
 ## Format Pracy
 
@@ -113,21 +123,22 @@ Oraz wiele, wiele więcej...
 ## Bezpieczeństwo aplikacji
 
 ### Logowanie i rejestracja
+
 Aplikacja zapewnia funkcjonalność logowania i rejestracji, co umożliwia kontrolę dostępu do danych. W celu zabezpieczenia tych procesów, zastosowano następujące środki bezpieczeństwa:
 
 - Hasła są hashowane przed zapisaniem ich w bazie danych. Dzięki temu, nawet w przypadku naruszenia bazy danych, niemożliwym jest odzyskać oryginalne hasła.
 - Przy rejestracji nowego konta, sprawdzane są unikalność adresów e-mail oraz nazw użytkowników, aby zapobiec duplikatom i potencjalnym atakom na konta użytkowników.
 - W przypadku logowania, zastosowano technikę uwierzytelniania z wykorzystaniem sesji. Sesje są odpowiednio zarządzane i zabezpieczane przed atakami typu session hijacking czy session fixation.
 
-
 ### Metody POST
+
 Aplikacja korzysta z metody POST do przesyłania danych między klientem a serwerem. W celu zapewnienia bezpieczeństwa przesyłanych informacji, zastosowano następujące środki:
 
 - Dane przesyłane za pomocą metody POST są szyfrowane za pomocą protokołu HTTPS, co zapewnia poufność i integralność danych podczas transmisji.
 - Weryfikacja poprawności i integralności danych jest przeprowadzana po stronie serwera, aby zapobiec atakom typu SQL injection czy cross-site scripting (XSS).
 
-
 ### Hashowanie haseł, memów oraz avatarów
+
 W celu zabezpieczenia poufności i integralności haseł, memów oraz avatarów, zastosowano technikę hashowania. Poniżej przedstawiono szczegóły dotyczące każdego z tych elementów:
 
 - Hasła użytkowników są hashowane przed zapisaniem ich do bazy danych. Zastosowano silne funkcje haszujące, takie jak bcrypt, aby utrudnić odtworzenie oryginalnych haseł w przypadku naruszenia bazy danych.
