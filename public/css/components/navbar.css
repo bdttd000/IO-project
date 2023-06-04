@@ -1,0 +1,86 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    width: 100%;
+    background-color: var(--navbar-footer-bg);
+}
+
+.nav {
+    display: flex;
+    height: var(--navbar-height);
+    align-items: center;
+    justify-content: space-between;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.nav a:link, .nav a:visited {
+    color: inherit;
+}
+
+.navbar-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    gap: var(--m-1);
+    
+}
+
+.navbar-list > li {
+    text-align: center;
+}
+
+.header a:active, .header a:visited {
+    color: var(--primary);
+}
+
+.navbar-list > li:hover, .header a:hover {
+    opacity: 0.7;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.burger-button {
+    display: none;
+}
+
+.burger-button > div {
+    width: 30px;
+    height: 3px;
+    background-color: var(--primary);
+    margin: 7px 0;
+}
+
+.navbar-list-d-none-sx {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    gap: var(--m-1);
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar-list {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .burger-button {
+        display: block;
+        cursor: pointer;
+    }
+
+    .navbar-list-d-none-sx {
+        display: none;
+    }
+
+    .burger-button > div {
+        width: 25px;
+        margin: 5px 0;
+    }
+}

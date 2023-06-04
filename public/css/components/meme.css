@@ -1,0 +1,143 @@
+.meme {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.meme-content {
+  width: 100%;
+  background-color: var(--grey-100);
+  border-radius: 10px;
+  gap: var(--m-0-5);
+  padding: var(--m-1);
+  display: flex;
+  flex-direction: column;
+}
+
+.meme-title-and-likes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.meme-title {
+  border-radius: 10px;
+  background-color: var(--grey-300);
+  color: var(--black-text);
+  text-align: center;
+}
+.meme-title-content {
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.meme-user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.meme-user-date-favorite {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.meme-user-date-favorite h3, .meme-user-date-favorite h4 {
+  margin: 0;
+}
+
+.meme-user-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px;
+  border-style: solid;
+}
+
+.meme-user-name {
+    margin: 0;
+    padding: var(--m-0-5);
+}
+
+.meme-favorite {
+    font-size: var(--m-1-5)
+}
+
+.meme-photo-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.meme-photo {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.meme-user-date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.meme-user-date h4 {
+  margin: 0;
+}
+
+.button {
+  margin: 0 auto;
+}
+
+.meme-favorite-button {
+  transition: color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.meme-favorite-button:hover {
+  transform: scale(1.2);
+}
+
+.meme-solo-comment {
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 3px solid var(--grey-300);
+  background-color: var(--grey-100);
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .meme {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .meme {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 476px) {
+  .meme {
+    width: 100%;
+  }
+
+  .meme-solo-comment {
+    flex-wrap: wrap;
+  }
+
+  .meme-solo-comment > input {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}

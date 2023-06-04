@@ -1,0 +1,52 @@
+.profile {
+    gap: 1.5rem;
+}
+
+.profile > a {
+    width: 50%;
+}
+
+.profile > a > .button {
+    width: 100%;
+}
+
+.profile-upper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.profile-description {
+    padding: 1rem;
+    margin: 0;
+    border-radius: 10px;
+    font-weight: normal;
+    background-color: var(--grey-200);
+}
+ 
+@media screen and (max-width: 1024px) {
+    .profile > a {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .profile > a {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .profile > a {
+        width: 90%;
+    }
+
+    .profile-upper {
+        flex-direction: column;
+    }
+
+    .profile-upper > h4 {
+        margin: 0;
+    }
+}
