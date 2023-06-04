@@ -40,15 +40,15 @@ Figma to narzędzie do projektowania interfejsów użytkownika (UI) i tworzenia 
 
 Oto kilka cech i funkcji Figmy:
 
-Projektowanie interfejsów użytkownika: Figma umożliwia tworzenie projektów UI, w których projektanci mogą tworzyć i dostosowywać warstwy, kształty, kolory, czcionki i inne elementy graficzne.
+- Projektowanie interfejsów użytkownika: Figma umożliwia tworzenie projektów UI, w których projektanci mogą tworzyć i dostosowywać warstwy, kształty, kolory, czcionki i inne elementy graficzne.
 
-Prototypowanie: Figma pozwala na tworzenie interaktywnych prototypów, które pomagają w wizualizacji interakcji i przepływu użytkownika w projekcie. Można tworzyć linki pomiędzy różnymi ekranami i dodawać animacje.
+- Prototypowanie: Figma pozwala na tworzenie interaktywnych prototypów, które pomagają w wizualizacji interakcji i przepływu użytkownika w projekcie. Można tworzyć linki pomiędzy różnymi ekranami i dodawać animacje.
 
-Współpraca w czasie rzeczywistym: Figma umożliwia współpracę z innymi osobami na projekcie w czasie rzeczywistym. Użytkownicy mogą jednocześnie edytować projekt, komentować i wymieniać się pomysłami.
+- Współpraca w czasie rzeczywistym: Figma umożliwia współpracę z innymi osobami na projekcie w czasie rzeczywistym. Użytkownicy mogą jednocześnie edytować projekt, komentować i wymieniać się pomysłami.
 
-Udostępnianie i prezentowanie projektów: Figma pozwala na udostępnianie projektów innym osobom poprzez udostępnianie linków. Można również tworzyć prezentacje projektów, które umożliwiają pokazywanie projektów innym osobom w trybie prezentacji.
+- Udostępnianie i prezentowanie projektów: Figma pozwala na udostępnianie projektów innym osobom poprzez udostępnianie linków. Można również tworzyć prezentacje projektów, które umożliwiają pokazywanie projektów innym osobom w trybie prezentacji.
 
-Biblioteki i komponenty: Figma pozwala tworzyć biblioteki z komponentami, które mogą być używane wielokrotnie w różnych projektach. Dzięki temu można tworzyć spójne i łatwo zarządzalne projekty.
+- Biblioteki i komponenty: Figma pozwala tworzyć biblioteki z komponentami, które mogą być używane wielokrotnie w różnych projektach. Dzięki temu można tworzyć spójne i łatwo zarządzalne projekty.
 
 Figma jest popularnym narzędziem wśród projektantów interfejsów użytkownika, ponieważ umożliwia tworzenie projektów w sposób łatwy, elastyczny i umożliwiający współpracę zespołową.
 
